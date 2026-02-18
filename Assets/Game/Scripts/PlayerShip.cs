@@ -1,3 +1,4 @@
+using Codice.Client.Common.GameUI;
 using Modules.UI;
 using Modules.Utils;
 using UnityEngine;
@@ -7,6 +8,7 @@ namespace Game
     // +
     public sealed class PlayerShip : ShipController
     {
+        [SerializeField] PlayerInputSys playerInput;
         [SerializeField]
         private TransformBounds _playerArea;
 
@@ -22,7 +24,7 @@ namespace Game
         [SerializeField]
         private HealthView _healthView;
 
-        [SerializeField] BulletFire _playerBulletFire;
+        
         
 
         private void OnEnable()
@@ -47,18 +49,16 @@ namespace Game
         
         public void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-                _playerBulletFire.Fire();
-
-            float dx = Input.GetAxisRaw("Horizontal");
-            float dy = Input.GetAxisRaw("Vertical");
-            this.moveDirection = new Vector2(dx, dy);
-
+            playerInput.InputFire(this);
+            playerInput.InputMovement();
+            this.moveDirection = new Vector2(playerInput.dx, playerInput.dy);
             if (this.currentHealth > 0)
             {
                 _motor.MoveStep(this.moveDirection);
             }
         }
+
+       
 
         protected override void LateUpdate()
         {
@@ -66,4 +66,6 @@ namespace Game
             this.transform.position = _playerArea.ClampInBounds(this.transform.position);
         }
     }
+   
 }
+

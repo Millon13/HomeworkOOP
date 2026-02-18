@@ -15,12 +15,12 @@ namespace Game
         private BulletFire _playerBulletFire;
         private void OnEnable()
         {
-            _player.OnFire += this.OnFire;
+            _playerBulletFire.OnFire += this.OnFire;
         }
 
         private void OnDisable()
         {
-            _player.OnFire -= this.OnFire;
+            _playerBulletFire.OnFire -= this.OnFire;
         }
 
         private void OnFire(ShipController _)

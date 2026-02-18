@@ -5,11 +5,12 @@ namespace Game
     // +
     public sealed class Enemy : ShipController
     {
+       
         [Header("Enemy")]
         public ShipController target;
         public Vector2 destination;
 
-       // [SerializeField]
+        [SerializeField]
         private float _fireCooldown = 1.25f;
 
         [SerializeField]
@@ -24,7 +25,7 @@ namespace Game
 
         
 
-        [SerializeField] private BulletFire _enemyBulletFire;
+       // [SerializeField] private BulletFire _enemyBulletFire;
 
         public void SetDespawner(IEnemyDespawner despawner) => _despawner = despawner;
 
@@ -53,10 +54,10 @@ namespace Game
             else
             {
                 float time = Time.time;
-                if (time - /*_enemyBulletFire.*/_fireTime >= _fireCooldown)
+                if (time - _fireTime >= _fireCooldown)
                 {
-                    _enemyBulletFire.Fire();
-                   /* _enemyBulletFire.*/_fireTime = time;
+                    this.FireAction();
+                   _fireTime = time;
                 }
             }
         }

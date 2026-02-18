@@ -1,4 +1,5 @@
 using Game;
+using System;
 using UnityEngine;
 public class BulletFire:Audio, IFire
 {
@@ -10,7 +11,7 @@ public class BulletFire:Audio, IFire
     public float _fireTime;
     public ShipControllerSO config;
     [SerializeField] ShipController shipController;
-
+    public event Action<ShipController> OnFire;
     [SerializeField]
     private ParticleSystem _fireVFX;
 
@@ -27,7 +28,7 @@ public class BulletFire:Audio, IFire
         if (_fireVFX)
             _fireVFX.Play();
 
-       shipController.FireAction();
+        this.OnFire?.Invoke(shipController);
         _fireTime = time;
     }
 }

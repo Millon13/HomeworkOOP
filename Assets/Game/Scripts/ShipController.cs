@@ -11,10 +11,14 @@ namespace Game
         public event Action<int> OnHealthChanged;
         public event Action OnDead;
         public Transform _viewTransform;
-        public event Action<ShipController> OnFire;
+        
+        [SerializeField]
+        private ShipControllerViewConfig _viewConfig;
+        [SerializeField] private BulletFire _enemyBulletFire;
 
         public ShipControllerSO config;
-        private ParticleSystem prefab;
+        
+      
         [Header("Health")]
         public int currentHealth;
         protected virtual void FixedUpdate() => _motor.FixedUpdate();
@@ -28,50 +32,46 @@ namespace Game
 
         public void FireAction()
         {
-            this.OnFire?.Invoke(this);
+            _enemyBulletFire.Fire();
            
         }
 
         private void Awake()
         {
-            if (config == null)
-            {
-                Debug.LogError($"Config is null в Awake! Имя объекта: {gameObject.name}", this);
-                return;
-            }
             this.currentHealth = config.Health;
            _motor.SetSpeed(config.MoveSpeed);
 
-            _animations.AnimateAwake();
+            _animations.AnimateAwake(_viewConfig);
             
         }
 
-        private void Update()
-        {
-            _motor.MoveInspect();
-
-        }
+       
  
         
+        protected void AnimateMovement(ShipControllerViewConfig _viewConfig)
+        {
+            _animations.AnimateMovement(Time.deltaTime, moveDirection, _viewTransform,_viewConfig);
+        }
         protected virtual void LateUpdate()
         {
-            _animations.AnimateMovement(Time.deltaTime, moveDirection, _viewTransform);
+            AnimateMovement(_viewConfig);
         }
 
-      
-        
+
+
         public void NotifyAboutHealthChanged(int health)
         {
             if (health > 0)
-                _animations.AnimateDamage();
+                _animations.AnimateDamage(_viewConfig);
 
             this.OnHealthChanged?.Invoke(health);
         }
 
         public void NotifyAboutDead()
         {
-           
-            _animations.VFXIntitiator(prefab);
+
+            //_animations.VFXIntitiator(prefab,_viewConfig);
+             ParticleSystem prefab = _viewConfig.DestroyEffectPrefab;
             Instantiate(prefab, _viewTransform.position, prefab.transform.rotation);
 
             this.OnDead?.Invoke();

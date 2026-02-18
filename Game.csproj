@@ -75,6 +75,7 @@
     <Compile Include="Assets\Game\Scripts\BulletFire.cs" />
     <Compile Include="Assets\Game\Scripts\BulletData.cs" />
     <Compile Include="Assets\Game\Scripts\BulletWorldGO.cs" />
+    <Compile Include="Assets\Game\Scripts\PlayerInputSys.cs" />
     <Compile Include="Assets\Game\Scripts\IActions.cs" />
     <Compile Include="Assets\Game\Scripts\EnemyOrchestrator.cs" />
     <Compile Include="Assets\Game\Scripts\Animations.cs" />

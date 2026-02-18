@@ -11,7 +11,6 @@ public class Animations:MonoBehaviour
     [SerializeField]
     private Audio _audio;
 
-    [SerializeField]
     private ShipControllerViewConfig _viewConfig;
 
     private Tweener _damageAnimation;
@@ -23,7 +22,7 @@ public class Animations:MonoBehaviour
     private Material _material;
 
   
-    public void AnimateMovement(float deltaTime, Vector3 moveDirection, Transform _viewTransform)
+    public void AnimateMovement(float deltaTime, Vector3 moveDirection, Transform _viewTransform, ShipControllerViewConfig _viewConfig)
     {
         Vector3 shipAngles = _viewTransform.localEulerAngles;
         shipAngles.x = _viewConfig.MoveRotationAngle * moveDirection.y;
@@ -33,7 +32,7 @@ public class Animations:MonoBehaviour
         float t = _viewConfig.MoveSpeed * deltaTime;
         _viewTransform.localRotation = Quaternion.Lerp(_viewTransform.localRotation, shipRotation, t);
     }
-    public void AnimateDamage()
+    public void AnimateDamage(ShipControllerViewConfig _viewConfig)
     {
         if (_damageAnimation.IsActive())
             _damageAnimation.Kill();
@@ -49,14 +48,14 @@ public class Animations:MonoBehaviour
         //if (_damageSFX)
             _audio.DamageSound();
     }
-    public void AnimateAwake()
+    public void AnimateAwake(ShipControllerViewConfig _viewConfig)
     {
        
 
         _material = new Material(_viewConfig.MaterialPrefab);
         _renderer.material = _material;
     }
-    public void VFXIntitiator(ParticleSystem prefab)
+    public void VFXIntitiator(ParticleSystem prefab,ShipControllerViewConfig _viewConfig)
     {
 
         // Instantiate particle vfx 

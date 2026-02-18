@@ -46,8 +46,7 @@ namespace Game
         [Header("Bullets")]
         [SerializeField]
         private BulletWorldGO _bulletWorld;
-        [HideInInspector]
-        public BulletFire _enemyBulletFire;
+        [SerializeField] public BulletFire _enemyBulletFire;
         
         [Header("UI")]
         [SerializeField]
@@ -84,7 +83,7 @@ namespace Game
 
             enemy.target = _player;
             enemy.SetDespawner(this);
-            enemy.OnFire += this.OnFire;
+            _enemyBulletFire.OnFire += this.OnFire;
                 
             this.ResetSpawnCooldown();
         }
@@ -111,6 +110,7 @@ namespace Game
         
         private void OnFire(ShipController enemy)
         {
+
             Vector2 position = _enemyBulletFire.firePoint.position;
             Vector2 target = enemy.transform.position;
             Vector2 direction = (target - position).normalized;
