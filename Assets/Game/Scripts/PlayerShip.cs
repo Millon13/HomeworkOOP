@@ -10,6 +10,8 @@ namespace Game
         [SerializeField]
         private TransformBounds _playerArea;
 
+       // private Transform _playerTransform;
+
         [SerializeField]
         private CameraShaker _cameraShaker;
 
@@ -19,6 +21,9 @@ namespace Game
 
         [SerializeField]
         private HealthView _healthView;
+
+        [SerializeField] BulletFire _playerBulletFire;
+        
 
         private void OnEnable()
         {
@@ -39,11 +44,11 @@ namespace Game
             };
             this.OnDead -= _gameOverView.Show;
         }
-
+        
         public void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
-                this.Fire();
+                _playerBulletFire.Fire();
 
             float dx = Input.GetAxisRaw("Horizontal");
             float dy = Input.GetAxisRaw("Vertical");

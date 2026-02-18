@@ -11,6 +11,8 @@ namespace Game
         [SerializeField]
         private PlayerShip _player;
 
+        [SerializeField]
+        private BulletFire _playerBulletFire;
         private void OnEnable()
         {
             _player.OnFire += this.OnFire;
@@ -24,10 +26,10 @@ namespace Game
         private void OnFire(ShipController _)
         {
             _bulletWorld.Spawn(
-                _player.firePoint.position,
-                _player.firePoint.up,
-                _player.bulletSpeed,
-                _player.bulletDamage,
+                _playerBulletFire.firePoint.position,
+                _playerBulletFire.firePoint.up,
+                _playerBulletFire.bulletSpeed,
+                _playerBulletFire.bulletDamage,
                 TeamType.Player
             );
         }

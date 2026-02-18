@@ -5,7 +5,80 @@ using UnityEngine;
 namespace Game
 {
     // +
-    public abstract class ShipController : MonoBehaviour
+    public abstract class ShipController :MonoBehaviour
+    {
+      
+        public event Action<int> OnHealthChanged;
+        public event Action OnDead;
+        public Transform _viewTransform;
+        public event Action<ShipController> OnFire;
+
+        public ShipControllerSO config;
+        private ParticleSystem prefab;
+        [Header("Health")]
+        public int currentHealth;
+        protected virtual void FixedUpdate() => _motor.FixedUpdate();
+
+        [Header("Movement")]
+    
+        protected Vector3 moveDirection;
+        [SerializeField]
+        protected Motor _motor;
+        public Animations _animations;
+
+        public void FireAction()
+        {
+            this.OnFire?.Invoke(this);
+           
+        }
+
+        private void Awake()
+        {
+            if (config == null)
+            {
+                Debug.LogError($"Config is null в Awake! Имя объекта: {gameObject.name}", this);
+                return;
+            }
+            this.currentHealth = config.Health;
+           _motor.SetSpeed(config.MoveSpeed);
+
+            _animations.AnimateAwake();
+            
+        }
+
+        private void Update()
+        {
+            _motor.MoveInspect();
+
+        }
+ 
+        
+        protected virtual void LateUpdate()
+        {
+            _animations.AnimateMovement(Time.deltaTime, moveDirection, _viewTransform);
+        }
+
+      
+        
+        public void NotifyAboutHealthChanged(int health)
+        {
+            if (health > 0)
+                _animations.AnimateDamage();
+
+            this.OnHealthChanged?.Invoke(health);
+        }
+
+        public void NotifyAboutDead()
+        {
+           
+            _animations.VFXIntitiator(prefab);
+            Instantiate(prefab, _viewTransform.position, prefab.transform.rotation);
+
+            this.OnDead?.Invoke();
+        }
+
+        
+    }/*public abstract class ShipController : MonoBehaviour
     {
         public event Action<int> OnHealthChanged;
         public event Action OnDead;
@@ -131,5 +204,5 @@ namespace Game
             if (_damageSFX)
                 _audioSource.PlayOneShot(_damageSFX);
         }
-    }
+    }*/
 }

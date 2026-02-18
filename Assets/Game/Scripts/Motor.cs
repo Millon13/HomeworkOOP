@@ -5,10 +5,10 @@ namespace Game
 {
     // +
     [Serializable]
-    public sealed class Motor
+    public class Motor
     {
         public event Action<Vector3> OnMoved;
-        
+
         [SerializeField]
         private Rigidbody2D _rigidbody;
 
@@ -23,6 +23,10 @@ namespace Game
 
         public void FixedUpdate()
         {
+           
+        }
+        public void MoveInspect()
+        {
             if (!_direction.HasValue)
                 return;
 
@@ -30,7 +34,7 @@ namespace Game
             Vector2 newPosition = _rigidbody.position + direction * (_speed * Time.fixedDeltaTime);
             _rigidbody.MovePosition(newPosition);
             _direction = null;
-            
+
             this.OnMoved?.Invoke(direction);
         }
     }

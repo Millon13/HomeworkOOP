@@ -9,7 +9,7 @@ namespace Game
         public ShipController target;
         public Vector2 destination;
 
-        [SerializeField]
+       // [SerializeField]
         private float _fireCooldown = 1.25f;
 
         [SerializeField]
@@ -18,6 +18,13 @@ namespace Game
         private float _fireTime;
 
         private IEnemyDespawner _despawner;
+        
+
+       
+
+        
+
+        [SerializeField] private BulletFire _enemyBulletFire;
 
         public void SetDespawner(IEnemyDespawner despawner) => _despawner = despawner;
 
@@ -30,7 +37,7 @@ namespace Game
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
-
+            _motor.SetSpeed(config.MoveSpeed);
             if (this.currentHealth <= 0 || this.target == null || this.target.currentHealth <= 0)
                 return;
 
@@ -46,10 +53,10 @@ namespace Game
             else
             {
                 float time = Time.time;
-                if (time - _fireTime >= _fireCooldown)
+                if (time - /*_enemyBulletFire.*/_fireTime >= _fireCooldown)
                 {
-                    this.Fire();
-                    _fireTime = time;
+                    _enemyBulletFire.Fire();
+                   /* _enemyBulletFire.*/_fireTime = time;
                 }
             }
         }
