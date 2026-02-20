@@ -46,7 +46,7 @@ namespace Game
         [Header("Bullets")]
         [SerializeField]
         private BulletWorldGO _bulletWorld;
-        [SerializeField] public BulletFire _enemyBulletFire;
+       
         
         [Header("UI")]
         [SerializeField]
@@ -64,8 +64,12 @@ namespace Game
         private void Start()
         {
             this.ResetSpawnCooldown();
+           
         }
-
+        private void OnDestroy()
+        {
+        
+        }
         private void FixedUpdate()
         {
             float time = Time.fixedTime;
@@ -83,7 +87,7 @@ namespace Game
 
             enemy.target = _player;
             enemy.SetDespawner(this);
-            _enemyBulletFire.OnFire += this.OnFire;
+            enemy.OnFire += this.OnFire;
                 
             this.ResetSpawnCooldown();
         }
@@ -96,6 +100,7 @@ namespace Game
 
         public void Despawn(Enemy enemy)
         {
+            //enemy.OnFire -= OnFire;
             _destroyedEnemies++;
             _scoreView.SetValue(_destroyedEnemies);
             this.StartCoroutine(DespawnInNextFrame(enemy));
@@ -110,15 +115,15 @@ namespace Game
         
         private void OnFire(ShipController enemy)
         {
-
-            Vector2 position = _enemyBulletFire.firePoint.position;
-            Vector2 target = enemy.transform.position;
+            BulletFire bulletFire = _prefab.GetComponent<BulletFire>();
+            Vector2 position = enemy.firePoint.position;
+            Vector2 target = _player.transform.position;
             Vector2 direction = (target - position).normalized;
             _bulletWorld.Spawn(
-                _enemyBulletFire.firePoint.position,
+                enemy.firePoint.position,
                 direction,
-                _enemyBulletFire.bulletSpeed,
-                _enemyBulletFire.bulletDamage,
+                bulletFire.bulletSpeed,
+                bulletFire.bulletDamage,
                 TeamType.Enemy
             );
         }
@@ -144,5 +149,6 @@ namespace Game
 
             return _attackPositions[_attackIndex++].position;
         }
+
     }
 }

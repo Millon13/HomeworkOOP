@@ -7,9 +7,10 @@ namespace Game
     // +
     public abstract class ShipController :MonoBehaviour
     {
-      
+        public Transform firePoint;
         public event Action<int> OnHealthChanged;
         public event Action OnDead;
+        public event Action<ShipController> OnFire;
         public Transform _viewTransform;
         
         [SerializeField]
@@ -32,8 +33,8 @@ namespace Game
 
         public void FireAction()
         {
-            _enemyBulletFire.Fire();
-           
+            this.OnFire?.Invoke(this);
+
         }
 
         private void Awake()

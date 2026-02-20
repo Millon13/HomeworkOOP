@@ -5,13 +5,13 @@ public class BulletFire:Audio, IFire
 {
 
     [Header("Combat")]
-    public Transform firePoint;
+    //public Transform firePoint;
     public float bulletSpeed;
     public int bulletDamage;
     public float _fireTime;
     public ShipControllerSO config;
     [SerializeField] ShipController shipController;
-    public event Action<ShipController> OnFire;
+    //public event Action<ShipController> OnFire;
     [SerializeField]
     private ParticleSystem _fireVFX;
 
@@ -28,12 +28,16 @@ public class BulletFire:Audio, IFire
         if (_fireVFX)
             _fireVFX.Play();
 
-        this.OnFire?.Invoke(shipController);
+        shipController.FireAction();
         _fireTime = time;
     }
 }
-
+public interface IBulletFire
+{
+    public BulletFire bulletFire();
+}
 public  interface IFire
 {
     void Fire();
 }
+

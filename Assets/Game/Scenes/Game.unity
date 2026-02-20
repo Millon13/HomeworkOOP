@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minSpawnCooldown: 2
   _maxSpawnCooldown: 3
-  _prefab: {fileID: 102605417607457000, guid: 87fe189881a524806800482ac8eaaa83, type: 3}
+  _prefab: {fileID: 102605417607457000, guid: 4d58b6bc531aa244195013eafb562834, type: 3}
   _container: {fileID: 1052031097}
   _player: {fileID: 4414282821800802410}
   _spawnPositions:
@@ -1062,7 +1062,6 @@ MonoBehaviour:
   - {fileID: 78117031}
   - {fileID: 883274640}
   _bulletWorld: {fileID: 363245577}
-  _enemyBulletFire: {fileID: 5328618356419452478, guid: 87fe189881a524806800482ac8eaaa83, type: 3}
   _scoreView: {fileID: 895558708}
 --- !u!1 &574514311
 GameObject:
@@ -1139,6 +1138,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574514311}
   m_CullTransparentMesh: 1
+--- !u!4 &612590357 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8503432944885784460, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
+  m_PrefabInstance: {fileID: 3559832809919233303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &655622942
 GameObject:
   m_ObjectHideFlags: 0
@@ -3221,6 +3225,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 328849090417711829, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 612590357}
+    - target: {fileID: 328849090417711829, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
       propertyPath: _animations
       value: 
       objectReference: {fileID: 4414282821800802415}
@@ -3398,7 +3406,6 @@ MonoBehaviour:
   _fireSFX: {fileID: 8300000, guid: 4e9b7f945db565e4cb215f976ae09e54, type: 3}
   _damageSFX: {fileID: 8300000, guid: 9d2f129290cb1a6489928f3dde8dbb39, type: 3}
   _audioSource: {fileID: 4414282821800802411}
-  firePoint: {fileID: 4414282821800802396}
   bulletSpeed: 7
   bulletDamage: 1
   _fireTime: 1
