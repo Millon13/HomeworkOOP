@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Game
 {
     // +
-    public sealed class PlayerShip : ShipController
+    public sealed class PlayerShip : ShipController, IShipMove
     {
         [SerializeField] PlayerInputSys playerInput;
         [SerializeField]
@@ -51,6 +51,18 @@ namespace Game
         {
             playerInput.InputFire(this);
             playerInput.InputMovement();
+            Move();
+        }
+
+       
+        
+        protected override void LateUpdate()
+        {
+            base.LateUpdate();
+            this.transform.position = _playerArea.ClampInBounds(this.transform.position);
+        }
+        public void Move()
+        {
             this.moveDirection = new Vector2(playerInput.dx, playerInput.dy);
             if (this.currentHealth > 0)
             {
@@ -58,13 +70,6 @@ namespace Game
             }
         }
 
-       
-
-        protected override void LateUpdate()
-        {
-            base.LateUpdate();
-            this.transform.position = _playerArea.ClampInBounds(this.transform.position);
-        }
     }
    
 }

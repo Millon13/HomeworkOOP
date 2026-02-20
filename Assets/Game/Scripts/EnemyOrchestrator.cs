@@ -66,10 +66,7 @@ namespace Game
             this.ResetSpawnCooldown();
            
         }
-        private void OnDestroy()
-        {
         
-        }
         private void FixedUpdate()
         {
             float time = Time.fixedTime;

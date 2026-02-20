@@ -63,9 +63,11 @@
   <ItemGroup>
     <Compile Include="Assets\Game\Scripts\ShipControllerViewConfig.cs" />
     <Compile Include="Assets\Game\Scripts\BulletViewConfig.cs" />
+    <Compile Include="Assets\Game\Scripts\IShipFire.cs" />
     <Compile Include="Assets\Game\Scripts\Enemy.cs" />
     <Compile Include="Assets\Game\Scripts\Audio.cs" />
     <Compile Include="Assets\Game\Scripts\PlayerBulletInstantiator.cs" />
+    <Compile Include="Assets\Game\Scripts\IShipMove.cs" />
     <Compile Include="Assets\Game\Scripts\PlayerShip.cs" />
     <Compile Include="Assets\Game\Scripts\IEnemyDespawner.cs" />
     <Compile Include="Assets\Game\Scripts\ShipControllerSO.cs" />

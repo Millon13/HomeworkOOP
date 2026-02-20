@@ -17,15 +17,17 @@ namespace Game
         private float _stoppingDistance = 0.25f;
 
         private float _fireTime;
+        private float time;
 
         private IEnemyDespawner _despawner;
-        
 
-       
+        private bool isNotReached;
+        private Vector2 distance;
 
-        
 
-       // [SerializeField] private BulletFire _enemyBulletFire;
+
+
+      // [SerializeField] private BulletFire _enemyBulletFire;
 
         public void SetDespawner(IEnemyDespawner despawner) => _despawner = despawner;
 
@@ -41,10 +43,8 @@ namespace Game
             _motor.SetSpeed(config.MoveSpeed);
             if (this.currentHealth <= 0 || this.target == null || this.target.currentHealth <= 0)
                 return;
-
-            Vector2 distance = destination - (Vector2) this.transform.position;
+            Vector2 distance = destination - (Vector2) this.transform.position;     
             bool isNotReached = distance.sqrMagnitude > _stoppingDistance * _stoppingDistance;
-            
             moveDirection = isNotReached ? distance.normalized : Vector3.zero;
 
             if (isNotReached)
@@ -53,13 +53,24 @@ namespace Game
             }
             else
             {
-                float time = Time.time;
-                if (time - _fireTime >= _fireCooldown)
-                {
-                    this.FireAction();
-                   _fireTime = time;
-                }
+
+                TimeFire(time);
+            }
+
+        }
+        public void TimeFire(float time)
+        {
+
+            time = Time.time;
+            if (time - _fireTime >= _fireCooldown)
+            {
+                 Fire();
+                _fireTime = time;
             }
         }
+        
+
+
+
     }
 }

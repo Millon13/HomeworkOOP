@@ -2,7 +2,7 @@ using Game;
 using UnityEngine;
 using Modules.UI;
 using Modules.Utils;
-public class PlayerInputSys:MonoBehaviour, IInput
+public class PlayerInputSys:MonoBehaviour, IInputMovement, IInputFire
 {
     public float dx, dy;
     public void InputMovement()
@@ -16,12 +16,17 @@ public class PlayerInputSys:MonoBehaviour, IInput
     public void InputFire(ShipController shipController)
     {
         if (Input.GetKeyDown(KeyCode.Space))
-            shipController.FireAction();
+            shipController.Fire();
     }
 }
 
-public interface IInput
+public interface IInputMovement
 {
     void InputMovement();
+  
+}
+public interface IInputFire
+{
+   
     void InputFire(ShipController shipController);
 }

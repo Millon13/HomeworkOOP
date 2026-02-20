@@ -23,15 +23,7 @@ namespace Game
 
         public void FixedUpdate()
         {
-            if (!_direction.HasValue)
-                return;
-
-            Vector2 direction = _direction.Value;
-            Vector2 newPosition = _rigidbody.position + direction * (_speed * Time.fixedDeltaTime);
-            _rigidbody.MovePosition(newPosition);
-            _direction = null;
-
-            this.OnMoved?.Invoke(direction);
+            MoveInspect();
         }
         public void MoveInspect()
         {

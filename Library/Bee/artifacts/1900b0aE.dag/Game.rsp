@@ -415,6 +415,8 @@
 "Assets/Game/Scripts/EnemyOrchestrator.cs"
 "Assets/Game/Scripts/IActions.cs"
 "Assets/Game/Scripts/IEnemyDespawner.cs"
+"Assets/Game/Scripts/IShipFire.cs"
+"Assets/Game/Scripts/IShipMove.cs"
 "Assets/Game/Scripts/Motor.cs"
 "Assets/Game/Scripts/PlayerBulletInstantiator.cs"
 "Assets/Game/Scripts/PlayerInputSys.cs"

@@ -117,7 +117,7 @@ MonoBehaviour:
   firePoint: {fileID: 3195880656587174614}
   _viewTransform: {fileID: 2570692159425164225}
   _viewConfig: {fileID: 11400000, guid: f6ecf0b3d1d004b3893cc42c64995303, type: 2}
-  _enemyBulletFire: {fileID: 4876160423216622585}
+  _bulletFire: {fileID: 4876160423216622585}
   config: {fileID: 11400000, guid: 342eb63e507d644daae6ffc27bd8fc71, type: 2}
   currentHealth: 2
   _motor:
