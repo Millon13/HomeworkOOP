@@ -14,7 +14,7 @@ namespace Game
         public Transform _viewTransform;
         
         [SerializeField]
-        private ShipControllerViewConfig _viewConfig;
+        protected ShipControllerViewConfig _viewConfig;
         [SerializeField] private BulletFire _bulletFire;
 
         public ShipControllerSO config;
@@ -22,7 +22,7 @@ namespace Game
       
         [Header("Health")]
         public int currentHealth;
-        protected virtual void FixedUpdate() => _motor.FixedUpdate();
+      
 
         [Header("Movement")]
     
@@ -31,12 +31,7 @@ namespace Game
         protected Motor _motor;
         [SerializeField] protected Animations _animations;
 
-       /* public void FireAction()
-        {
-            this.OnFire?.Invoke(this);
-
-        }*/
-
+      
         private void Awake()
         {
             this.currentHealth = config.Health;
@@ -53,10 +48,7 @@ namespace Game
         {
             _animations.AnimateMovement(Time.deltaTime, moveDirection, _viewTransform,_viewConfig);
         }
-        protected virtual void LateUpdate()
-        {
-            AnimateMovement(_viewConfig);
-        }
+        
 
 
 
@@ -71,13 +63,13 @@ namespace Game
         public void NotifyAboutDead()
         {
 
-            //_animations.VFXIntitiator(prefab,_viewConfig);
-             ParticleSystem prefab = _viewConfig.DestroyEffectPrefab;
+            
+            ParticleSystem prefab = _viewConfig.DestroyEffectPrefab;
             Instantiate(prefab, _viewTransform.position, prefab.transform.rotation);
 
             this.OnDead?.Invoke();
         }
-        public void Fire()
+        public void Fire(ShipController shipController)
         {
             this.OnFire?.Invoke(this);
         }

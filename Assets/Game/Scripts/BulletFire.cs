@@ -1,7 +1,7 @@
 using Game;
 using System;
 using UnityEngine;
-public class BulletFire:Audio, IFire
+public class BulletFire:Audio, IShipFire
 {
 
     [Header("Combat")]
@@ -16,7 +16,7 @@ public class BulletFire:Audio, IFire
     private ParticleSystem _fireVFX;
 
  
-    public void Fire()
+    public void Fire(ShipController shipController)
     {
         float time = Time.time;
         if (time - _fireTime < config.FireCooldown || shipController.currentHealth <= 0)
@@ -28,13 +28,10 @@ public class BulletFire:Audio, IFire
         if (_fireVFX)
             _fireVFX.Play();
 
-        shipController.Fire();
+        shipController.Fire(shipController);
         _fireTime = time;
     }
 }
 
-public  interface IFire
-{
-    void Fire();
-}
+
 

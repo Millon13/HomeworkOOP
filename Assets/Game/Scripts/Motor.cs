@@ -21,10 +21,7 @@ namespace Game
 
         public void MoveStep(Vector2 direction) => _direction = direction;
 
-        public void FixedUpdate()
-        {
-            MoveInspect();
-        }
+        
         public void MoveInspect()
         {
             if (!_direction.HasValue)

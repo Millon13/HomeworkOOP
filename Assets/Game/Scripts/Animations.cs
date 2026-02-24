@@ -45,7 +45,6 @@ public class Animations:MonoBehaviour
                 _viewConfig.HitAnimationCurve.Evaluate(progress))
         ).SetLink(_renderer.gameObject);
 
-        //if (_damageSFX)
             _audio.DamageSound();
     }
     public void AnimateAwake(ShipControllerViewConfig _viewConfig)

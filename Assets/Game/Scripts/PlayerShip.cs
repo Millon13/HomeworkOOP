@@ -49,20 +49,23 @@ namespace Game
         
         public void Update()
         {
-            playerInput.InputFire(this);
-            playerInput.InputMovement();
+        
+            playerInput.Fire(this);
+            playerInput.Move();
             Move();
         }
 
        
         
-        protected override void LateUpdate()
+        protected void LateUpdate()
         {
-            base.LateUpdate();
+           
+            AnimateMovement(_viewConfig);
             this.transform.position = _playerArea.ClampInBounds(this.transform.position);
         }
         public void Move()
-        {
+        {    
+            _motor.MoveInspect();
             this.moveDirection = new Vector2(playerInput.dx, playerInput.dy);
             if (this.currentHealth > 0)
             {

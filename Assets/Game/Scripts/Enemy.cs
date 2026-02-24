@@ -27,7 +27,7 @@ namespace Game
 
 
 
-      // [SerializeField] private BulletFire _enemyBulletFire;
+    
 
         public void SetDespawner(IEnemyDespawner despawner) => _despawner = despawner;
 
@@ -37,36 +37,44 @@ namespace Game
 
         private void OnCharacterDead() => _despawner.Despawn(this);
 
-        protected override void FixedUpdate()
+        protected void FixedUpdate()
         {
-            base.FixedUpdate();
+            
+            _motor.MoveInspect();
             _motor.SetSpeed(config.MoveSpeed);
             if (this.currentHealth <= 0 || this.target == null || this.target.currentHealth <= 0)
                 return;
-            Vector2 distance = destination - (Vector2) this.transform.position;     
-            bool isNotReached = distance.sqrMagnitude > _stoppingDistance * _stoppingDistance;
+
+            SetMovement();
+            TimeFire(time);
+
+        }
+        public void SetMovement()
+        {
+            distance = destination - (Vector2)this.transform.position;
+            isNotReached = distance.sqrMagnitude > _stoppingDistance * _stoppingDistance;
             moveDirection = isNotReached ? distance.normalized : Vector3.zero;
 
             if (isNotReached)
             {
                 _motor.MoveStep(distance.normalized);
             }
-            else
-            {
-
-                TimeFire(time);
-            }
-
+         
         }
+      
         public void TimeFire(float time)
         {
+            if (!isNotReached)
+            { 
+                time = Time.time;
+                if (time - _fireTime >= _fireCooldown)
+                {
+                    Fire(this);
+                    _fireTime = time;
+                }
 
-            time = Time.time;
-            if (time - _fireTime >= _fireCooldown)
-            {
-                 Fire();
-                _fireTime = time;
             }
+          
         }
         
 
