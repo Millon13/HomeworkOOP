@@ -61,25 +61,33 @@
     <Analyzer Include="C:\Program Files\Unity 2022.3.11f1\Editor\6000.2.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Game\Scripts\Bullet\BullletVisual.cs" />
     <Compile Include="Assets\Game\Scripts\ShipControllerViewConfig.cs" />
-    <Compile Include="Assets\Game\Scripts\BulletViewConfig.cs" />
     <Compile Include="Assets\Game\Scripts\IShipFire.cs" />
-    <Compile Include="Assets\Game\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Game\Scripts\Bullet\BulletConfig.cs" />
+    <Compile Include="Assets\Game\Scripts\UI.cs" />
     <Compile Include="Assets\Game\Scripts\Audio.cs" />
+    <Compile Include="Assets\Game\Scripts\Bullet\BulletPool.cs" />
     <Compile Include="Assets\Game\Scripts\PlayerBulletInstantiator.cs" />
+    <Compile Include="Assets\Game\Scripts\Bullet\BulletWorldGO.cs" />
+    <Compile Include="Assets\Game\Scripts\Bullet\BulletMover.cs" />
     <Compile Include="Assets\Game\Scripts\IShipMove.cs" />
     <Compile Include="Assets\Game\Scripts\PlayerShip.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemy\EnemyOrchestrator.cs" />
+    <Compile Include="Assets\Game\Scripts\Bullet\BulletSpawner.cs" />
     <Compile Include="Assets\Game\Scripts\IEnemyDespawner.cs" />
+    <Compile Include="Assets\Game\Scripts\Bullet\Bullet.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Game\Scripts\Bullet\BulletFire.cs" />
     <Compile Include="Assets\Game\Scripts\ShipControllerSO.cs" />
     <Compile Include="Assets\Game\Scripts\TeamType.cs" />
     <Compile Include="Assets\Game\Scripts\Motor.cs" />
+    <Compile Include="Assets\Game\Scripts\Bullet\BulletViewConfig.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemy\EnemySpawner.cs" />
+    <Compile Include="Assets\Game\Scripts\Bullet\BulletCoilision.cs" />
     <Compile Include="Assets\Game\Scripts\ShipController.cs" />
-    <Compile Include="Assets\Game\Scripts\BulletFire.cs" />
-    <Compile Include="Assets\Game\Scripts\BulletData.cs" />
-    <Compile Include="Assets\Game\Scripts\BulletWorldGO.cs" />
     <Compile Include="Assets\Game\Scripts\PlayerInputSys.cs" />
     <Compile Include="Assets\Game\Scripts\IActions.cs" />
-    <Compile Include="Assets\Game\Scripts\EnemyOrchestrator.cs" />
     <Compile Include="Assets\Game\Scripts\Animations.cs" />
   </ItemGroup>
   <ItemGroup>

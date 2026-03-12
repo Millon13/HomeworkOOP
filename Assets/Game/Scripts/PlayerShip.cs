@@ -44,7 +44,7 @@ namespace Game
                 _healthView.SetHealth(health, this.config.Health);
                 _cameraShaker.Shake();
             };
-            this.OnDead -= _gameOverView.Show;
+            this.OnDead -= _gameOverView.Show;// не должен заниматься сметрью персонажа
         }
         
         public void Update()

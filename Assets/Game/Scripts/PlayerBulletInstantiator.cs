@@ -5,8 +5,10 @@ namespace Game
     // +
     public sealed class PlayerBulletInstantiator : MonoBehaviour
     {
+        //[SerializeField]
+        //private BulletWorldGO _bulletWorld;
         [SerializeField]
-        private BulletWorldGO _bulletWorld;
+        private BulletSpawner _bulletSpawner;
 
         [SerializeField]
         private PlayerShip _player;
@@ -25,12 +27,12 @@ namespace Game
 
         private void OnFire(ShipController _)
         {
-            _bulletWorld.Spawn(
-                _player.firePoint.position,
+            _bulletSpawner.Spawn(
+                /*_player.firePoint.position,
                 _player.firePoint.up,
                 _playerBulletFire.bulletSpeed,
                 _playerBulletFire.bulletDamage,
-                TeamType.Player
+                TeamType.Player*/
             );
         }
     }
