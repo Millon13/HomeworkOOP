@@ -7,7 +7,7 @@ using Game;
 
 public class Bullet:MonoBehaviour
 {
-    [SerializeField] private TeamType Team = TeamType.None;
+    [SerializeField] public TeamType Team = TeamType.None;
     public Vector2 Direction { get; set; }
 
     public int Damage { get; set; }

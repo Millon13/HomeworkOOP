@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BulletConfig
 {
-    [SerializeField] private int _damage = 10;
+    [SerializeField] public  int _damage = 10;
     [SerializeField] private float _speed = 10f;
     [SerializeField] private GameObject _blueVFX;
     [SerializeField] private GameObject _redVFX;

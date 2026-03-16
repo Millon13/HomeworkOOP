@@ -23,4 +23,8 @@ public class BulletVisual:MonoBehaviour
     {
         Instantiate(config.ExplosionVFX, position, Quaternion.identity);
     }
+    public void PlayExplosionVFX(BulletConfig config, Vector3 transform)
+    {
+
+    }
 }

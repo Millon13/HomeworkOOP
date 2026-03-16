@@ -13,7 +13,7 @@ public class BulletCoilision:MonoBehaviour
     {
         _bullet = GetComponent<Bullet>();
         _visual = GetComponent<BulletVisual>();
-        _spawner = FindObjectOfType<BulletSpawner>(); // или внедрить через конструктор
+       // _spawner = FindObjectOfType<BulletSpawner>(); // или внедрить через конструктор
     }
 
     private void OnTriggerEnter2D(Collider2D other)

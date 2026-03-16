@@ -35,6 +35,7 @@ Transform:
   m_Children:
   - {fileID: 8503432944885784460}
   - {fileID: 1249406481267314197}
+  - {fileID: 7049936072456813675}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &328849090417711829
@@ -49,9 +50,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab487c3ce89407b8153f9c2ff593bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Game.PlayerShip
+  firePoint: {fileID: 0}
   _viewTransform: {fileID: 1249406481267314197}
   _viewConfig: {fileID: 0}
-  _enemyBulletFire: {fileID: 0}
+  _bulletFire: {fileID: 0}
   config: {fileID: 11400000, guid: 0b9a4576e5f0a4babb44b3c82e6480d0, type: 2}
   currentHealth: 10
   _motor:
@@ -251,8 +253,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7049936072456813675}
+  m_Children: []
   m_Father: {fileID: 5706750963508843440}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8547742604600331572
@@ -355,8 +356,16 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1249406481267314197}
+    m_TransformParent: {fileID: 5706750963508843440}
     m_Modifications:
+    - target: {fileID: 250461434797109247, guid: bd4de03080dcb0340b06093259d6512d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.025000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 250461434797109247, guid: bd4de03080dcb0340b06093259d6512d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.025000004
+      objectReference: {fileID: 0}
     - target: {fileID: 250461434797109247, guid: bd4de03080dcb0340b06093259d6512d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

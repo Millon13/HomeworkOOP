@@ -10,12 +10,13 @@ namespace Game
         public Transform firePoint;
         public event Action<int> OnHealthChanged;
         public event Action OnDead;
-        public event Action<ShipController> OnFire;
+        public event Action<BulletSpawner> OnFire;
         public Transform _viewTransform;
         
         [SerializeField]
         protected ShipControllerViewConfig _viewConfig;
         [SerializeField] private BulletFire _bulletFire;
+        [SerializeField] private BulletSpawner _bulletspawner;
 
         public ShipControllerSO config;
         
@@ -71,7 +72,7 @@ namespace Game
         }
         public void Fire(ShipController shipController)
         {
-            this.OnFire?.Invoke(this);
+            this.OnFire?.Invoke(_bulletspawner);
         }
         
      

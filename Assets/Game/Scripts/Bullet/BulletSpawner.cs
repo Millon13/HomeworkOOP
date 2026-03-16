@@ -2,7 +2,7 @@ using Modules.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletSpawner
+public class BulletSpawner:MonoBehaviour
 {
     [Header("Spawn")]
     private float _minSpawnCooldown = 2;
@@ -15,8 +15,9 @@ public class BulletSpawner
     private readonly List<Bullet> _bullets = new();
     private void FixedUpdate()
     {
-        Spawn();
+      //  Spawn();
     }
+   
     public void Spawn()
     {
         for (int i = _bullets.Count - 1; i >= 0; i--)
@@ -31,5 +32,9 @@ public class BulletSpawner
                 _bulletPool.PoolPush(bullet);
             }
         }
+    }
+    public void ReturnBullet(Bullet bullet)
+    {
+        
     }
 }
