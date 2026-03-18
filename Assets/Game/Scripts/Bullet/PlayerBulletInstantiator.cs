@@ -10,6 +10,9 @@ namespace Game
 
         [SerializeField]
         private BulletFire _playerBulletFire;
+        [SerializeField] Bullet bullet;
+        [SerializeField] BulletConfig _bulletConfig;
+        [SerializeField] TeamType _teamType;
 
         //[SerializeField]
         //private BulletSpawner _bulletSpawner;
@@ -25,8 +28,8 @@ namespace Game
 
         private void OnFire(BulletSpawner _bulletSpawner)
         {
-            _bulletSpawner.Spawn(
-            // параметры...
+            _bulletSpawner.Spawn(_bulletConfig, bullet, _teamType
+            
             );
         }
     }

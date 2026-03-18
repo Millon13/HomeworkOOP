@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Codice.Client.BaseCommands.Merge.Xml;
 using Modules.UI;
 using Modules.Utils;
 using UnityEngine;
@@ -32,7 +33,7 @@ namespace Game
 
         [Header("Target")]
         [SerializeField]
-        private ShipController _player;
+        private PlayerShip _player;
         
         [Header("Points")]
         [SerializeField]
@@ -111,13 +112,13 @@ namespace Game
             _pool.Enqueue(enemy);
         }
         
-        private void OnFire(ShipController enemy)
+        private void OnFire(Enemy enemy)
         {
             BulletFire bulletFire = _prefab.GetComponent<BulletFire>();
             Vector2 position = enemy.firePoint.position;
             Vector2 target = _player.transform.position;
             Vector2 direction = (target - position).normalized;
-            _bulletSpawner.Spawn();
+           // _bulletSpawner.Spawn(_bulletConfig, bullet, _teamType);
         }
         
         private Vector3 NextSpawnPosition()

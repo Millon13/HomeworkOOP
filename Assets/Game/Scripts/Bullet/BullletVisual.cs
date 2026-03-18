@@ -1,4 +1,5 @@
 using Game;
+using System;
 using UnityEngine;
 
 public class BulletVisual:MonoBehaviour
@@ -8,6 +9,7 @@ public class BulletVisual:MonoBehaviour
 
     public void SetTeamColor(TeamType team, BulletConfig config)
     {
+      
         if (team == TeamType.Player)
         {
             _blueVFX.SetActive(true);

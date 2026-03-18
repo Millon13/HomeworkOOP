@@ -1,18 +1,21 @@
+using System;
 using UnityEngine;
 
 namespace Game
 {
     // +
-    public sealed class Enemy : ShipController//нарушает принцип барбары лисков
+    public sealed class Enemy :MonoBehaviour, IShipController//нарушает принцип барбары лисков
     {
        //вместо наследовани€ должно быть делигирование- делегат действие
         [Header("Enemy")]
-        public ShipController target;
+        public Transform firePoint;
+        public PlayerShip target;
         public Vector2 destination;
 
+        [SerializeField] private BulletSpawner _bulletspawner;
         [SerializeField]
         private float _fireCooldown = 1.25f;
-
+        [SerializeField] Fire fire;
         [SerializeField]
         private float _stoppingDistance = 0.25f;
 
@@ -24,11 +27,16 @@ namespace Game
         private bool isNotReached;
         private Vector2 distance;
 
+        public event Action<int> OnHealthChanged;
+        public event Action OnDead;
+        public event Action<BulletSpawner> OnFire;
+        [Header("Movement")]
 
-
-
-    
-
+        protected Vector3 moveDirection;
+        [SerializeField] protected Motor _motor;
+        public ShipControllerSO config;
+        [Header("Health")]
+        public int currentHealth;
         public void SetDespawner(IEnemyDespawner despawner) => _despawner = despawner;
 
         private void OnEnable() => this.OnDead += this.OnCharacterDead;
@@ -69,7 +77,7 @@ namespace Game
                 time = Time.time;
                 if (time - _fireTime >= _fireCooldown)
                 {
-                    Fire(this);
+                    fire.DoFire();
                     _fireTime = time;
                 }
 

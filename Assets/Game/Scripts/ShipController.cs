@@ -5,46 +5,46 @@ using UnityEngine;
 namespace Game
 {
     // +
-    public abstract class ShipController :MonoBehaviour,IShipFire
+    public interface IShipController 
     {
-        public Transform firePoint;
+       // public Transform firePoint;
         public event Action<int> OnHealthChanged;
         public event Action OnDead;
         public event Action<BulletSpawner> OnFire;
-        public Transform _viewTransform;
+      //  public Transform _viewTransform;
         
-        [SerializeField]
-        protected ShipControllerViewConfig _viewConfig;
-        [SerializeField] private BulletFire _bulletFire;
-        [SerializeField] private BulletSpawner _bulletspawner;
+        //[SerializeField]
+       // protected ShipControllerViewConfig _viewConfig;
+       // [SerializeField] private BulletFire _bulletFire;
+       // [SerializeField] private BulletSpawner _bulletspawner;
 
-        public ShipControllerSO config;
+      //  public ShipControllerSO config;
         
       
-        [Header("Health")]
-        public int currentHealth;
+        //[Header("Health")]
+       // public int currentHealth;
       
 
-        [Header("Movement")]
+        //[Header("Movement")]
     
-        protected Vector3 moveDirection;
-        [SerializeField]
-        protected Motor _motor;
-        [SerializeField] protected Animations _animations;
+       // protected Vector3 moveDirection;
+       // [SerializeField]
+        //protected Motor _motor;
+       // [SerializeField] protected Animations _animations;
 
       
-        private void Awake()
+       /* private void Awake()
         {
             this.currentHealth = config.Health;
            _motor.SetSpeed(config.MoveSpeed);
 
             _animations.AnimateAwake(_viewConfig);
             
-        }
+        }*/
 
        
  
-        
+        /*
         protected void AnimateMovement(ShipControllerViewConfig _viewConfig)
         {
             _animations.AnimateMovement(Time.deltaTime, moveDirection, _viewTransform,_viewConfig);
@@ -73,7 +73,7 @@ namespace Game
         public void Fire(ShipController shipController)
         {
             this.OnFire?.Invoke(_bulletspawner);
-        }
+        }*/
         
      
     }

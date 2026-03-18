@@ -1,7 +1,7 @@
 using Game;
 using UnityEngine;
 
-public interface IShipFire
+public interface IPlayerShipFire
 {
-    void Fire(ShipController shipController);
+    void Fire(PlayerShip playerShip);
 }

@@ -1,7 +1,7 @@
 using Game;
 using System;
 using UnityEngine;
-public class BulletFire:Audio, IShipFire//сделать пул пуль
+public class BulletFire:Audio//сделать пул пуль
 {
 
     [Header("Combat")]
@@ -10,16 +10,18 @@ public class BulletFire:Audio, IShipFire//сделать пул пуль
     public int bulletDamage;
     public float _fireTime;
     public ShipControllerSO config;
-    [SerializeField] ShipController shipController;
+    [SerializeField] PlayerShip playerShip;
+    [SerializeField] Enemy enemy;
 
     [SerializeField]
     private ParticleSystem _fireVFX;
 
  
-    public void Fire(ShipController shipController)//он же должен стрелять
+    public void Fire()//он же должен стрелять
     {
         float time = Time.time;
-        if (time - _fireTime < config.FireCooldown || shipController.currentHealth <= 0)
+        
+        if (time - _fireTime < config.FireCooldown )
             return;
 
         if (_fireSFX)
@@ -28,7 +30,7 @@ public class BulletFire:Audio, IShipFire//сделать пул пуль
         if (_fireVFX)
             _fireVFX.Play();
 
-        shipController.Fire(shipController);
+        playerShip.Fire(playerShip);
         _fireTime = time;
     }
 }

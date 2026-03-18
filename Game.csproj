@@ -67,6 +67,7 @@
     <Compile Include="Assets\Game\Scripts\IShipFire.cs" />
     <Compile Include="Assets\Game\Scripts\Bullet\BulletConfig.cs" />
     <Compile Include="Assets\Game\Scripts\UI.cs" />
+    <Compile Include="Assets\Game\Scripts\Dead.cs" />
     <Compile Include="Assets\Game\Scripts\Audio.cs" />
     <Compile Include="Assets\Game\Scripts\Bullet\BulletPool.cs" />
     <Compile Include="Assets\Game\Scripts\Bullet\BulletWorldGO.cs" />
@@ -89,6 +90,8 @@
     <Compile Include="Assets\Game\Scripts\ShipController.cs" />
     <Compile Include="Assets\Game\Scripts\PlayerInputSys.cs" />
     <Compile Include="Assets\Game\Scripts\IActions.cs" />
+    <Compile Include="Assets\Game\Scripts\Health.cs" />
+    <Compile Include="Assets\Game\Scripts\Bullet\Fire.cs" />
     <Compile Include="Assets\Game\Scripts\Animations.cs" />
   </ItemGroup>
   <ItemGroup>

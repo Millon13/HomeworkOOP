@@ -3,9 +3,10 @@ using UnityEngine;
 using Modules.UI;
 using Modules.Utils;
 
-public class PlayerInputSys : MonoBehaviour, IShipMove, IShipFire// сам должен получать игрока и им крутить
+public class PlayerInputSys : MonoBehaviour, IShipMove// сам должен получать игрока и им крутить
 {
     public float dx, dy;
+    [SerializeField] private Fire fire;
     [SerializeField]
     public void Move()
     {
@@ -15,10 +16,10 @@ public class PlayerInputSys : MonoBehaviour, IShipMove, IShipFire// сам должен п
 
 
     }
-    public void Fire(ShipController shipController)
+    public void Fire(PlayerShip playerShip)
     {
         if (Input.GetKeyDown(KeyCode.Space))
-            shipController.Fire(shipController);
+            fire.DoFire();
     }
 
 }

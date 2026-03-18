@@ -1153,8 +1153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b64b39bad24a747af76c5d9a2cb037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::BulletPool
-  _bulletPrefab: {fileID: 0}
-  _container: {fileID: 0}
+  _bulletPrefab: {fileID: -5224738744410918844, guid: 4a5d4fe3266a20c439bd2f9fe506c7f5, type: 3}
+  _container: {fileID: 4414282821800802396}
 --- !u!1 &655622942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,6 +1857,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1202247393 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5224738744410918844, guid: 4a5d4fe3266a20c439bd2f9fe506c7f5, type: 3}
+  m_PrefabInstance: {fileID: 7016399971328378472}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be56f6801665a8f4c81d0624fda49091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Bullet
 --- !u!1 &1243470927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,6 +2672,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game::Game.PlayerBulletInstantiator
   _player: {fileID: 4414282821800802410}
   _playerBulletFire: {fileID: 4414282821800802414}
+  bullet: {fileID: 1202247393}
+  _teamType: 1
 --- !u!198 &1933392064 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 375007784130398055, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
@@ -3276,6 +3289,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 328849090417711829, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
+      propertyPath: _bulletspawner
+      value: 
+      objectReference: {fileID: 4414282821800802419}
+    - target: {fileID: 328849090417711829, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
       propertyPath: _viewTransform
       value: 
       objectReference: {fileID: 4414282821800802396}
@@ -3434,7 +3451,8 @@ MonoBehaviour:
   bulletDamage: 1
   _fireTime: 1
   config: {fileID: 11400000, guid: 0b9a4576e5f0a4babb44b3c82e6480d0, type: 2}
-  shipController: {fileID: 4414282821800802410}
+  playerShip: {fileID: 0}
+  enemy: {fileID: 0}
   _fireVFX: {fileID: 1933392064}
 --- !u!114 &4414282821800802415
 MonoBehaviour:
@@ -3478,6 +3496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game::BulletSpawner
   _levelBounds: {fileID: 2572952653776768186}
   _bulletPool: {fileID: 0}
+  _bulletVisual: {fileID: 0}
 --- !u!1 &4788406047096451828
 GameObject:
   m_ObjectHideFlags: 0
@@ -3638,7 +3657,7 @@ PrefabInstance:
     - target: {fileID: 3240384534706042439, guid: 2beba919ca32c6a4fb931a46097c2c67, type: 3}
       propertyPath: _container
       value: 
-      objectReference: {fileID: 4414282821800802396}
+      objectReference: {fileID: 612590357}
     - target: {fileID: 3240384534706042439, guid: 2beba919ca32c6a4fb931a46097c2c67, type: 3}
       propertyPath: _bulletPrefab
       value: 

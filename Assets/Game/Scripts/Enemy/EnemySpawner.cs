@@ -27,7 +27,7 @@ public class EnemySpawner: MonoBehaviour, IEnemyDespawner
 
     [Header("Target")]
     [SerializeField]
-    private ShipController _player;
+    private PlayerShip _player;
 
     [SerializeField]
     private Transform _container;
