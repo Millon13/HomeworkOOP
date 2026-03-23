@@ -2,7 +2,7 @@ using Game;
 using System;
 using UnityEngine;
 
-public class Health
+public class Health:MonoBehaviour
 {
     public event Action<int> OnHealthChanged;
     [Header("Health")]
@@ -16,4 +16,5 @@ public class Health
 
         this.OnHealthChanged?.Invoke(health);
     }
+    
 }

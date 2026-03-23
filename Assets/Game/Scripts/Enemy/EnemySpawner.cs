@@ -6,6 +6,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 using Modules.Utils;
 using Random = UnityEngine.Random;
 using System.Collections;
+using Codice.Client.Common.GameUI;
 
 public class EnemySpawner: MonoBehaviour, IEnemyDespawner
 { [Header("Spawn")]
@@ -50,7 +51,11 @@ public class EnemySpawner: MonoBehaviour, IEnemyDespawner
     private void Start()
     {
         this.ResetSpawnCooldown();
-
+        
+    }
+    private void Update()
+    {
+        Spawner();
     }
     private void Spawner()
     {
@@ -81,9 +86,9 @@ public class EnemySpawner: MonoBehaviour, IEnemyDespawner
 
     public void Despawn(Enemy enemy)
     {
-        //enemy.OnFire -= OnFire;
+       
         _destroyedEnemies++;
-       // _scoreView.SetValue(_destroyedEnemies);
+       
         StartCoroutine(DespawnInNextFrame(enemy));
     }
 

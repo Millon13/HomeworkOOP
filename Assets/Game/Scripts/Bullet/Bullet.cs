@@ -8,10 +8,10 @@ using Game;
 public class Bullet:MonoBehaviour
 {
     [SerializeField] public TeamType Team = TeamType.None;
-    public Vector2 Direction { get; set; }
+    public Vector2 Direction;
 
-    public int Damage { get; set; }
-    public float Speed { get; set; }
+    [SerializeField] public int Damage;
+    [SerializeField] public float Speed;
 
     public void Initialize(BulletConfig config, Vector2 direction, TeamType team)
     {

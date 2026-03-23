@@ -7,7 +7,7 @@ public class PlayerInputSys : MonoBehaviour, IShipMove// сам должен получать игр
 {
     public float dx, dy;
     [SerializeField] private Fire fire;
-    [SerializeField]
+    [SerializeField] private BulletFire bulletFire;
     public void Move()
     {
         dx = Input.GetAxisRaw("Horizontal");
@@ -19,7 +19,13 @@ public class PlayerInputSys : MonoBehaviour, IShipMove// сам должен получать игр
     public void Fire(PlayerShip playerShip)
     {
         if (Input.GetKeyDown(KeyCode.Space))
+
+        { 
             fire.DoFire();
+            bulletFire.Fire();
+            Debug.Log("DoFire In Player");
+        }
+        
     }
 
 }

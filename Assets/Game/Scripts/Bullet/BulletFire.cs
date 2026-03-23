@@ -12,6 +12,7 @@ public class BulletFire:Audio//сделать пул пуль
     public ShipControllerSO config;
     [SerializeField] PlayerShip playerShip;
     [SerializeField] Enemy enemy;
+    [SerializeField] Fire fire;
 
     [SerializeField]
     private ParticleSystem _fireVFX;
@@ -29,8 +30,8 @@ public class BulletFire:Audio//сделать пул пуль
 
         if (_fireVFX)
             _fireVFX.Play();
-
-        playerShip.Fire(playerShip);
+        fire.DoFire();
+       
         _fireTime = time;
     }
 }

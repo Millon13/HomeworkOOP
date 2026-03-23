@@ -6,11 +6,11 @@ using Modules.Utils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Game
-{
+//namespace Game
+//{
     // +
-    public sealed class EnemyOrchestrator : MonoBehaviour//надо разбить по ответсвенност€м и нарушает инкапсул€цию
-    {
+   // public sealed class EnemyOrchestrator : MonoBehaviour//надо разбить по ответсвенност€м и нарушает инкапсул€цию
+   // {
        /* [Header("Spawn")]
         [SerializeField]
         private float _minSpawnCooldown = 2;
@@ -21,7 +21,7 @@ namespace Game
         private float _spawnCooldown;
         private float _spawnTime;*/
         
-        [Header("Pool")]
+       /* [Header("Pool")]
         [SerializeField]
         private Enemy _prefab;
 
@@ -56,8 +56,8 @@ namespace Game
         
         //private int _destroyedEnemies;
         
-        private void Awake()
-        {
+       // private void Awake()
+        /*{
             _spawnPositions.Shuffle();
             _attackPositions.Shuffle();
             
@@ -105,7 +105,7 @@ namespace Game
             this.StartCoroutine(DespawnInNextFrame(enemy));
         }*/
 
-        private IEnumerator DespawnInNextFrame(Enemy enemy)
+        /*private IEnumerator DespawnInNextFrame(Enemy enemy)
         {
             yield return null;
             enemy.gameObject.SetActive(false);
@@ -118,7 +118,7 @@ namespace Game
             Vector2 position = enemy.firePoint.position;
             Vector2 target = _player.transform.position;
             Vector2 direction = (target - position).normalized;
-           // _bulletSpawner.Spawn(_bulletConfig, bullet, _teamType);
+           _bulletSpawner.Spawn(_bulletConfig, bullet, _teamType);
         }
         
         private Vector3 NextSpawnPosition()
@@ -144,4 +144,4 @@ namespace Game
         }
 
     }
-}
+}*/
