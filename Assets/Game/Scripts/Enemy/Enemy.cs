@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game
 {
     // +
-    public sealed class Enemy :MonoBehaviour, IShipController//нарушает принцип барбары лисков
+    public sealed class Enemy :MonoBehaviour
     {
        //вместо наследования должно быть делигирование- делегат действие
         [Header("Enemy")]
@@ -27,25 +27,25 @@ namespace Game
         private bool isNotReached;
         private Vector2 distance;
 
-        public event Action<int> OnHealthChanged;
-        public event Action OnDead;
-        public event Action<BulletSpawner> OnFire;
+       
+        [SerializeField] private Dead dead;
+        
         [Header("Movement")]
 
-        protected Vector3 moveDirection;
-        [SerializeField] protected Motor _motor;
+        private Vector3 moveDirection;
+        [SerializeField] private Motor _motor;
         public ShipControllerSO config;
         [Header("Health")]
         public int currentHealth;
         public void SetDespawner(IEnemyDespawner despawner) => _despawner = despawner;
 
-        private void OnEnable() => this.OnDead += this.OnCharacterDead;
+        private void OnEnable() => dead.OnDead += this.OnCharacterDead;
 
-        private void OnDisable() => this.OnDead -= this.OnCharacterDead;
+        private void OnDisable() => dead.OnDead -= this.OnCharacterDead;
 
         private void OnCharacterDead() => _despawner.Despawn(this);
 
-        protected void FixedUpdate()
+        private void FixedUpdate()
         {
             
             _motor.MoveInspect();

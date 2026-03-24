@@ -7,6 +7,7 @@ public class Dead:MonoBehaviour
     public event Action OnDead;
     [SerializeField] protected ShipControllerViewConfig _viewConfig;
     public Transform _viewTransform;
+   
     public void NotifyAboutDead()
     {
 

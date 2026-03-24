@@ -16,7 +16,7 @@ namespace Game
         private Transform _playerTransform;
         public Transform _viewTransform;
 
-        [SerializeField]protected ShipControllerViewConfig _viewConfig;
+        [SerializeField] private ShipControllerViewConfig _viewConfig;
         [SerializeField] private BulletFire _bulletFire;
         [SerializeField] private BulletSpawner _bulletspawner;
         [SerializeField]
@@ -31,10 +31,10 @@ namespace Game
 
         [Header("Movement")]
 
-        protected Vector3 moveDirection;
+        private Vector3 moveDirection;
         [SerializeField]
-        protected Motor _motor;
-        [SerializeField] protected Animations _animations;
+        private Motor _motor;
+        [SerializeField] private Animations _animations;
 
         [Header("UI")]//убрать отсюда
         [SerializeField]
@@ -77,7 +77,7 @@ namespace Game
 
        
         
-        protected void LateUpdate()
+        private void LateUpdate()
         {
            
             AnimateMovement(_viewConfig);
@@ -94,7 +94,7 @@ namespace Game
         }
 
     
-        protected void AnimateMovement(ShipControllerViewConfig _viewConfig)
+        private void AnimateMovement(ShipControllerViewConfig _viewConfig)
         {
             _animations.AnimateMovement(Time.deltaTime, moveDirection, _viewTransform, _viewConfig);
         }

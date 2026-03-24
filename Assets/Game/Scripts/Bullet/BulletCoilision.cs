@@ -35,11 +35,8 @@ public class BulletCoilision:MonoBehaviour
 
     private void HandleHit()
     {
-        _visual?.PlayExplosionVFX(GetComponent<BulletConfig>(), transform.position);
+        _visual?.PlayExplosionVFX( transform.position);
         _spawner?.ReturnBullet(_bullet);
     }
-    private void OnTriggerEntered(Collider2D other)
-    {
-
-    }
+  
 }

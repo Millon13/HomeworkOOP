@@ -10,14 +10,22 @@ public class BulletFire:Audio//сделать пул пуль
     public int bulletDamage;
     public float _fireTime;
     public ShipControllerSO config;
+    [SerializeField] TeamType type;
     [SerializeField] PlayerShip playerShip;
     [SerializeField] Enemy enemy;
     [SerializeField] Fire fire;
-
+    
     [SerializeField]
     private ParticleSystem _fireVFX;
 
- 
+    private void Update()
+    {
+        if (type == TeamType.Enemy)
+            Fire();
+        else
+            return;
+    }
+
     public void Fire()//он же должен стрелять
     {
         float time = Time.time;

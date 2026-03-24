@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BulletPool:MonoBehaviour
 {
@@ -25,5 +26,13 @@ public class BulletPool:MonoBehaviour
     {
         if (_pool.TryPop(out Bullet bullet))
             bullet.gameObject.SetActive(true);
+        else
+            bullet = Instantiate(_bulletPrefab, _container);
     }
+    public void SetOrientation(Bullet bullet, Vector2 position, Vector2 direction)
+    {
+        bullet.transform.position = position;
+        bullet.transform.rotation = Quaternion.LookRotation(direction, Vector3.forward);
+    }
+   
 }

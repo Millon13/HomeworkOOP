@@ -8,9 +8,9 @@ namespace Game
     public interface IShipController 
     {
        // public Transform firePoint;
-        public event Action<int> OnHealthChanged;
-        public event Action OnDead;
-        public event Action<BulletSpawner> OnFire;
+        //public event Action<int> OnHealthChanged;
+        // public event Action OnDead;
+       // public event Action<BulletSpawner> OnFire;
       //  public Transform _viewTransform;
         
         //[SerializeField]

@@ -65,7 +65,6 @@
     <Compile Include="Assets\Game\Scripts\Bullet\BullletVisual.cs" />
     <Compile Include="Assets\Game\Scripts\ShipControllerViewConfig.cs" />
     <Compile Include="Assets\Game\Scripts\IShipFire.cs" />
-    <Compile Include="Assets\Game\Scripts\Bullet\BulletConfig.cs" />
     <Compile Include="Assets\Game\Scripts\UI.cs" />
     <Compile Include="Assets\Game\Scripts\Dead.cs" />
     <Compile Include="Assets\Game\Scripts\Audio.cs" />

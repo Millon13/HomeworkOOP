@@ -98,7 +98,7 @@ Material:
     m_Floats:
     - Emission_: 0
     - FresnelSize: 3
-    - FresnelSize_: 3
+    - FresnelSize_: 3.74
     - Intensity: 6.4
     - Intensity_SpriteShaderSoftADD: 1
     - Intersect_: 1

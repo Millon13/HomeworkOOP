@@ -14,10 +14,10 @@ public class BulletSpawner:MonoBehaviour
     [SerializeField] private float _spawnTime;
     [SerializeField] private TransformBounds _levelBounds;
     [SerializeField] private BulletPool _bulletPool;
-    [SerializeField] private BulletConfig _bulletConfig;
+   
     [SerializeField] private BulletVisual _bulletVisual;
     private readonly List<Bullet> _bullets = new();
-
+    [SerializeField]private  BulletMover _bulletMover;
     [Header("Pool")]
     [SerializeField]
     private Enemy _prefab;
@@ -50,10 +50,30 @@ public class BulletSpawner:MonoBehaviour
     {
         //  Spawn();
 
-       
 
-        
+        for (int i = _bullets.Count - 1; i >= 0; i--)
+        {
+
+            Bullet bullet = _bullets[i];
+           
+            if (!_levelBounds.InBounds(bullet.transform.position))
+            {
+                _bullets.RemoveAt(i);
+                bullet.gameObject.SetActive(false);
+                
+
+                
+
+
+            }
+            ;
+           // bullet.transform.rotation = Quaternion.LookRotation(direction, Vector3.forward);
+
+
+
+        }
     }
+  
     private void Awake()
     {
         _spawnPositions.Shuffle();
@@ -62,28 +82,12 @@ public class BulletSpawner:MonoBehaviour
     }
 
 
-    public void Spawn(BulletConfig _bulletConfig,Bullet _bullet, TeamType _team,Vector3 direction)
+    public void Spawn( Bullet _bullet,int damage,float speed, Vector2 position, Vector2 direction, TeamType type)
     {
-        for (int i = _bullets.Count - 1; i >= 0; i--)
-        {
-            
-            Bullet bullet = _bullets[i];
-           
-            bullet.Initialize(_bulletConfig, direction, _team);
-
-            if (!_levelBounds.InBounds(bullet.transform.position))
-            {
-                _bullets.RemoveAt(i);
-                bullet.gameObject.SetActive(false);
-
-                _bulletPool.PoolPush(bullet);
-            }
-            //Vector3 direction = bullet.Direction;
-            bullet.transform.rotation = Quaternion.LookRotation(direction, Vector3.forward);
-            //bulletMover.Move(_spawnTime);
-            
-            
-        }
+        _bulletPool.TryPop();
+        _bullet.Initialize(damage, speed, direction,type);
+        _bulletPool.SetOrientation(_bullet, position, direction);
+        
     }
   
 

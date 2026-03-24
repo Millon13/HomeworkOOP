@@ -409,7 +409,6 @@
 "Assets/Game/Scripts/Audio.cs"
 "Assets/Game/Scripts/Bullet/Bullet.cs"
 "Assets/Game/Scripts/Bullet/BulletCoilision.cs"
-"Assets/Game/Scripts/Bullet/BulletConfig.cs"
 "Assets/Game/Scripts/Bullet/BulletFire.cs"
 "Assets/Game/Scripts/Bullet/BulletMover.cs"
 "Assets/Game/Scripts/Bullet/BulletPool.cs"

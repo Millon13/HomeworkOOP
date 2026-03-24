@@ -11,10 +11,11 @@ namespace Game
         [SerializeField]
         private BulletFire _playerBulletFire;
         [SerializeField] Bullet bullet;
-        [SerializeField] BulletConfig _bulletConfig;
         [SerializeField] TeamType _teamType;
         Vector3 direction => bullet.Direction;
-
+        Vector2 position =>bullet.transform.position;
+        int damage => bullet.Damage;
+        float speed => bullet.Speed;
         //[SerializeField]
         //private BulletSpawner _bulletSpawner;
         private void OnEnable()
@@ -29,9 +30,11 @@ namespace Game
 
         private void OnFire(BulletSpawner _bulletSpawner)
         {
-            _bulletSpawner.Spawn(_bulletConfig, bullet, _teamType,direction
+            _bulletSpawner.Spawn( bullet,damage,speed, position,direction,_teamType
             
             );
+       
+          
             Debug.Log("OnFire In BulletInstantiator");
         }
     }

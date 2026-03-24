@@ -6,8 +6,8 @@ public class BulletVisual:MonoBehaviour
 {
     [SerializeField] private GameObject _blueVFX;
     [SerializeField] private GameObject _redVFX;
-
-    public void SetTeamColor(TeamType team, BulletConfig config)
+    [SerializeField] private GameObject _explosionVFX;
+    public void SetTeamColor(TeamType team)
     {
       
         if (team == TeamType.Player)
@@ -15,17 +15,17 @@ public class BulletVisual:MonoBehaviour
             _blueVFX.SetActive(true);
             _redVFX.SetActive(false);
         }
-        else
+        else if (team == TeamType.Enemy) 
         {
             _blueVFX.SetActive(false);
             _redVFX.SetActive(true);
         }
     }
-    public void InstantiateVFX(BulletConfig config, Vector3 position)
+    public void InstantiateVFX( Vector3 position)
     {
-        Instantiate(config.ExplosionVFX, position, Quaternion.identity);
+        Instantiate(_explosionVFX, position, Quaternion.identity);
     }
-    public void PlayExplosionVFX(BulletConfig config, Vector3 transform)
+    public void PlayExplosionVFX( Vector3 transform)
     {
 
     }

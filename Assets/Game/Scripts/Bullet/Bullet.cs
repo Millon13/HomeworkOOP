@@ -9,19 +9,20 @@ public class Bullet:MonoBehaviour
 {
     [SerializeField] public TeamType Team = TeamType.None;
     public Vector2 Direction;
-
+    
     [SerializeField] public int Damage;
     [SerializeField] public float Speed;
+   
 
-    public void Initialize(BulletConfig config, Vector2 direction, TeamType team)
+    public void Initialize(int damage,float  speed, Vector2 direction, TeamType team)
     {
-        Damage = config.Damage;
-        Speed = config.Speed;
+        Damage = damage;
+        Speed = speed;
         Direction = direction;
         Team = team;
 
         SetupLayer(team);
-        SetupVisual(team, config);
+        SetupVisual(team);
     }
 
     private void SetupLayer(TeamType team)
@@ -35,10 +36,10 @@ public class Bullet:MonoBehaviour
         };
     }
 
-    private void SetupVisual(TeamType team, BulletConfig config)
+    private void SetupVisual(TeamType team)
     {
         // Визуальная настройка делегируется отдельному компоненту
         var visual = GetComponent<BulletVisual>();
-        visual?.SetTeamColor(team, config);
+        visual?.SetTeamColor(team);
     }
 }
