@@ -5,8 +5,11 @@ using UnityEngine;
 namespace Game
 {
     // +
-    public interface IShipController 
+    public class ShipController 
     {
+        [SerializeField] private Motor motor;
+        [SerializeField] private Health health;
+        [SerializeField] private BulletFire bulletFire;
        // public Transform firePoint;
         //public event Action<int> OnHealthChanged;
         // public event Action OnDead;

@@ -12,8 +12,11 @@ public class Bullet:MonoBehaviour
     
     [SerializeField] public int Damage;
     [SerializeField] public float Speed;
-   
+    [SerializeField] private LayerMask _targetLayer;
+    private BulletVisual _visual;
+    //private BulletSpawner _spawner;
 
+    
     public void Initialize(int damage,float  speed, Vector2 direction, TeamType team)
     {
         Damage = damage;
@@ -41,5 +44,54 @@ public class Bullet:MonoBehaviour
         // Визуальная настройка делегируется отдельному компоненту
         var visual = GetComponent<BulletVisual>();
         visual?.SetTeamColor(team);
+    }
+    public class BulletMover : MonoBehaviour
+    {
+        [SerializeField] private Bullet _bullet;
+        [SerializeField] private Transform _bulletTransform;
+
+        private void Awake()
+        {
+            _bullet = GetComponent<Bullet>();
+            _bulletTransform = transform;
+            this.enabled = true;
+            if (_bullet == null)
+                Debug.LogError("Bullet component missing on " + gameObject.name);
+        }
+        private void Update()
+        {
+            Move(Time.deltaTime * 200);
+            Debug.Log("Move delt");
+        }
+
+        public void Move(float deltaTime)
+        {
+            Vector3 moveStep = _bullet.Direction * _bullet.Speed * deltaTime;
+            Debug.Log($"Direction{_bullet.Direction},_bullet.Speed{_bullet.Speed},deltaTime{deltaTime}");
+            this.transform.position += moveStep;
+            _bullet.transform.rotation = Quaternion.LookRotation(_bullet.Direction, Vector3.forward);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!IsValidTarget(other))
+            return;
+
+        if (other.TryGetComponent(out IDamageable damageable))
+        {
+            damageable.TakeDamage(Damage, Team);
+            HandleHit();
+        }
+    }
+
+    private bool IsValidTarget(Collider2D other)
+    {
+        return ((1 << other.gameObject.layer) & _targetLayer) != 0;
+    }
+
+    private void HandleHit()
+    {
+        _visual?.PlayExplosionVFX(transform.position);
+        _spawner?.ReturnBullet(this);
     }
 }

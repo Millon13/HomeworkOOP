@@ -7,9 +7,9 @@ using UnityEngine;
 namespace Game
 {
     // +
-    public sealed class PlayerShip :MonoBehaviour,  IShipMove
+    public sealed class PlayerShip :MonoBehaviour
     {
-        [SerializeField] PlayerInputSys playerInput;
+        
         [SerializeField]
         private TransformBounds _playerArea;
 
@@ -31,7 +31,7 @@ namespace Game
 
         [Header("Movement")]
 
-        private Vector3 moveDirection;
+        public Vector3 moveDirection;
         [SerializeField]
         private Motor _motor;
         [SerializeField] private Animations _animations;
@@ -70,9 +70,7 @@ namespace Game
         public void Update()
         {
         
-            playerInput.Fire(this);
-            playerInput.Move();
-            Move();
+            
         }
 
        
@@ -83,16 +81,19 @@ namespace Game
             AnimateMovement(_viewConfig);
             this.transform.position = _playerArea.ClampInBounds(this.transform.position);
         }
-        public void Move()
+        public void Move(Vector3 moveDirection)
         {    
             _motor.MoveInspect();
-            this.moveDirection = new Vector2(playerInput.dx, playerInput.dy);
+            
             if (this.currentHealth > 0)
             {
-                _motor.MoveStep(this.moveDirection);
+                _motor.MoveStep(moveDirection);
             }
         }
+        public void Fire()
+        {
 
+        }
     
         private void AnimateMovement(ShipControllerViewConfig _viewConfig)
         {
