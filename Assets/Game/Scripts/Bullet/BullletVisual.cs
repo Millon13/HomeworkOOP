@@ -4,9 +4,23 @@ using UnityEngine;
 
 public class BulletVisual:MonoBehaviour
 {
+    [SerializeField] private Bullet bullet;
     [SerializeField] private GameObject _blueVFX;
     [SerializeField] private GameObject _redVFX;
     [SerializeField] private GameObject _explosionVFX;
+    public void Awake()
+    {
+        bullet.OnHandleHit += PlayExplosionVFX;
+
+        if(bullet.enabled)
+        {
+            SetTeamColor(bullet.Team);
+        }
+    }
+    public void Update()
+    {
+        
+    }
     public void SetTeamColor(TeamType team)
     {
       
@@ -27,6 +41,6 @@ public class BulletVisual:MonoBehaviour
     }
     public void PlayExplosionVFX( Vector3 transform)
     {
-
+        PlayExplosionVFX(bullet.transform.position);
     }
 }

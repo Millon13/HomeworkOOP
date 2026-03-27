@@ -20,5 +20,10 @@ public class Audio:MonoBehaviour
         if (_damageSFX)
             _audioSource.PlayOneShot(_damageSFX);
     }
-
+    
+    public void FireSound()
+    {
+        if (_fireSFX)
+            _audioSource.PlayOneShot(_fireSFX);
+    }
 }

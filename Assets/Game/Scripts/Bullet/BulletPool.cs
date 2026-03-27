@@ -29,10 +29,6 @@ public class BulletPool:MonoBehaviour
         else
             bullet = Instantiate(_bulletPrefab, _container);
     }
-    public void SetOrientation(Bullet bullet, Vector2 position, Vector2 direction)
-    {
-        bullet.transform.position = position;
-        bullet.transform.rotation = Quaternion.LookRotation(direction, Vector3.forward);
-    }
+    
    
 }

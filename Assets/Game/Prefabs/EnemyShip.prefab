@@ -11,13 +11,9 @@ GameObject:
   - component: {fileID: 3470145497817149085}
   - component: {fileID: 5568771391735819375}
   - component: {fileID: 659620479434099170}
-  - component: {fileID: -8355007268968037032}
-  - component: {fileID: 102605417607457000}
   - component: {fileID: 4560017961611896118}
-  - component: {fileID: 5328618356419452478}
-  - component: {fileID: -6876605812007415998}
-  - component: {fileID: 1063041943498322297}
-  - component: {fileID: -6093037261208589289}
+  - component: {fileID: 6814652857497197651}
+  - component: {fileID: 1792520480472378965}
   m_Layer: 11
   m_Name: EnemyShip
   m_TagString: Untagged
@@ -40,6 +36,7 @@ Transform:
   m_Children:
   - {fileID: 3195880656587174614}
   - {fileID: 2570692159425164225}
+  - {fileID: 2431153967656759701}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
 --- !u!58 &5568771391735819375
@@ -105,45 +102,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-8355007268968037032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559606060570185700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedafbe1869fc56418d8def2ffc2c842, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Game::Animations
-  _audio: {fileID: 5328618356419452478}
-  _renderer: {fileID: 3392331705670148128}
---- !u!114 &102605417607457000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559606060570185700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e09a324f54d94d6e84681731f36566c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 3195880656587174614}
-  target: {fileID: 0}
-  destination: {x: 0, y: 0}
-  _bulletspawner: {fileID: 1063041943498322297}
-  _fireCooldown: 1.25
-  fire: {fileID: -6876605812007415998}
-  _stoppingDistance: 0.25
-  dead: {fileID: -6093037261208589289}
-  _motor:
-    _rigidbody: {fileID: 659620479434099170}
-    _speed: 1
-  config: {fileID: 11400000, guid: 342eb63e507d644daae6ffc27bd8fc71, type: 2}
-  currentHealth: 2
 --- !u!82 &4560017961611896118
 AudioSource:
   m_ObjectHideFlags: 0
@@ -241,7 +199,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5328618356419452478
+--- !u!114 &6814652857497197651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,22 +208,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 559606060570185700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff84ad8cb90872a44864d39f03b40613, type: 3}
+  m_Script: {fileID: 11500000, guid: 558b312fd53c491ab69f3e55255aae3c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Game::BulletFire
-  _fireSFX: {fileID: 0}
-  _damageSFX: {fileID: 8300000, guid: 9d2f129290cb1a6489928f3dde8dbb39, type: 3}
-  _audioSource: {fileID: 4560017961611896118}
-  bulletSpeed: 3
-  bulletDamage: 1
-  _fireTime: 1
-  config: {fileID: 11400000, guid: 342eb63e507d644daae6ffc27bd8fc71, type: 2}
-  type: 2
-  playerShip: {fileID: 0}
-  enemy: {fileID: 102605417607457000}
-  fire: {fileID: -6876605812007415998}
-  _fireVFX: {fileID: 1792961037914348205}
---- !u!114 &-6876605812007415998
+  m_EditorClassIdentifier: Game::Game.ShipController
+  motor: {fileID: 0}
+  _health: {fileID: 0}
+  _dead: {fileID: 0}
+  bulletFire: {fileID: 0}
+  spawner: {fileID: 0}
+  teamType: 0
+--- !u!114 &1792520480472378965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -274,49 +226,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 559606060570185700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01443328c59621a4ebaa3298c2290d60, type: 3}
+  m_Script: {fileID: 11500000, guid: e09a324f54d94d6e84681731f36566c4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Game::Fire
-  _bulletSpawner: {fileID: 1063041943498322297}
---- !u!114 &1063041943498322297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559606060570185700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aca13b92b492ea47941f42c4790036a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Game::BulletSpawner
-  _spawnCooldown: 3
-  _spawnTime: 2
-  _levelBounds: {fileID: 0}
-  _bulletPool: {fileID: 3240384534706042439, guid: 2beba919ca32c6a4fb931a46097c2c67, type: 3}
-  _bulletConfig: {fileID: 11400000, guid: e5f6c1c85ba7c784ba046899b1e53006, type: 2}
-  _bulletVisual: {fileID: 1853939887478258436, guid: b92fad1644f250649819c4a082e63eaf, type: 3}
-  _bulletMover: {fileID: 3041937750760407346, guid: b92fad1644f250649819c4a082e63eaf, type: 3}
-  _prefab: {fileID: 102605417607457000}
-  _container: {fileID: 1524540282879537156, guid: b92fad1644f250649819c4a082e63eaf, type: 3}
-  _player: {fileID: 0}
-  _spawnPositions: []
-  _attackPositions: []
-  bulletMover: {fileID: 3041937750760407346, guid: b92fad1644f250649819c4a082e63eaf, type: 3}
---- !u!114 &-6093037261208589289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559606060570185700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2f5150f56ce10948a879a5e2a59bdb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Game::Dead
-  _viewConfig: {fileID: 11400000, guid: f6ecf0b3d1d004b3893cc42c64995303, type: 2}
-  _viewTransform: {fileID: 3470145497817149085}
+  m_EditorClassIdentifier: Game::Game.Enemy
+  shipController: {fileID: 0}
+  firePoint: {fileID: 0}
+  target: {fileID: 0}
+  destination: {x: 0, y: 0}
+  _bulletspawner: {fileID: 0}
+  _fireCooldown: 1.25
+  fire: {fileID: 0}
+  _stoppingDistance: 0.25
+  dead: {fileID: 0}
+  _motor: {fileID: 0}
+  config: {fileID: 0}
+  currentHealth: 0
 --- !u!1 &1074127585690423075
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +273,53 @@ Transform:
   - {fileID: 2436226342499269388}
   m_Father: {fileID: 3470145497817149085}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4231983782756065770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2431153967656759701}
+  - component: {fileID: 730003213657055628}
+  m_Layer: 0
+  m_Name: EnemyComponents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2431153967656759701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4231983782756065770}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.03236, y: -0.29678, z: -0.00148}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3470145497817149085}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &730003213657055628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4231983782756065770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03ca3ca419a3a74999f09f267b0afd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Health
+  currentHealth: 0
+  _animations: {fileID: 0}
+  _viewConfig: {fileID: 0}
 --- !u!1 &5509963527263873350
 GameObject:
   m_ObjectHideFlags: 0
@@ -5226,10 +5197,6 @@ PrefabInstance:
       propertyPath: _audioSource
       value: 
       objectReference: {fileID: 4560017961611896118}
-    - target: {fileID: 6241535957505259856, guid: 288898a2a9d1e684fbdfd8b732ae0eac, type: 3}
-      propertyPath: shipController
-      value: 
-      objectReference: {fileID: 102605417607457000}
     m_RemovedComponents:
     - {fileID: 6241535957505259856, guid: 288898a2a9d1e684fbdfd8b732ae0eac, type: 3}
     m_RemovedGameObjects: []
@@ -5239,11 +5206,6 @@ PrefabInstance:
       addedObject: {fileID: 1152953885443074597}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 288898a2a9d1e684fbdfd8b732ae0eac, type: 3}
---- !u!198 &1792961037914348205 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 513666672195220835, guid: 288898a2a9d1e684fbdfd8b732ae0eac, type: 3}
-  m_PrefabInstance: {fileID: 2288120588623359950}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3195880656587174614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3718571463071800600, guid: 288898a2a9d1e684fbdfd8b732ae0eac, type: 3}

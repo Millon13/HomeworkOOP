@@ -14,6 +14,7 @@ public class Animations:MonoBehaviour
     private ShipControllerViewConfig _viewConfig;
 
     private Tweener _damageAnimation;
+    [SerializeField] ParticleSystem _fireVFX;
 
     [Header("Visual")]
     [SerializeField]
@@ -21,7 +22,19 @@ public class Animations:MonoBehaviour
 
     private Material _material;
 
-  
+    [SerializeField] Fire fire;
+    [SerializeField] BulletSpawner spawner;
+    public void Update()
+    {
+        fire.OnFireAnim += AnimateFire;
+        fire.OnAnimDamage += AnimateDamage;
+    }
+
+    private void Fire_OnAnimDamage()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void AnimateMovement(float deltaTime, Vector3 moveDirection, Transform _viewTransform, ShipControllerViewConfig _viewConfig)
     {
         Vector3 shipAngles = _viewTransform.localEulerAngles;
@@ -32,7 +45,7 @@ public class Animations:MonoBehaviour
         float t = _viewConfig.MoveSpeed * deltaTime;
         _viewTransform.localRotation = Quaternion.Lerp(_viewTransform.localRotation, shipRotation, t);
     }
-    public void AnimateDamage(ShipControllerViewConfig _viewConfig)
+    public void AnimateDamage()
     {
         if (_damageAnimation.IsActive())
             _damageAnimation.Kill();
@@ -60,5 +73,17 @@ public class Animations:MonoBehaviour
         // Instantiate particle vfx 
         prefab = _viewConfig.DestroyEffectPrefab;
        
+    }
+    public void NotifyAboutHealthChanged(int health)
+    {
+        if (health > 0)
+            AnimateDamage();
+
+    }
+    public void AnimateFire()
+    {
+        
+        if (_fireVFX)
+            _fireVFX.Play();
     }
 }

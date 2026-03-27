@@ -6,10 +6,11 @@ namespace Game
     // +
     public sealed class Enemy :MonoBehaviour
     {
+        [SerializeField] private ShipController shipController;//получаем кораблик и дальше им управляем из енеми
        //вместо наследования должно быть делигирование- делегат действие
         [Header("Enemy")]
         public Transform firePoint;
-        public PlayerShip target;
+        public ShipController target;
         public Vector2 destination;
 
         [SerializeField] private BulletSpawner _bulletspawner;
@@ -22,7 +23,7 @@ namespace Game
         private float _fireTime;
         private float time;
 
-        private IEnemyDespawner _despawner;
+        //private IEnemyDespawner _despawner;
 
         private bool isNotReached;
         private Vector2 distance;
@@ -37,23 +38,18 @@ namespace Game
         public ShipControllerSO config;
         [Header("Health")]
         public int currentHealth;
-        public void SetDespawner(IEnemyDespawner despawner) => _despawner = despawner;
+      //  public void SetDespawner(IEnemyDespawner despawner) => _despawner = despawner;
 
-        private void OnEnable() => dead.OnDead += this.OnCharacterDead;
+        //private void OnEnable() => dead.OnDead += this.OnCharacterDead;
 
-        private void OnDisable() => dead.OnDead -= this.OnCharacterDead;
+        //private void OnDisable() => dead.OnDead -= this.OnCharacterDead;
 
-        private void OnCharacterDead() => _despawner.Despawn(this);
+     //   private void OnCharacterDead() => _despawner.Despawn(this);
 
         private void FixedUpdate()
         {
             
-            _motor.MoveInspect();
-            _motor.SetSpeed(config.MoveSpeed);
-            if (this.currentHealth <= 0 || this.target == null || this.target.currentHealth <= 0)
-                return;
-
-            SetMovement();
+            shipController.SetEnemyMovement(distance,_stoppingDistance,destination,target,moveDirection,isNotReached);
             TimeFire(time);
 
         }

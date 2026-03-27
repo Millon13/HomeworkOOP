@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 using Game;
+using PlasticGui;
 
 public class Bullet:MonoBehaviour
 {
@@ -13,7 +14,9 @@ public class Bullet:MonoBehaviour
     [SerializeField] public int Damage;
     [SerializeField] public float Speed;
     [SerializeField] private LayerMask _targetLayer;
-    private BulletVisual _visual;
+    public Action<Vector3> OnHandleHit;
+    
+   // private BulletVisual _visual;
     //private BulletSpawner _spawner;
 
     
@@ -91,7 +94,13 @@ public class Bullet:MonoBehaviour
 
     private void HandleHit()
     {
-        _visual?.PlayExplosionVFX(transform.position);
-        _spawner?.ReturnBullet(this);
+        OnHandleHit?.Invoke(this.transform.position);
+      //  _visual?.PlayExplosionVFX(transform.position);
+        
+    }
+    public void SetOrientation(Bullet bullet, Vector2 position, Vector2 direction)
+    {
+        bullet.transform.position = position;
+        bullet.transform.rotation = Quaternion.LookRotation(direction, Vector3.forward);
     }
 }

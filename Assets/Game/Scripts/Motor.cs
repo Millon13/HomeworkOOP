@@ -4,17 +4,17 @@ using UnityEngine;
 namespace Game
 {
     // +
-    [Serializable]
-    public class Motor
+    //[Serializable]
+    public class Motor: MonoBehaviour
     {
-        public event Action<Vector3> OnMoved;
+        [HideInInspector]public event Action<Vector3> OnMoved;
 
         [SerializeField]
         private Rigidbody2D _rigidbody;
 
         [SerializeField]
-        private float _speed;
-
+        public float _speed;
+        
         private Vector2? _direction;
 
         public void SetSpeed(float speed) => _speed = speed;

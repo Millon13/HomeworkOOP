@@ -82,11 +82,11 @@ public class BulletSpawner:MonoBehaviour
     }
 
 
-    public void Spawn( Bullet _bullet,int damage,float speed, Vector2 position, Vector2 direction, TeamType type)
+    public void Spawn()
     {
         _bulletPool.TryPop();
-        _bullet.Initialize(damage, speed, direction,type);
-        _bulletPool.SetOrientation(_bullet, position, direction);
+       // _bullet.Initialize(damage, speed, direction,type);
+       // _bulletPool.SetOrientation(_bullet, position, direction);
         
     }
   

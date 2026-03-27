@@ -7,14 +7,14 @@ public class PlayerInputSys : MonoBehaviour// сам должен получать игрока и им кр
 {
     public float dx, dy;
     [SerializeField] private Fire fire;
-    [SerializeField] private PlayerShip playerShip;
-    [SerializeField] private ShipController shipController;
-    [SerializeField] private BulletFire bulletFire;
+    [SerializeField] private ShipController playerShip;
+    //[SerializeField] private ShipController shipController;
+    [SerializeField] private Fire PlayerFire;
 
     public void Update()
     {
         Move();
-        Fire(playerShip);
+        Fire();
     }
     public void Move()
     {
@@ -26,13 +26,13 @@ public class PlayerInputSys : MonoBehaviour// сам должен получать игрока и им кр
         playerShip.Move(moveDirection);
 
     }
-    public void Fire(PlayerShip playerShip)
+    public void Fire()
     {
         if (Input.GetKeyDown(KeyCode.Space))
 
         { 
-            fire.DoFire();
-            bulletFire.Fire();
+            PlayerFire.FireTo();
+            //bulletFire.Fire();
             Debug.Log("DoFire In Player");
         }
         

@@ -90,6 +90,8 @@ namespace Game
                 _motor.MoveStep(moveDirection);
             }
         }
+
+       
         public void Fire()
         {
 
@@ -106,7 +108,7 @@ namespace Game
         public void NotifyAboutHealthChanged(int health)
         {
             if (health > 0)
-                _animations.AnimateDamage(_viewConfig);
+                _animations.AnimateDamage();
 
             this.OnHealthChanged?.Invoke(health);
         }

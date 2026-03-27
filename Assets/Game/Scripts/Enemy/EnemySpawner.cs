@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 using System.Collections;
 using Codice.Client.Common.GameUI;
 
-public class EnemySpawner: MonoBehaviour, IEnemyDespawner
+public class EnemySpawner: MonoBehaviour
 { [Header("Spawn")]
         [SerializeField]
         private float _minSpawnCooldown = 2;
@@ -28,7 +28,7 @@ public class EnemySpawner: MonoBehaviour, IEnemyDespawner
 
     [Header("Target")]
     [SerializeField]
-    private PlayerShip _player;
+    private ShipController _player;
 
     [SerializeField]
     private Transform _container;
@@ -60,7 +60,7 @@ public class EnemySpawner: MonoBehaviour, IEnemyDespawner
     private void Spawner()
     {
         float time = Time.fixedTime;
-        if (time - _spawnTime < _spawnCooldown || _player.currentHealth <= 0)
+        if (time - _spawnTime < _spawnCooldown )
             return;
 
         if (_pool.TryDequeue(out Enemy enemy))
@@ -73,7 +73,7 @@ public class EnemySpawner: MonoBehaviour, IEnemyDespawner
         enemy.currentHealth = enemy.config.Health;
 
         enemy.target = _player;
-        enemy.SetDespawner(this);
+       // enemy.SetDespawner(this);
         //enemy.OnFire += this.OnFire;
 
         this.ResetSpawnCooldown();
