@@ -7,20 +7,29 @@ using UnityEngine.EventSystems;
 namespace Game
 {
     // +
+    [RequireComponent(typeof(Fire),typeof(Motor),typeof(Health))]
     public class ShipController :MonoBehaviour
     {
-        [SerializeField] private Motor motor;
+        
+        [SerializeField] private Motor _motor;
         [SerializeField] private Health _health;
         [SerializeField] private Dead _dead;
-        [SerializeField] private BulletFire bulletFire;
-        [SerializeField] private BulletSpawner spawner;
+        [SerializeField] private Fire _fire;
+        //[SerializeField] private BulletSpawner spawner;
         [SerializeField] public TeamType teamType=TeamType.None;
 
-        
+        private bool CanMove;
+        private bool CanFire;
+        private void Awake()
+        {
+            _fire = this.GetComponent<Fire>();
+            _motor = this.GetComponent<Motor>();
+            _health = this.GetComponent<Health>();
+        }
         public void Update()
         {
-            _health.OnHealthChanged += SubstactHealth;
-            _dead.OnDead += ShipDeath;
+            _fire.CanFire = _health.isAlive;
+            _motor.CanMove = _health.isAlive;
         }
         public void SubstactHealth(int health)
         {
@@ -37,39 +46,12 @@ namespace Game
 
         public void Move(Vector3 moveDirection)
         {
-            motor.MoveInspect();
-
-            if (_health.currentHealth > 0)
-            {
-                motor.MoveStep(moveDirection);
-            }
+            _motor.MoveInspect();
+            _motor.SetSpeed(_motor._speed);
+            _motor.MoveStep(moveDirection);
         }
-        private void FixedUpdate()
-        {
-
-            
-
-            
-            //TimeFire(time);
-
-        }
-        public void SetEnemyMovement(Vector2 distance, float _stoppingDistance, Vector2 destination,
-            ShipController target, Vector3 moveDirection, bool isNotReached)
-        {
-            motor.MoveInspect();
-            motor.SetSpeed(motor._speed);
-            if (_health.currentHealth <= 0 || target._health == null || target._health.currentHealth <= 0)
-                return;
-            distance = destination - (Vector2)this.transform.position;
-            isNotReached = distance.sqrMagnitude > _stoppingDistance * _stoppingDistance;
-            moveDirection = isNotReached ? distance.normalized : Vector3.zero;
-
-            if (isNotReached)
-            {
-                motor.MoveStep(distance.normalized);
-            }
-
-        }
+    
+   
 
         // public Transform firePoint;
         //public event Action<int> OnHealthChanged;

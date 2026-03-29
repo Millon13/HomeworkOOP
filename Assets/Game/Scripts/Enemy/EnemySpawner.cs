@@ -70,9 +70,9 @@ public class EnemySpawner: MonoBehaviour
 
         enemy.transform.position = this.NextSpawnPosition();
         enemy.destination = this.NextDestination();
-        enemy.currentHealth = enemy.config.Health;
+        //enemy.currentHealth = enemy.config.Health;
 
-        enemy.target = _player;
+       // enemy.target = _player;
        // enemy.SetDespawner(this);
         //enemy.OnFire += this.OnFire;
 

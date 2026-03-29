@@ -7,9 +7,10 @@ public class Fire:MonoBehaviour
     public event Action<BulletSpawner> OnFire;
     public event Action OnFireAnim;
     public event Action OnAnimDamage;
+    public bool CanFire;
     [SerializeField] BulletSpawner _bulletSpawner;
-   // [SerializeField] Bullet bullet;
-    
+    // [SerializeField] Bullet bullet;
+
     /*[Header("Combat")]
     Vector3 direction => bullet.Direction;
     Vector2 position => bullet.transform.position;
@@ -17,34 +18,31 @@ public class Fire:MonoBehaviour
     float speed => bullet.Speed;*/
 
     //public float bulletSpeed;
-   // public int bulletDamage;
+    // public int bulletDamage;
+    [SerializeField] float _fireCooldownDuration;
     public float _fireCooldown;
-    public Transform firePoint;
+    public Transform _firePoint;
     public ShipControllerSO config;
     
     [SerializeField] ShipController shipController;
-    
 
-   // [SerializeField]
-   // private ParticleSystem _fireVFX; сделать через подписку на стрельбу
 
-    private void Update()
+    // [SerializeField]
+    // private ParticleSystem _fireVFX; сделать через подписку на стрельбу
+    private void Awake()
     {
-        /*if (shipController.teamType!=TeamType.None)
-            FireTo();
-        else
-            return;*/
+        _fireCooldown = Time.time - _fireCooldownDuration;
     }
-
+    
 
     public void FireTo()//он же должен стрелять
     {
-        if (shipController.teamType != TeamType.None)
+        //if ()еслт здоровье меньшн 0
         {
             _bulletSpawner.Spawn();
             float time = Time.time;
 
-            if (time < _fireCooldown)
+            if (time- _fireCooldown<_fireCooldownDuration)
                 return;
 
 
@@ -55,7 +53,7 @@ public class Fire:MonoBehaviour
             time = _fireCooldown;
         }
     }
-    public void DoFire()
+   public void DoFire()
     {
         this.OnFire?.Invoke(_bulletSpawner);
         this.OnFireAnim?.Invoke();

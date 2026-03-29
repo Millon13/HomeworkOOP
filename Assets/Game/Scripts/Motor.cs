@@ -20,8 +20,9 @@ namespace Game
         public void SetSpeed(float speed) => _speed = speed;
 
         public void MoveStep(Vector2 direction) => _direction = direction;
-
+        public bool CanMove;
         
+
         public void MoveInspect()
         {
             if (!_direction.HasValue)

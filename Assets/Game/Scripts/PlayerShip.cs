@@ -51,7 +51,7 @@ namespace Game
         {
             this.OnHealthChanged += health =>
             {
-                _healthView.SetHealth(health, this.config.Health);
+               // _healthView.SetHealth(health, this.config.Health);
                 _cameraShaker.Shake();
             };
             this.OnDead += _gameOverView.Show;
@@ -61,7 +61,7 @@ namespace Game
         {
             this.OnHealthChanged -= health =>
             {
-                _healthView.SetHealth(health, this.config.Health);
+               // _healthView.SetHealth(health, this.config.Health);
                 _cameraShaker.Shake();
             };
             this.OnDead -= _gameOverView.Show;// не должен заниматься сметрью персонажа
@@ -99,7 +99,7 @@ namespace Game
     
         private void AnimateMovement(ShipControllerViewConfig _viewConfig)
         {
-            _animations.AnimateMovement(Time.deltaTime, moveDirection, _viewTransform, _viewConfig);
+           // _animations.AnimateMovement(Time.deltaTime, moveDirection, _viewTransform, _viewConfig);
         }
 
 
@@ -107,10 +107,10 @@ namespace Game
 
         public void NotifyAboutHealthChanged(int health)
         {
-            if (health > 0)
-                _animations.AnimateDamage();
+            //if (health > 0)
+            //    _animations.AnimateDamage();
 
-            this.OnHealthChanged?.Invoke(health);
+           // this.OnHealthChanged?.Invoke(health);
         }
 
         public void NotifyAboutDead()
