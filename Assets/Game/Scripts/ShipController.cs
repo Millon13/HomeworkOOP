@@ -1,6 +1,7 @@
 using System;
 using Codice.Client.Common;
 using DG.Tweening;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,7 +14,7 @@ namespace Game
         
         [SerializeField] private Motor _motor;
         [SerializeField] private Health _health;
-        [SerializeField] private Dead _dead;
+        //[SerializeField] private Dead _dead;
         [SerializeField] private Fire _fire;
         //[SerializeField] private BulletSpawner spawner;
         [SerializeField] public TeamType teamType=TeamType.None;
@@ -25,11 +26,14 @@ namespace Game
             _fire = this.GetComponent<Fire>();
             _motor = this.GetComponent<Motor>();
             _health = this.GetComponent<Health>();
+            _health.isAlive = true;
         }
         public void Update()
         {
             _fire.CanFire = _health.isAlive;
             _motor.CanMove = _health.isAlive;
+          
+
         }
         public void SubstactHealth(int health)
         {
@@ -43,15 +47,31 @@ namespace Game
             if (_health.currentHealth < 0)
                 Destroy(gameObject);
         }
-
+      
         public void Move(Vector3 moveDirection)
         {
-            _motor.MoveInspect();
-            _motor.SetSpeed(_motor._speed);
-            _motor.MoveStep(moveDirection);
+            if (_motor.CanMove)
+            {
+                _motor.MoveInspect();
+                _motor.SetSpeed(_motor._speed);
+                _motor.MoveStep(moveDirection);
+            }
+           
         }
-    
-   
+
+        public Vector2 GetFireDirection()
+        {
+            Vector2 fireDirection =Vector2.zero;
+            if (teamType == TeamType.Enemy)
+            {
+                fireDirection =Vector2.down;
+            }
+            if (teamType == TeamType.Player)
+            {
+                fireDirection =Vector2.up;
+            }
+            return fireDirection;
+        }
 
         // public Transform firePoint;
         //public event Action<int> OnHealthChanged;

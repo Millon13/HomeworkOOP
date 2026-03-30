@@ -65,8 +65,8 @@ public class EnemySpawner: MonoBehaviour
 
         if (_pool.TryDequeue(out Enemy enemy))
             enemy.gameObject.SetActive(true);
-        else
-            enemy = Instantiate(_prefab, _container);
+        //else
+            //enemy = Instantiate(_prefab, _container);
 
         enemy.transform.position = this.NextSpawnPosition();
         enemy.destination = this.NextDestination();

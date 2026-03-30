@@ -1,9 +1,11 @@
+using Codice.CM.Common;
 using Game;
 using Modules.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BulletSpawner:MonoBehaviour
 {
@@ -15,9 +17,9 @@ public class BulletSpawner:MonoBehaviour
     [SerializeField] private TransformBounds _levelBounds;
     [SerializeField] private BulletPool _bulletPool;
    
-    [SerializeField] private BulletVisual _bulletVisual;
+   // [SerializeField] private BulletVisual _bulletVisual;
     private readonly List<Bullet> _bullets = new();
-    [SerializeField]private  BulletMover _bulletMover;
+   // [SerializeField]private  BulletMover _bulletMover;
     [Header("Pool")]
     [SerializeField]
     private Enemy _prefab;
@@ -42,9 +44,9 @@ public class BulletSpawner:MonoBehaviour
     private int _spawnIndex;
     private int _attackIndex;
 
-    [Header("Bullets")]
     
-    [SerializeField] private BulletMover bulletMover;
+    
+    
 
     private void FixedUpdate()
     {
@@ -82,12 +84,15 @@ public class BulletSpawner:MonoBehaviour
     }
 
 
-    public void Spawn()
+    public void Spawn(Vector2 position,Vector2 direction,int damage, float speed)
     {
-        _bulletPool.TryPop();
-       // _bullet.Initialize(damage, speed, direction,type);
-       // _bulletPool.SetOrientation(_bullet, position, direction);
+        //_bulletPool.TryPop();
+        //_bullet.Initialize(damage, speed, direction,type);
+        // _bulletPool.SetOrientation(_bullet, position, direction);
+        Bullet bullet = _bulletPool.TryPop(position, direction, damage, speed);
         
+        AddBullet(bullet);
+       
     }
   
 

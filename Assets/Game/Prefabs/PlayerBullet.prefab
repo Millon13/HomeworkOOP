@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 1524540282879537156}
   - component: {fileID: -5224738744410918844}
   - component: {fileID: -7607684351622326819}
-  - component: {fileID: -444562322766490909}
-  - component: {fileID: 2625764396242887564}
   m_Layer: 14
   m_Name: PlayerBullet
   m_TagString: Untagged
@@ -51,6 +49,11 @@ MonoBehaviour:
   Direction: {x: 1, y: 0}
   Damage: 10
   Speed: 10
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 17408
+  _bulletTransform: {fileID: 7960002362810552531, guid: 2beba919ca32c6a4fb931a46097c2c67, type: 3}
+  _visual: {fileID: -7607684351622326819}
 --- !u!114 &-7607684351622326819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,32 +69,3 @@ MonoBehaviour:
   _blueVFX: {fileID: 5723357499410693381, guid: 8b6371362df1c2a4fb94d4e8652e2780, type: 3}
   _redVFX: {fileID: 5723357499410693381, guid: 8b6371362df1c2a4fb94d4e8652e2780, type: 3}
   _explosionVFX: {fileID: 1101452535904402, guid: 742ae5c3589574c4195065193e9181b5, type: 3}
---- !u!114 &-444562322766490909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3464545129874362771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513ebc7799bc6e14d9ae9473de73666b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Game::BulletMover
-  _bullet: {fileID: -5224738744410918844}
-  _bulletTransform: {fileID: 7960002362810552531, guid: 2beba919ca32c6a4fb931a46097c2c67, type: 3}
---- !u!114 &2625764396242887564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3464545129874362771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5fcad52f8410e6488f7e571f8d155c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Game::BulletCoilision
-  _targetLayers:
-    serializedVersion: 2
-    m_Bits: 16384

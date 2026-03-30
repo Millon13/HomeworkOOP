@@ -4,8 +4,6 @@ using UnityEngine;
 public class MotorView:MonoBehaviour
 {
     [SerializeField] private Motor _motor;
-    [SerializeField] private ParticleSystem _fireVFX;
-    [SerializeField] protected AudioClip _fireSFX;
     [SerializeField] ShipControllerViewConfig _viewConfig;
     [Header("Visual")]
     [SerializeField]

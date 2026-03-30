@@ -6,7 +6,6 @@ using Modules.Utils;
 public class PlayerInputSys : MonoBehaviour// сам должен получать игрока и им крутить
 {
     public float dx, dy;
-    [SerializeField] private Fire fire;
     [SerializeField] private ShipController playerShip;
     //[SerializeField] private ShipController shipController;
     [SerializeField] private Fire PlayerFire;

@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class BulletVisual:MonoBehaviour
 {
-    [SerializeField] private Bullet bullet;
+    private Bullet _bullet;
+    private Transform _transform;
     [SerializeField] private GameObject _blueVFX;
     [SerializeField] private GameObject _redVFX;
     [SerializeField] private GameObject _explosionVFX;
     public void Awake()
     {
-        bullet.OnHandleHit += PlayExplosionVFX;
+        _bullet = GetComponent<Bullet>();
+        //_bullet.OnHandleHit += PlayExplosionVFX;
 
-        if(bullet.enabled)
+
+        /*if(_bullet.enabled)
         {
-            SetTeamColor(bullet.Team);
-        }
+            SetTeamColor(_bullet.Team);
+        }*/
     }
     public void Update()
     {
@@ -41,6 +44,7 @@ public class BulletVisual:MonoBehaviour
     }
     public void PlayExplosionVFX( Vector3 transform)
     {
-        PlayExplosionVFX(bullet.transform.position);
+        transform = _bullet.transform.position;
+        PlayExplosionVFX(transform);
     }
 }

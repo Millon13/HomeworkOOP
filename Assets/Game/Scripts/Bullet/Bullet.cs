@@ -14,10 +14,11 @@ public class Bullet:MonoBehaviour
     [SerializeField] public int Damage;
     [SerializeField] public float Speed;
     [SerializeField] private LayerMask _targetLayer;
-    public Action<Vector3> OnHandleHit;
+    public Action<Vector3> OnHit;
+
+    [SerializeField] private Transform _bulletTransform;
+   [SerializeField] private BulletVisual _visual;
     
-   // private BulletVisual _visual;
-    //private BulletSpawner _spawner;
 
     
     public void Initialize(int damage,float  speed, Vector2 direction, TeamType team)
@@ -48,33 +49,30 @@ public class Bullet:MonoBehaviour
         var visual = GetComponent<BulletVisual>();
         visual?.SetTeamColor(team);
     }
-    public class BulletMover : MonoBehaviour
+
+
+    private void Awake()
     {
-        [SerializeField] private Bullet _bullet;
-        [SerializeField] private Transform _bulletTransform;
-
-        private void Awake()
-        {
-            _bullet = GetComponent<Bullet>();
-            _bulletTransform = transform;
-            this.enabled = true;
-            if (_bullet == null)
-                Debug.LogError("Bullet component missing on " + gameObject.name);
-        }
-        private void Update()
-        {
-            Move(Time.deltaTime * 200);
-            Debug.Log("Move delt");
-        }
-
-        public void Move(float deltaTime)
-        {
-            Vector3 moveStep = _bullet.Direction * _bullet.Speed * deltaTime;
-            Debug.Log($"Direction{_bullet.Direction},_bullet.Speed{_bullet.Speed},deltaTime{deltaTime}");
-            this.transform.position += moveStep;
-            _bullet.transform.rotation = Quaternion.LookRotation(_bullet.Direction, Vector3.forward);
-        }
+        this.GetComponent<Bullet>();
+        _bulletTransform = transform;
+        this.enabled = true;
+        if (this == null)
+            Debug.LogError("Bullet component missing on " + gameObject.name);
     }
+    private void Update()
+    {
+        Move(Time.deltaTime * 200);
+        Debug.Log("Move delt");
+    }
+
+    public void Move(float deltaTime)
+    {
+        Vector3 moveStep = this.Direction * this.Speed * deltaTime;
+        Debug.Log($"Direction{this.Direction},_bullet.Speed{this.Speed},deltaTime{deltaTime}");
+        this.transform.position += moveStep;
+        this.transform.rotation = Quaternion.LookRotation(this.Direction, Vector3.forward);
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!IsValidTarget(other))
@@ -94,8 +92,8 @@ public class Bullet:MonoBehaviour
 
     private void HandleHit()
     {
-        OnHandleHit?.Invoke(this.transform.position);
-      //  _visual?.PlayExplosionVFX(transform.position);
+       // OnHandleHit?.Invoke(this.transform.position);
+      _visual?.PlayExplosionVFX(transform.position);
         
     }
     public void SetOrientation(Bullet bullet, Vector2 position, Vector2 direction)

@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b64b39bad24a747af76c5d9a2cb037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::BulletPool
-  _bulletPrefab: {fileID: 0}
-  _container: {fileID: 0}
+  _bulletPrefab: {fileID: -5224738744410918844, guid: 4a5d4fe3266a20c439bd2f9fe506c7f5, type: 3}
+  _container: {fileID: 1524540282879537156, guid: 4a5d4fe3266a20c439bd2f9fe506c7f5, type: 3}
+  _levelBounds: {fileID: 5101950151031465412, guid: 454669a1dac74694ba1ea89e330ba92d, type: 3}
+  poolsize: 10

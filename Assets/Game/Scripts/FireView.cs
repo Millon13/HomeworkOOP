@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FireView
+public class FireView:MonoBehaviour
 {
     [SerializeField] private Fire _fire;
     [SerializeField] private ParticleSystem _fireVFX;
