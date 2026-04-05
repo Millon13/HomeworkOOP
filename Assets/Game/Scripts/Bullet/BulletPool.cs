@@ -14,11 +14,13 @@ public class BulletPool:MonoBehaviour
     private float speed;
     private Vector2 direction;
     private Vector2 position;
-    private TeamType type;
+    
     private readonly Stack<Bullet> _pool = new();
     private readonly List<Bullet> _activeBullets = new();
+    [SerializeField]private TeamType type;
     public void Awake()
     {
+        
         //var config = GetComponent<BulletViewConfig>();
         for (var i = 0; i <poolsize ; i++)
         {
@@ -31,6 +33,10 @@ public class BulletPool:MonoBehaviour
             bullet.gameObject.SetActive(false);
             _pool.Push(bullet);
         }
+    }
+    public void OnEnable()
+    {
+        _bulletPrefab.OnReturnToPool += ReturnToPool;
     }
     public void ReturnToPool(Bullet bullet)
     {
@@ -51,15 +57,32 @@ public class BulletPool:MonoBehaviour
             bullet.gameObject.SetActive(true);
         else
             bullet = Instantiate(_bulletPrefab, _container);
-        bullet.Initialize(damage, speed, direction, type);
+        bullet.Initialize(damage, speed, direction, type,position);
+        AddActiveBullets(bullet);
         return bullet;
+    }
+    public void AddActiveBullets( Bullet bullet)
+    {
+        _activeBullets.Add(bullet);
+    }
+    public Bullet GetBullet()
+    {
+        if (_pool.Count > 0)
+        {
+            return _pool.Pop();
+        }
+        else
+        {
+            Bullet bullet = Instantiate(_bulletPrefab, _container);
+            return bullet;
+        }
     }
     public void FixedUpdate()
     {
-        for (int i = _activeBullets.Count - 1; i >= 0; i--)
+        for (int i = _activeBullets.Count-1 ; i >= 0; i--)
         {
             Bullet bullet = _activeBullets[i];
-
+          
             if (bullet == null || !bullet.gameObject.activeSelf)
             {
                 _activeBullets.RemoveAt(i);
@@ -68,9 +91,9 @@ public class BulletPool:MonoBehaviour
 
             if (_levelBounds != null && !_levelBounds.InBounds(bullet.transform.position))
             {
-                // ¬озвращаем пулю в пул при выходе за границы
-                this.ReturnToPool(bullet);
-                _activeBullets.RemoveAt(i);
+              
+               ReturnToPool(bullet);
+              
             }
         }
     }

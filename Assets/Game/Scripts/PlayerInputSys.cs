@@ -7,14 +7,16 @@ public class PlayerInputSys : MonoBehaviour// сам должен получать игрока и им кр
 {
     public float dx, dy;
     [SerializeField] private ShipController playerShip;
-    //[SerializeField] private ShipController shipController;
+    
     [SerializeField] private Fire PlayerFire;
 
     public void Update()
     {
+        
         Move();
         Fire();
     }
+
     public void Move()
     {
         
@@ -29,8 +31,10 @@ public class PlayerInputSys : MonoBehaviour// сам должен получать игрока и им кр
     {
         if (Input.GetKeyDown(KeyCode.Space))
 
-        { 
-            PlayerFire.FireTo();
+        {
+            Vector2 direction = playerShip.GetFireDirection();
+            Vector2 spawnPosition = PlayerFire._firePoint.position;
+            PlayerFire.FireTo(spawnPosition,direction);
             //bulletFire.Fire();
             Debug.Log("DoFire In Player");
         }

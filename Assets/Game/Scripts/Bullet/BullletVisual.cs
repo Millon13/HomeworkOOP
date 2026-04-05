@@ -45,6 +45,6 @@ public class BulletVisual:MonoBehaviour
     public void PlayExplosionVFX( Vector3 transform)
     {
         transform = _bullet.transform.position;
-        PlayExplosionVFX(transform);
+        InstantiateVFX(transform);
     }
 }

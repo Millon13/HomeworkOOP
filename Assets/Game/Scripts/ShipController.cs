@@ -32,11 +32,13 @@ namespace Game
         {
             _fire.CanFire = _health.isAlive;
             _motor.CanMove = _health.isAlive;
+            //_health.OnHealthChanged += OnSubstactHealth;
           
 
         }
-        public void SubstactHealth(int health)
+        public void OnSubstactHealth(int health)
         {
+            
           _health.currentHealth -=health;
             
         }
@@ -56,8 +58,13 @@ namespace Game
                 _motor.SetSpeed(_motor._speed);
                 _motor.MoveStep(moveDirection);
             }
+            else
+                return;
+
            
         }
+
+     
 
         public Vector2 GetFireDirection()
         {

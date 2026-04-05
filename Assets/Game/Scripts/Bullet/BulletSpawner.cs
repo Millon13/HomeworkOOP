@@ -53,7 +53,7 @@ public class BulletSpawner:MonoBehaviour
         //  Spawn();
 
 
-        for (int i = _bullets.Count - 1; i >= 0; i--)
+        /*for (int i = _bullets.Count - 1; i >= 0; i--)
         {
 
             Bullet bullet = _bullets[i];
@@ -73,7 +73,7 @@ public class BulletSpawner:MonoBehaviour
 
 
 
-        }
+        }*/
     }
   
     private void Awake()
@@ -90,12 +90,17 @@ public class BulletSpawner:MonoBehaviour
         //_bullet.Initialize(damage, speed, direction,type);
         // _bulletPool.SetOrientation(_bullet, position, direction);
         Bullet bullet = _bulletPool.TryPop(position, direction, damage, speed);
-        
-        AddBullet(bullet);
+       
        
     }
-  
-
+    public Bullet Spawn(Vector2 position, Vector2 direction, int damage, float speed, TeamType team)
+    {
+        Bullet bullet = _bulletPool.GetBullet();
+        bullet.Initialize(damage, speed, direction, team, position);
+        bullet.gameObject.SetActive(true);
+        _bulletPool.AddActiveBullets(bullet);
+        return bullet;
+    }
     public void AddBullet(Bullet bullet)
     {
         _bullets.Add(bullet);

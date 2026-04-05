@@ -15,21 +15,27 @@ public class Bullet:MonoBehaviour
     [SerializeField] public float Speed;
     [SerializeField] private LayerMask _targetLayer;
     public Action<Vector3> OnHit;
+    public Action<Bullet> OnReturnToPool;
+
 
     [SerializeField] private Transform _bulletTransform;
    [SerializeField] private BulletVisual _visual;
+    private BulletPool _pool;
+    private bool hitDetected;
     
-
-    
-    public void Initialize(int damage,float  speed, Vector2 direction, TeamType team)
+    public void Initialize(int damage,float  speed, Vector2 direction, TeamType team,Vector2 position)
     {
         Damage = damage;
         Speed = speed;
         Direction = direction;
         Team = team;
-
+        transform.position = position;
         SetupLayer(team);
         SetupVisual(team);
+
+        // Находим пул
+        if (_pool == null)
+            _pool = FindObjectOfType<BulletPool>();
     }
 
     private void SetupLayer(TeamType team)
@@ -61,30 +67,54 @@ public class Bullet:MonoBehaviour
     }
     private void Update()
     {
-        Move(Time.deltaTime * 200);
+        
+        Move(Time.deltaTime);
         Debug.Log("Move delt");
     }
 
     public void Move(float deltaTime)
     {
-        Vector3 moveStep = this.Direction * this.Speed * deltaTime;
-        Debug.Log($"Direction{this.Direction},_bullet.Speed{this.Speed},deltaTime{deltaTime}");
-        this.transform.position += moveStep;
-        this.transform.rotation = Quaternion.LookRotation(this.Direction, Vector3.forward);
+
+        Vector3 moveStep = /*(Vector3)Direction*/new Vector3(Direction.x, Direction.y, 0) * Speed * deltaTime;
+        Debug.Log($"Direction{Direction},_bullet.Speed{Speed},deltaTime{deltaTime}");
+        transform.position += moveStep;
+        //transform.rotation = Quaternion.LookRotation(Direction, Vector3.forward);
     }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
+        bool valid = IsValidTarget(other);
+        Debug.Log($"validLayer{valid}");
         if (!IsValidTarget(other))
             return;
-
+       
         if (other.TryGetComponent(out IDamageable damageable))
         {
             damageable.TakeDamage(Damage, Team);
-            HandleHit();
+            hitDetected = true;
+            
+           
         }
+        if (other.TryGetComponent(out Health health))
+        {
+            
+            health.TakeDamage(Damage);
+            hitDetected = true;
+        }
+        if (hitDetected)
+        {
+            HandleHit();
+            OnReturnToPool.Invoke(this);
+        }
+        
     }
+   
 
+    private void OnDisable()
+    {
+        // Очищаем ссылки при деактивации
+        _pool = null;
+    }
     private bool IsValidTarget(Collider2D other)
     {
         return ((1 << other.gameObject.layer) & _targetLayer) != 0;
@@ -92,8 +122,9 @@ public class Bullet:MonoBehaviour
 
     private void HandleHit()
     {
-       // OnHandleHit?.Invoke(this.transform.position);
+       OnHit?.Invoke(this.transform.position);
       _visual?.PlayExplosionVFX(transform.position);
+      
         
     }
     public void SetOrientation(Bullet bullet, Vector2 position, Vector2 direction)

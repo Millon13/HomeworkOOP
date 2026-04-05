@@ -22,13 +22,10 @@ public class EnemySpawner: MonoBehaviour
     [Header("Pool")]
     [SerializeField]
     private Enemy _prefab;
-
+    [SerializeField] private ShipController _enemy;
 
     private readonly Queue<Enemy> _pool = new();
 
-    [Header("Target")]
-    [SerializeField]
-    private ShipController _player;
 
     [SerializeField]
     private Transform _container;
@@ -65,17 +62,16 @@ public class EnemySpawner: MonoBehaviour
 
         if (_pool.TryDequeue(out Enemy enemy))
             enemy.gameObject.SetActive(true);
-        //else
-            //enemy = Instantiate(_prefab, _container);
+        else
+            enemy = Instantiate(_prefab, _container);
 
         enemy.transform.position = this.NextSpawnPosition();
         enemy.destination = this.NextDestination();
-        //enemy.currentHealth = enemy.config.Health;
+        
 
-       // enemy.target = _player;
-       // enemy.SetDespawner(this);
-        //enemy.OnFire += this.OnFire;
-
+        //enemy._target = _player;
+        enemy.SetDespawner(enemy._despawner);
+     
         this.ResetSpawnCooldown();
     }
     private void ResetSpawnCooldown()

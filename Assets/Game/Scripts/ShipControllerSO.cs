@@ -8,7 +8,7 @@ namespace Game
     {
         [Header("Core")]
         [field: SerializeField]
-        public int Health { get; private set; } = 5;
+        public int Health { get; private set; } = 10;
 
         [field: SerializeField]
         public float MoveSpeed { get; private set; } = 5;

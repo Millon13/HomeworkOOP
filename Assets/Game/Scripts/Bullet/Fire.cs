@@ -37,16 +37,18 @@ public class Fire : MonoBehaviour
     }
 
 
-    public void FireTo()//он же должен стрелять
+    public void FireTo(Vector2 spawnPosition ,Vector2 direction)//он же должен стрелять
     {
        if(bullet!=null)
         {
            
             _bulletSpawner.Spawn(position, direction, damage, speed);
             if (_bulletSpawner != null && _firePoint != null)
-            {
-                Vector2 spawnPosition = _firePoint.position;
-                Vector2 direction = shipController.GetFireDirection();
+            { 
+                
+                DoFire();
+               
+                
 
                 _bulletSpawner.Spawn(
                     spawnPosition,
@@ -63,7 +65,7 @@ public class Fire : MonoBehaviour
 
 
 
-                DoFire();
+               
 
                 time = _fireCooldown;
             }
