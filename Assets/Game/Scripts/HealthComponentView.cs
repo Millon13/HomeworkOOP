@@ -30,23 +30,24 @@ public class HealthComponentView:MonoBehaviour
     [Header("UI")]
     [SerializeField]
     private GameOverView _gameOverView;
-    [SerializeField] ScoreView scoreView;
     [SerializeField]
     private HealthView _healthView;
     private void OnEnable()
     {
-
         _health.OnHealthChanged += this.OnHealthChanged;
-        
-        _health.OnDead += NotifyAboutDead;
+        _health.OnDead += this.NotifyAboutDead;
+
         if (_gameOverView != null)
             _health.OnDead += _gameOverView.Show;
+        
+
+
     }
     private void OnDisable()
     {
-        _health.OnHealthChanged += this.OnHealthChanged;
+        _health.OnHealthChanged -= this.OnHealthChanged;
      
-        _health.OnDead -= NotifyAboutDead;
+        _health.OnDead -= this.NotifyAboutDead;
 
         if (_gameOverView != null)
             _health.OnDead -= _gameOverView.Show;

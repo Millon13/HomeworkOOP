@@ -13,7 +13,6 @@ public class Health : MonoBehaviour
     [SerializeField] protected ShipControllerViewConfig _viewConfig;
     public event Action OnDead;
     public Transform _viewTransform;
-    private EnemySpawner enemySpawner;
     private IDamageHandler _damageHandler;
 
     public void SetDamageHandler(IDamageHandler handler) => _damageHandler = handler;
@@ -47,22 +46,13 @@ public class Health : MonoBehaviour
         StartCoroutine(InvokeHealth(currentHealth));
         if (currentHealth <= 0)
         {
-            this.OnDead?.Invoke();
+           
             isAlive = false;
+            OnDead?.Invoke();
         }
+
             
-      
-        if (TryGetComponent(out Enemy enemy))
-        {
-            if (currentHealth <= 0)
-            {
-                isAlive = false;
-                enemySpawner = FindObjectOfType<EnemySpawner>();
-                enemySpawner.Despawn(enemy);
-        
-            }
-        
-        }
+   
                 
     }
     private IEnumerator InvokeHealth(int health)
@@ -71,7 +61,8 @@ public class Health : MonoBehaviour
             yield return null; 
             try
             {
-                OnHealthChanged?.Invoke(health);
+                if (this != null && gameObject != null)
+                    OnHealthChanged?.Invoke(health);
             }
             catch (System.Exception e)
             {

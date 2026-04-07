@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 6408074488511246048}
   - component: {fileID: 4045664137767017240}
   - component: {fileID: 2470012755855167141}
-  - component: {fileID: 4149615528036227137}
   - component: {fileID: 129799594079283337}
   m_Layer: 11
   m_Name: EnemyShip
@@ -287,23 +286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game::Health
   isAlive: 0
   currentHealth: 10
-  _animations: {fileID: 0}
   _viewConfig: {fileID: 11400000, guid: f6ecf0b3d1d004b3893cc42c64995303, type: 2}
   _viewTransform: {fileID: 3470145497817149085}
---- !u!114 &4149615528036227137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559606060570185700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2f5150f56ce10948a879a5e2a59bdb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Game::Dead
-  _viewConfig: {fileID: 11400000, guid: f6ecf0b3d1d004b3893cc42c64995303, type: 2}
-  _viewTransform: {fileID: 2436226342499269388}
 --- !u!114 &129799594079283337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +306,6 @@ MonoBehaviour:
   _bulletPool: {fileID: 5949165060419538097}
   _prefab: {fileID: 1792520480472378965}
   _container: {fileID: 3195880656587174614}
-  _player: {fileID: 0}
   _spawnPositions: []
   _attackPositions: []
 --- !u!1 &1074127585690423075
@@ -387,7 +370,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6321127838545254930}
-  - {fileID: 5888830579680181483}
   m_Father: {fileID: 3470145497817149085}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5509963527263873350
@@ -5259,60 +5241,6 @@ MonoBehaviour:
   _fireVFX: {fileID: 1792961037914348205}
   _fireSFX: {fileID: 0}
   _audioSource: {fileID: 0}
---- !u!1 &9072883922708120294
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5888830579680181483}
-  - component: {fileID: 41386546729644302}
-  m_Layer: 11
-  m_Name: HealthComponent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5888830579680181483
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9072883922708120294}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6215180480115147056}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &41386546729644302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9072883922708120294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca2bdc3de09c1d244a75630fab53b06f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Game::HealthComponentView
-  _health: {fileID: 2470012755855167141}
-  _renderer: {fileID: 3392331705670148128}
-  config: {fileID: 11400000, guid: 342eb63e507d644daae6ffc27bd8fc71, type: 2}
-  _viewTransform: {fileID: 3470145497817149085}
-  _viewConfig: {fileID: 11400000, guid: f6ecf0b3d1d004b3893cc42c64995303, type: 2}
-  _audioSource: {fileID: 4560017961611896118}
-  _cameraShaker: {fileID: 0}
-  _gameOverView: {fileID: 0}
-  _healthView: {fileID: 0}
-  _damageSFX: {fileID: 8300000, guid: 1f935767ee8e39f4e94c84aa667aa532, type: 3}
 --- !u!1001 &2288120588623359950
 PrefabInstance:
   m_ObjectHideFlags: 0

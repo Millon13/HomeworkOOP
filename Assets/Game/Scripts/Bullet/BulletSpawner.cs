@@ -30,9 +30,7 @@ public class BulletSpawner:MonoBehaviour
     private readonly Queue<Enemy> _pool = new();
 
 
-    [Header("Target")]
-    [SerializeField]
-    private PlayerShip _player;
+  
 
     [Header("Points")]
     [SerializeField]

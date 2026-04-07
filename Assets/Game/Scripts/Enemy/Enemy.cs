@@ -24,7 +24,7 @@ namespace Game
         private float _fireTime;
         private float time;
 
-        [HideInInspector]
+        
         public IEnemyDespawner _despawner;
        
        // [SerializeField] private Dead dead;
@@ -39,14 +39,46 @@ namespace Game
     
         public void SetDespawner(IEnemyDespawner despawner) => _despawner = despawner;
 
-        
 
-       private void OnCharacterDead() => _despawner.Despawn(this);
+
+
+        private void OnCharacterDead()
+        {
+            if (this == null || gameObject == null)
+                return;
+
+            Debug.Log($"Enemy {gameObject.name} died");
+            Health health = GetComponent<Health>();
+            if (health != null)
+                health.OnDead -= OnCharacterDead;
+
+            if (_despawner == null)
+            {
+                _despawner = FindObjectOfType<MonoBehaviour>() as IEnemyDespawner;
+
+                var spawner = FindObjectOfType<EnemySpawner>();
+                if (spawner != null && spawner is IEnemyDespawner)
+                {
+                    _despawner = spawner as IEnemyDespawner;
+                }
+
+                if (_despawner == null)
+                {
+                    Debug.LogError($"No IEnemyDespawner found in scene for {gameObject.name}");
+                    Destroy(gameObject);
+                    return;
+                }
+            }
+
+            _despawner.Despawn(this);
+        }
+        
 
         public void Awake()
         {
             PlayerInputSys player = FindObjectOfType<PlayerInputSys>();
             _target = player.GetComponent<ShipController>();
+
         }
         public void Update()
      { 
@@ -92,21 +124,24 @@ namespace Game
         }
         private void OnEnable()
         {
-          
-            if (TryGetComponent(out Health health))
+            Health health = GetComponent<Health>();
+            if (health != null)
                 health.OnDead += this.OnCharacterDead;
         }
 
 
         private void OnDisable()
         {
-
-            if (TryGetComponent(out Health health))
-                health.OnDead -= this.OnCharacterDead;
+            // Отписываемся при деактивации
+            Health health = GetComponent<Health>();
+            if (health != null)
+                health.OnDead -= OnCharacterDead;
         }
 
-
-
+        public void Despawn(Enemy enemy)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

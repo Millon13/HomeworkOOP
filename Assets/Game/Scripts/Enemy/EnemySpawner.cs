@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 using System.Collections;
 using Codice.Client.Common.GameUI;
 
-public class EnemySpawner: MonoBehaviour
+public class EnemySpawner: MonoBehaviour, IEnemyDespawner
 { [Header("Spawn")]
         [SerializeField]
         private float _minSpawnCooldown = 2;

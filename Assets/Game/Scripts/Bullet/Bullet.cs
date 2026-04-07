@@ -104,7 +104,8 @@ public class Bullet:MonoBehaviour
         if (hitDetected)
         {
             HandleHit();
-            OnReturnToPool.Invoke(this);
+            
+            //OnReturnToPool.Invoke(this);
         }
         
     }
