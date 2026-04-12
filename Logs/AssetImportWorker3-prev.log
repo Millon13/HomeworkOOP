@@ -1,0 +1,578 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.2/staging' branch; Version is '6000.2.15f1 (0707b6d1e918) revision 460726'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Professional' Language: 'ru' Physical Memory: 65377 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-o4eaZeR4PsZzw8vY6SHrN" at "2026-04-12T13:59:02.5416567Z"
+Date: 2026-04-12T13:59:02Z
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.2.15f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker3
+-projectPath
+C:/Users/1/Documents/GitHub/HomeworkOOP
+-logFile
+Logs/AssetImportWorker3.log
+-srvPort
+57517
+-licensingIpc
+LicenseClient-o4eaZeR4PsZzw8vY6SHrN
+-job-worker-count
+5
+-background-job-worker-count
+8
+-gc-helper-count
+1
+-name
+AssetImport
+Successfully changed project path to: C:/Users/1/Documents/GitHub/HomeworkOOP
+C:/Users/1/Documents/GitHub/HomeworkOOP
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [16924]  Target information:
+
+Player connection [16924]  * "[IP] 192.168.1.7 [Port] 0 [Flags] 2 [Guid] 2043845556 [EditorId] 2043845556 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-UP8DEDE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [16924] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [16924] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 46.78 ms, found 7 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.2.15f1 (0707b6d1e918)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.2.15f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/1/Documents/GitHub/HomeworkOOP/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 (ID=0x2504)
+    Vendor:   NVIDIA
+    VRAM:     12115 MB
+    Driver:   32.0.15.9186
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.2.15f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.2.15f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.2.15f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56996
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.2.15f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004171 seconds.
+- Loaded All Assemblies, in  1.173 seconds
+Native extension for WindowsStandalone target not found
+[Licensing::Client] Error: HandshakeResponse reported an error:
+	ResponseCode: 505
+	ResponseStatus: Unsupported protocol version '1.17.4'.
+[Licensing::Module] Error: Failed to handshake to channel: "LicenseClient-o4eaZeR4PsZzw8vY6SHrN"
+[Licensing::IpcConnector] LicenseClient-o4eaZeR4PsZzw8vY6SHrN channel disconnected successfully.
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-1-6000.2.15" at "2026-04-12T13:59:05.8842887Z"
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.835 seconds
+Domain Reload Profiling: 2004ms
+	BeginReloadAssembly (428ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (101ms)
+	RebuildNativeTypeToScriptingClass (35ms)
+	initialDomainReloadingComplete (108ms)
+	LoadAllAssembliesAndSetupDomain (497ms)
+		LoadAssemblies (422ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (492ms)
+			TypeCache.Refresh (489ms)
+				TypeCache.ScanAssembly (444ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (836ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (719ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (104ms)
+			SetLoadedEditorAssemblies (7ms)
+			BeforeProcessingInitializeOnLoad (159ms)
+			ProcessInitializeOnLoadAttributes (305ms)
+			ProcessInitializeOnLoadMethodAttributes (143ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              c50a39b816e642989e826eb864fb5174
+  Correlation Id:          c63d283a768a647501042ed88062c0f5
+  External correlation Id: 1207606395989178680
+  Machine Id:              6fiYWAOOztwpvCd9MFg5AYxRyno=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-1-6000.2.15" (connect: 0.00s, validation: 0.00s, handshake: 2.55s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-1-6000.2.15-notifications" at "2026-04-12T13:59:08.4403505Z"
+[Licensing::Module] Licensing Background thread has ended after 5.90s
+[Licensing::Module] Licensing is initialized (took 1.54s).
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-GBTE-X4VW-QSVG-B2WS-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 10171100142060-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+- Loaded All Assemblies, in  3.464 seconds
+Refreshing native plugins compatible for Editor in 7.14 ms, found 7 plugins.
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.525 seconds
+Domain Reload Profiling: 5978ms
+	BeginReloadAssembly (1866ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (14ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (43ms)
+	RebuildCommonClasses (69ms)
+	RebuildNativeTypeToScriptingClass (28ms)
+	initialDomainReloadingComplete (74ms)
+	LoadAllAssembliesAndSetupDomain (1416ms)
+		LoadAssemblies (920ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (687ms)
+			TypeCache.Refresh (505ms)
+				TypeCache.ScanAssembly (468ms)
+			BuildScriptInfoCaches (131ms)
+			ResolveRequiredComponents (36ms)
+	FinalizeReload (2526ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2099ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (9ms)
+			BeforeProcessingInitializeOnLoad (279ms)
+			ProcessInitializeOnLoadAttributes (1046ms)
+			ProcessInitializeOnLoadMethodAttributes (754ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (12ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 6.33 ms, found 7 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6498 unused Assets / (5.2 MB). Loaded Objects now: 7262.
+Memory consumption went from 151.9 MB to 146.8 MB.
+Total: 12.842000 ms (FindLiveObjects: 0.930100 ms CreateObjectMapping: 1.124100 ms MarkObjects: 7.424000 ms  DeleteObjects: 3.362200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 682035.807588 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Muzzleflash/Magic/Ice
+  artifactKey: Guid(c00696fd566f87f4eb5062c26be2c59e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Muzzleflash/Magic/Ice using Guid(c00696fd566f87f4eb5062c26be2c59e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '7aa19dddeb477bee8f237c71ac419686') in 0.1188817 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Muzzleflash/Sci-Fi/Rocket
+  artifactKey: Guid(faa9370f95254a249841d67ca195d3e4) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Muzzleflash/Sci-Fi/Rocket using Guid(faa9370f95254a249841d67ca195d3e4) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '01cab85e83f193d409df1bec79fdfcb4') in 0.0133113 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Interactive/Powerups/Icons Holo
+  artifactKey: Guid(10fe3df1fd8dd5e40be1224841145f46) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Interactive/Powerups/Icons Holo using Guid(10fe3df1fd8dd5e40be1224841145f46) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3dff50576a61755bfd6cea58df742621') in 0.0169335 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Samples/Universal Render Pipeline/17.2.0/URP Package Samples/CameraStacking/SplitScreen
+  artifactKey: Guid(eba33c3c5a4b84f428feb7bd5c0a98b8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Samples/Universal Render Pipeline/17.2.0/URP Package Samples/CameraStacking/SplitScreen using Guid(eba33c3c5a4b84f428feb7bd5c0a98b8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '7d91f80e81604c9336123d11fa6f325f') in 0.0153388 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Missiles/Magic/Holy
+  artifactKey: Guid(25d08200fa53a854ca718fc85c70df31) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Missiles/Magic/Holy using Guid(25d08200fa53a854ca718fc85c70df31) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6ce8f1330c7d7fdaa2d7944531fb0b41') in 0.0133553 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Interactive/Treasure
+  artifactKey: Guid(2117361c9a412eb4085274285942c88c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Interactive/Treasure using Guid(2117361c9a412eb4085274285942c88c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f740062df5d77b315a528d97f5c5c01a') in 0.0137651 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Sound/Wav
+  artifactKey: Guid(ef018bf54e836ac479f0a4ecaa4eb622) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Sound/Wav using Guid(ef018bf54e836ac479f0a4ecaa4eb622) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '93b46b72e8d7ffb5e182cef59db86f33') in 0.013012 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Demo/Missile Prefabs/Proton
+  artifactKey: Guid(ee8a8856f0795054fbd02b1b6d00f806) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Demo/Missile Prefabs/Proton using Guid(ee8a8856f0795054fbd02b1b6d00f806) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '35bba3084fd1be2f0db7b618cc2a0c28') in 0.0137875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Gore/Red
+  artifactKey: Guid(56a2af1ac0c6c1c4d9c44ab7c32ee338) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Gore/Red using Guid(56a2af1ac0c6c1c4d9c44ab7c32ee338) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6b5bb8f97c0973002eacc1a5b6119580') in 0.0162309 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Dash
+  artifactKey: Guid(96d195aba800e2a4b88e2de80e39f48e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Dash using Guid(96d195aba800e2a4b88e2de80e39f48e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b4761643fe61a8bbd290219ebdca6226') in 0.0116077 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Interactive/Sparkle
+  artifactKey: Guid(8da59388deb06f4459a7073b73dc91ef) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Interactive/Sparkle using Guid(8da59388deb06f4459a7073b73dc91ef) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '61c0e320d4b1d9132a0206d20c8f597d') in 0.0113381 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Samples/Universal Render Pipeline/17.2.0/URP Package Samples/SharedAssets/Settings
+  artifactKey: Guid(84526027066e74d57abd1d4fe7fe7dd9) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Samples/Universal Render Pipeline/17.2.0/URP Package Samples/SharedAssets/Settings using Guid(84526027066e74d57abd1d4fe7fe7dd9) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'bd3d7d2239bf26a7a1bcf9d2d713a001') in 0.013788 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Explosions/Sci-Fi/BlackHole
+  artifactKey: Guid(2bb3747286894c749a4b8010982e79c7) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Explosions/Sci-Fi/BlackHole using Guid(2bb3747286894c749a4b8010982e79c7) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '389d268b1d1bc5311678123277e33171') in 0.015239 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Charge
+  artifactKey: Guid(f7d713208f284374db37da15b381451d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Charge using Guid(f7d713208f284374db37da15b381451d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6fb3f08df61d2bac4e5b07f58874eb70') in 0.1286677 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Explosions/Sci-Fi/Antimatter
+  artifactKey: Guid(d3361433ea5508a419c005b68aeeccba) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Explosions/Sci-Fi/Antimatter using Guid(d3361433ea5508a419c005b68aeeccba) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '444c6710ff0fb58065eb7c900b03ca02') in 0.0148978 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Explosions/Magic/Stone
+  artifactKey: Guid(aae76ef2a59b2834cad8415cf7650c32) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Explosions/Magic/Stone using Guid(aae76ef2a59b2834cad8415cf7650c32) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f0e3489df802f2db9ca82e92cde011d1') in 0.0124872 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Melee & Sword/Sword Slash/Purple
+  artifactKey: Guid(4932e0bf7d8a82642a1f21efba2d9967) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Melee & Sword/Sword Slash/Purple using Guid(4932e0bf7d8a82642a1f21efba2d9967) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '901ee2e742d0fa17c8477af34a09d470') in 0.0129983 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Chains/Chained
+  artifactKey: Guid(c9970ed7fe29a91408c44e4e713ce021) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Chains/Chained using Guid(c9970ed7fe29a91408c44e4e713ce021) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '01a94c1bb714ef9a33d7542be9057df7') in 0.0127307 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Samples/Universal Render Pipeline/17.2.0/URP Package Samples/SharedAssets/Textures
+  artifactKey: Guid(014ab03fd7d0a49489c300c887297cce) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Samples/Universal Render Pipeline/17.2.0/URP Package Samples/SharedAssets/Textures using Guid(014ab03fd7d0a49489c300c887297cce) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '32c59126f8feff34d841b35879677172') in 0.0151238 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Explosions/Sci-Fi/Rocket
+  artifactKey: Guid(83dd012f2fe1d7c4cb17b5a2f5a51ed5) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Explosions/Sci-Fi/Rocket using Guid(83dd012f2fe1d7c4cb17b5a2f5a51ed5) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '11d382f8a77cc71ffa0cffd5e1f86c90') in 0.0143687 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Materials/Rimlight/Solid
+  artifactKey: Guid(f51cee27b563e0242a4616f4e2794375) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Materials/Rimlight/Solid using Guid(f51cee27b563e0242a4616f4e2794375) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8ff3448eea0d14266d7c7c39cebe7a9e') in 0.0116028 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Muzzleflash/Sci-Fi/Sharp
+  artifactKey: Guid(d0b2578453576804db29b54477523744) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Muzzleflash/Sci-Fi/Sharp using Guid(d0b2578453576804db29b54477523744) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '265f40fda8ff10293af97dd644b084f8') in 0.0109506 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Demo/Missile Prefabs/Crystal
+  artifactKey: Guid(4bbeda9413d92624ea330f5bb889ef1e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Demo/Missile Prefabs/Crystal using Guid(4bbeda9413d92624ea330f5bb889ef1e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'cb1c7d3b67cafc2cbb1f4643876f1c93') in 0.010298 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Explosions/Magic/Shadow
+  artifactKey: Guid(cf4b0edc5d4053d439c9d155e34234c7) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Explosions/Magic/Shadow using Guid(cf4b0edc5d4053d439c9d155e34234c7) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0e0ce8aca5a40b264e6611722fd3c0aa') in 0.0108944 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Demo/Missile Prefabs/Bullet
+  artifactKey: Guid(80bc38393c20a104b8000a6ff3e76e26) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Demo/Missile Prefabs/Bullet using Guid(80bc38393c20a104b8000a6ff3e76e26) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '7d6c2df330258a2b91cfb535cfaeb8d2') in 0.0144986 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Demo/Missile Prefabs/Ice
+  artifactKey: Guid(9e989576734e83d4da6f2523104f8195) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Demo/Missile Prefabs/Ice using Guid(9e989576734e83d4da6f2523104f8195) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3a57c4fced965ee30191254e093fc37b') in 0.0106654 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Muzzleflash/Sci-Fi/Antimatter
+  artifactKey: Guid(a99ffc790e06c40479bfcf502b44d424) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Muzzleflash/Sci-Fi/Antimatter using Guid(a99ffc790e06c40479bfcf502b44d424) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '70005ac87c8a8d638e3b28b045b103dd') in 0.0132679 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Missiles/Sci-Fi/Antimatter
+  artifactKey: Guid(dc5c8c48a6e6db140bbf1e5b1db1501f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Missiles/Sci-Fi/Antimatter using Guid(dc5c8c48a6e6db140bbf1e5b1db1501f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e996057ce22d787ee7348d6298c81d74') in 0.0111357 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Interactive/BlackHole
+  artifactKey: Guid(1dc7af75e2cc69a47842f4f88783196d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Interactive/BlackHole using Guid(1dc7af75e2cc69a47842f4f88783196d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1748b0a655b892414eb24efff0a29c60') in 0.0120323 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.741592 seconds.
+  path: Assets/Plugins/Demigiant/DOTween/Modules
+  artifactKey: Guid(143604b8bad857d47a6f7cc7a533e2dc) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Plugins/Demigiant/DOTween/Modules using Guid(143604b8bad857d47a6f7cc7a533e2dc) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '96db72d128b2c11fd7a34eefcc99df38') in 0.0142737 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/GroundSpikes/SpikeWaveBig
+  artifactKey: Guid(1c9b716590596b74690034842e741f59) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/GroundSpikes/SpikeWaveBig using Guid(1c9b716590596b74690034842e741f59) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '770037ccda56ea75e52579edf1892567') in 0.0112175 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Environment/FloorTrap
+  artifactKey: Guid(e5b272d549c59394a8bb154c70f53aba) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Environment/FloorTrap using Guid(e5b272d549c59394a8bb154c70f53aba) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '580dc519b5004fc055ab6d0d900053d5') in 0.0156177 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Game/Prefabs/_FirePoint_ 2.prefab
+  artifactKey: Guid(288898a2a9d1e684fbdfd8b732ae0eac) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Game/Prefabs/_FirePoint_ 2.prefab using Guid(288898a2a9d1e684fbdfd8b732ae0eac) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '827a2bf886f7e616da52537ff0825a2f') in 0.0915613 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 23
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Environment/Bubbles
+  artifactKey: Guid(834f21836c521bb4cbc7f6ca8054b110) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Environment/Bubbles using Guid(834f21836c521bb4cbc7f6ca8054b110) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9892227d2d1b58a7f11c3340ddce2411') in 0.0161771 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Gore
+  artifactKey: Guid(e2102eeb939c8c041b80aa663791660f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Gore using Guid(e2102eeb939c8c041b80aa663791660f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd8a2438285207ec6e6c2d735395235ec') in 0.0146761 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/_Recovery
+  artifactKey: Guid(7bb0bcf9f747f40428bb34d19082dfa3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/_Recovery using Guid(7bb0bcf9f747f40428bb34d19082dfa3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '5b8f45fc1ee311ea35fe930cad0cebe3') in 0.0161189 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Necromancy/BoneCleave
+  artifactKey: Guid(1bf9285c99a620741a008e14d4d54f8f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Necromancy/BoneCleave using Guid(1bf9285c99a620741a008e14d4d54f8f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f40f531d21e40d56fb8dae29e666f25c') in 0.0126446 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Demo/Missile Prefabs/Nuke
+  artifactKey: Guid(af5d1b98cabdb2346b1e20779d85aaa7) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Demo/Missile Prefabs/Nuke using Guid(af5d1b98cabdb2346b1e20779d85aaa7) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'bce5fdd6552671fd7513d61e1934439c') in 0.0562586 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000066 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Materials/Gradients
+  artifactKey: Guid(277ce93019a4c3e468020168d4475617) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Materials/Gradients using Guid(277ce93019a4c3e468020168d4475617) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'cfa7ed8ac028ea118f7d875f501fb564') in 0.0153858 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Chains/ChainTarget
+  artifactKey: Guid(f80de1822f3e80a469bf16398fee47ca) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Combat/Chains/ChainTarget using Guid(f80de1822f3e80a469bf16398fee47ca) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b3460145994665d90fa3426e49faadd1') in 0.0141124 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Tools/SimpleFolderIcon/Icons/Default
+  artifactKey: Guid(8b577a1a895ebf649a74109c56ad6871) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Tools/SimpleFolderIcon/Icons/Default using Guid(8b577a1a895ebf649a74109c56ad6871) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '66913236561ab0bca8175b6d33057fd4') in 0.0149158 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000067 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Interactive/Treasure/Items/HoneyComb
+  artifactKey: Guid(0229c59a682c5a54a8eb062805afb46a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Interactive/Treasure/Items/HoneyComb using Guid(0229c59a682c5a54a8eb062805afb46a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '121bff0c8d207f35fa59b5606ccf0049') in 0.0112022 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Environment/Smoke/Steam
+  artifactKey: Guid(00190e5e7b85274489ef55997ae916f6) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Environment/Smoke/Steam using Guid(00190e5e7b85274489ef55997ae916f6) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '07cbb02e841a0325a30989517d72ad4b') in 0.0138381 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/3rdParty/Polygon Arsenal/Prefabs/Interactive/Treasure/Items/Gear
+  artifactKey: Guid(02fc81351233a6443b85fd692b9e1563) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/3rdParty/Polygon Arsenal/Prefabs/Interactive/Treasure/Items/Gear using Guid(02fc81351233a6443b85fd692b9e1563) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a5b62705a3308323643765f01213750c') in 0.0150609 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
