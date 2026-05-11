@@ -10,10 +10,7 @@ namespace Game
     public sealed class BulletViewConfig : ScriptableObject
     {
         [field: SerializeField]
-        public GameObject BlueVFX { get; private set; }
-        
-        [field: SerializeField]
-        public GameObject RedVFX { get; private set; }
+        public GameObject GeneralVFX { get; private set; }
         
         [field: SerializeField]
         public GameObject ExplosionVFX  { get; private set; }

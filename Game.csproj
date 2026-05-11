@@ -63,29 +63,33 @@
   <ItemGroup>
     <Compile Include="Assets\Game\Scripts\GameObjectsComponent\IEnemyDespawner.cs" />
     <Compile Include="Assets\Game\Scripts\System\TeamType.cs" />
+    <Compile Include="Assets\Game\Scripts\GameObjectsComponent\Components\ScoreController.cs" />
     <Compile Include="Assets\Game\Scripts\System\Bullet\BulletSpawner.cs" />
     <Compile Include="Assets\Game\Scripts\Dead.cs" />
-    <Compile Include="Assets\Game\Scripts\System\Enemy\EnemyOrchestrator.cs" />
     <Compile Include="Assets\Game\Scripts\System\Bullet\BulletPool.cs" />
     <Compile Include="Assets\Game\Scripts\System\Enemy\Enemy.cs" />
-    <Compile Include="Assets\Game\Scripts\UI\UI.cs" />
+    <Compile Include="Assets\Game\Scripts\System\Player\PlayerInputSys.cs" />
     <Compile Include="Assets\Game\Scripts\GameObjectsComponent\Components\Health.cs" />
-    <Compile Include="Assets\Game\Scripts\System\PlayerInputSys.cs" />
     <Compile Include="Assets\Game\Scripts\GameObjectsComponent\Components\FireView.cs" />
     <Compile Include="Assets\Game\Scripts\GameObjectsComponent\Ship\ShipControllerSO.cs" />
     <Compile Include="Assets\Game\Scripts\GameObjectsComponent\Components\HealthComponentView.cs" />
     <Compile Include="Assets\Game\Scripts\System\Enemy\EnemySpawner.cs" />
-    <Compile Include="Assets\Game\Scripts\UI\UIHealth.cs" />
+    <Compile Include="Assets\Game\Scripts\System\Enemy\SpawnPosition.cs" />
+    <Compile Include="Assets\Game\Scripts\GameObjectsComponent\Components\CameraController.cs" />
     <Compile Include="Assets\Game\Scripts\System\Bullet\BullletVisual.cs" />
+    <Compile Include="Assets\Game\Scripts\System\Bullet\BulletConfigEnemy.cs" />
     <Compile Include="Assets\Game\Scripts\System\Bullet\BulletPoolManager.cs" />
     <Compile Include="Assets\Game\Scripts\System\ShipControllerViewConfig.cs" />
     <Compile Include="Assets\Game\Scripts\System\Bullet\IDamageable.cs" />
     <Compile Include="Assets\Game\Scripts\System\Bullet\Bullet.cs" />
     <Compile Include="Assets\Game\Scripts\GameObjectsComponent\Ship\ShipController.cs" />
+    <Compile Include="Assets\Game\Scripts\GameObjectsComponent\Components\GameOverUIController.cs" />
     <Compile Include="Assets\Game\Scripts\System\Bullet\BulletViewConfig.cs" />
     <Compile Include="Assets\Game\Scripts\GameObjectsComponent\Components\Motor.cs" />
     <Compile Include="Assets\Game\Scripts\System\Bullet\BulletConfig.cs" />
+    <Compile Include="Assets\Game\Scripts\System\Enemy\CooldownConfig.cs" />
     <Compile Include="Assets\Game\Scripts\GameObjectsComponent\Components\Fire.cs" />
+    <Compile Include="Assets\Game\Scripts\System\Enemy\Cooldown.cs" />
     <Compile Include="Assets\Game\Scripts\GameObjectsComponent\Components\MotorView.cs" />
   </ItemGroup>
   <ItemGroup>

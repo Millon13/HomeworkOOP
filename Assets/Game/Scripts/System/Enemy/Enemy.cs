@@ -8,11 +8,10 @@ namespace Game
     {
        
         [Header("Enemy")] 
-        [SerializeField] private ShipController enemy;//получаем кораблик и дальше им управляем из енеми
-       //вместо наследования должно быть делигирование- делегат действие
+        [SerializeField] private ShipController enemy;
         private ShipController _target;
         public Vector2 destination;
-       
+        
         [SerializeField] private BulletSpawner _bulletspawner;
         [SerializeField]
         private float _fireCooldown = 1.25f;
@@ -23,11 +22,11 @@ namespace Game
 
         private float _fireTime;
         private float time;
-
+        private BulletConfig config;
+        private BulletViewConfig viewConfig;
         
         public IEnemyDespawner _despawner;
-       
-       // [SerializeField] private Dead dead;
+
         
         [Header("Movement")]
         private bool isNotReached;
@@ -69,8 +68,10 @@ namespace Game
                     return;
                 }
             }
-
+  
             _despawner.Despawn(this);
+            
+            
         }
         
 
@@ -78,7 +79,8 @@ namespace Game
         {
             PlayerInputSys player = FindObjectOfType<PlayerInputSys>();
             _target = player.GetComponent<ShipController>();
-
+            
+           
         }
         public void Update()
      { 
@@ -114,7 +116,7 @@ namespace Game
                         Vector2 target = _target.transform.position;
                         Vector2 direction = (target - position).normalized;
 
-                        fire.FireTo(position, direction);
+                        fire.FireTo(config,viewConfig,direction);
                         _fireTime = time;
                     }
                 }
@@ -132,7 +134,6 @@ namespace Game
 
         private void OnDisable()
         {
-            // Отписываемся при деактивации
             Health health = GetComponent<Health>();
             if (health != null)
                 health.OnDead -= OnCharacterDead;

@@ -12,24 +12,13 @@ public class BulletPool:MonoBehaviour
    
     [SerializeField]private int poolsize;
 
-    private int damage;
-
-    private float speed;
-
-    private Vector2 direction;
-
-    private Vector2 position;
-    
     private readonly Stack<Bullet> _pool = new();
 
-    //protected readonly List<Bullet> _activeBullets = new();
+    private readonly List<Bullet> _activeBullets = new List<Bullet>();
 
-    [SerializeField]private TeamType type;
 
     public void Awake()
     {
-        
-  
         for (var i = 0; i <poolsize ; i++)
         {
 
@@ -55,43 +44,48 @@ public class BulletPool:MonoBehaviour
 
         bullet.gameObject.SetActive(false);
 
-        _pool.Push(bullet);
+         _activeBullets.Remove(bullet);
+         _pool.Push(bullet);
 
-       // _activeBullets.Remove(bullet);
+      
     }
     public void PoolPush(Bullet bullet)
     {
         _pool.Push(bullet);
     }
-    public Bullet TryPop(Vector2 position,Vector2 direction,int damage,float speed)
+    public Bullet TryPop(BulletConfig config, BulletViewConfig viewConfig,Vector2 direction)
     {
         if (_pool.TryPop(out Bullet bullet))
             bullet.gameObject.SetActive(true);
         else
             bullet = Instantiate(_bulletPrefab, _container);
-        bullet.Initialize(damage, speed, direction, type,position);
+        bullet.Initialize(config, viewConfig,direction);
 
         AddActiveBullets(bullet);
 
         return bullet;
     }
+
     public void AddActiveBullets( Bullet bullet)
     {
-        //_activeBullets.Add(bullet);
+        _activeBullets.Add(bullet);
     }
-    public Bullet GetBullet()
+    public Bullet GetBullet(BulletConfig config, BulletViewConfig viewConfig, Vector2 direction)
     {
-        if (_pool.Count > 0)
-        {
-            return _pool.Pop();
-        }
-        else
-        {
-            Bullet bullet = Instantiate(_bulletPrefab, _container);
-            return bullet;
-        }
-    }
-    
 
+        Bullet bullet = _pool.Count > 0 ? _pool.Pop() : CreateNewBullet();
+        bullet.Initialize(config, viewConfig,direction);
+        bullet.gameObject.SetActive(true);
+        _activeBullets.Add(bullet);
+        return bullet;
+        
+    }
+
+    private Bullet CreateNewBullet()
+    {
+        Bullet bullet = Instantiate(_bulletPrefab, _container);
+        bullet.OnReturnToPool += ReturnToPool;
+        return bullet;
+    }
 
 }

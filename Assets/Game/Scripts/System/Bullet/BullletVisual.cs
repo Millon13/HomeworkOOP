@@ -8,47 +8,65 @@ public class BulletVisual:MonoBehaviour
 
     private Transform _transform;
 
-    [SerializeField] private GameObject _blueVFX;
+    private BulletConfig _config;
 
-    [SerializeField] private GameObject _redVFX;
-
-    [SerializeField] private GameObject _explosionVFX;
+    private BulletViewConfig _configView;
 
     public void Awake()
     {
         _bullet = GetComponent<Bullet>();
-    
     }
-    private void OnEnable()
-    {
-        _bullet.OnHit += this.OnHit;
 
-    }
-    private void OnDisable()
+    public void Initialize(BulletConfig config, BulletViewConfig viewConfig)
     {
-        _bullet.OnHit -= this.OnHit;
+        _config = config;
+        _configView = viewConfig;
+
+        SetupLayer(config.Team);
+        SetupVisual(config.Team);
+
+        if (_bullet != null)
+            _bullet.OnHit += this.OnHit;
+        
     }
+    private void OnDestroy()
+    {
+        if (_bullet != null)
+        {
+            _bullet.OnHit -= OnHit;
+        }
+    }
+
     private void OnHit(Vector3 obj)
     {
         this.PlayExplosionVFX(transform.position);
+    } 
+    private void SetupLayer(TeamType team)
+    {
+        gameObject.layer = team switch
+        {
+            TeamType.None => LayerMask.NameToLayer("Default"),
+            TeamType.Player => LayerMask.NameToLayer("PlayerBullet"),
+            TeamType.Enemy => LayerMask.NameToLayer("EnemyBullet"),
+            _ => throw new ArgumentOutOfRangeException()
+        };
     }
     public void SetTeamColor(TeamType team)
     {
-      
-        if (team == TeamType.Player)
+
+        if (team != TeamType.None)
         {
-            _blueVFX.SetActive(true);
-            _redVFX.SetActive(false);
+            _configView.GeneralVFX.SetActive(true);
         }
-        else if (team == TeamType.Enemy) 
-        {
-            _blueVFX.SetActive(false);
-            _redVFX.SetActive(true);
-        }
+    }
+    private void SetupVisual(TeamType team)
+    {
+        var visual = GetComponent<BulletVisual>();
+        visual?.SetTeamColor(team);
     }
     public void InstantiateVFX( Vector3 position)
     {
-        Instantiate(_explosionVFX, position, Quaternion.identity);
+        Instantiate(_configView.ExplosionVFX, position, Quaternion.identity);
     }
     public void PlayExplosionVFX( Vector3 transform)
     {

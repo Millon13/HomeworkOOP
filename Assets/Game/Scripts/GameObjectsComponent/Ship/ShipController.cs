@@ -13,10 +13,11 @@ namespace Game
     {
         
         [SerializeField] private Motor _motor;
+
         [SerializeField] private Health _health;
-        //[SerializeField] private Dead _dead;
+    
         [SerializeField] private Fire _fire;
-        //[SerializeField] private BulletSpawner spawner;
+ 
         [SerializeField] public TeamType teamType=TeamType.None;
 
         private bool CanMove;
@@ -33,19 +34,14 @@ namespace Game
             _fire.CanFire = _health.isAlive;
             _motor.CanMove = _health.isAlive;
             //_health.OnHealthChanged += OnSubstactHealth;
-          
-
         }
         public void OnSubstactHealth(int health)
         {
-            
-          _health.currentHealth -=health;
-            
+          _health.currentHealth -=health;  
         }
         public void ShipDeath()
 
         {
-
             if (_health.currentHealth < 0)
                 Destroy(gameObject);
         }
@@ -60,11 +56,7 @@ namespace Game
             }
             else
                 return;
-
-           
         }
-
-     
 
         public Vector2 GetFireDirection()
         {
@@ -80,75 +72,7 @@ namespace Game
             return fireDirection;
         }
 
-        // public Transform firePoint;
-        //public event Action<int> OnHealthChanged;
-        // public event Action OnDead;
-        // public event Action<BulletSpawner> OnFire;
-        //  public Transform _viewTransform;
-
-        //[SerializeField]
-        // protected ShipControllerViewConfig _viewConfig;
-        // [SerializeField] private BulletFire _bulletFire;
-        // [SerializeField] private BulletSpawner _bulletspawner;
-
-        //  public ShipControllerSO config;
-
-
-        //[Header("Health")]
-        // public int currentHealth;
-
-
-        //[Header("Movement")]
-
-        // protected Vector3 moveDirection;
-        // [SerializeField]
-        //protected Motor _motor;
-        // [SerializeField] protected Animations _animations;
-
-
-        /* private void Awake()
-         {
-             this.currentHealth = config.Health;
-            _motor.SetSpeed(config.MoveSpeed);
-
-             _animations.AnimateAwake(_viewConfig);
-
-         }*/
-
-
-
-        /*
-        protected void AnimateMovement(ShipControllerViewConfig _viewConfig)
-        {
-            _animations.AnimateMovement(Time.deltaTime, moveDirection, _viewTransform,_viewConfig);
-        }
-        
-
-
-
-        public void NotifyAboutHealthChanged(int health)
-        {
-            if (health > 0)
-                _animations.AnimateDamage(_viewConfig);
-
-            this.OnHealthChanged?.Invoke(health);
-        }
-
-        public void NotifyAboutDead()
-        {
-
-            
-            ParticleSystem prefab = _viewConfig.DestroyEffectPrefab;
-            Instantiate(prefab, _viewTransform.position, prefab.transform.rotation);
-
-            this.OnDead?.Invoke();
-        }
-        public void Fire(ShipController shipController)
-        {
-            this.OnFire?.Invoke(_bulletspawner);
-        }*/
-
-
+       
     }
 
     

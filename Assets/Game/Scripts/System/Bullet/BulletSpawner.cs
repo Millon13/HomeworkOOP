@@ -7,15 +7,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
+
+[RequireComponent(typeof(SpawnPosition))]
 public class BulletSpawner:MonoBehaviour
 {
-    [Header("Spawn")]
-    private float _minSpawnCooldown = 2;
-    private float _maxSpawnCooldown = 3;
-    [SerializeField] private float _spawnCooldown;
-    [SerializeField] private float _spawnTime;
+    [SerializeField] private SpawnPosition position;
+ 
     [SerializeField] private TransformBounds _levelBounds;
+
     [SerializeField] private BulletPool _bulletPool;
+
+    [SerializeField] private BulletConfig config;
+
+    [SerializeField] private BulletViewConfig viewConfig;
 
     private readonly List<Bullet> _bullets = new();
  
@@ -28,44 +33,30 @@ public class BulletSpawner:MonoBehaviour
 
     private readonly Queue<Enemy> _pool = new();
 
-
-  
-
-    [Header("Points")]
-    [SerializeField]
-    private Transform[] _spawnPositions;
-
-    [SerializeField]
-    private Transform[] _attackPositions;
-
-    private int _spawnIndex;
-    private int _attackIndex;
-
-  
-    private void Awake()
+    public Bullet Spawn(Vector2 spawnPosition,Vector2 direction)
     {
-        _spawnPositions.Shuffle();
-        _attackPositions.Shuffle();
+        Bullet bullet = _bulletPool.GetBullet(config, viewConfig,direction);
+        bullet.transform.position = spawnPosition;
+        SetBulletLayer(bullet);
+        bullet.SetDirection(direction);
 
-    }
-
-
-    public void Spawn(Vector2 position,Vector2 direction,int damage, float speed)
-    {
-        //_bulletPool.TryPop();
-        //_bullet.Initialize(damage, speed, direction,type);
-        // _bulletPool.SetOrientation(_bullet, position, direction);
-        Bullet bullet = _bulletPool.TryPop(position, direction, damage, speed);
-       
-       
-    }
-    public Bullet Spawn(Vector2 position, Vector2 direction, int damage, float speed, TeamType team)
-    {
-        Bullet bullet = _bulletPool.GetBullet();
-        bullet.Initialize(damage, speed, direction, team, position);
-        bullet.gameObject.SetActive(true);
-        _bulletPool.AddActiveBullets(bullet);
         return bullet;
+     
+    }
+    private void SetBulletLayer(Bullet bullet)
+    {
+        
+        if (gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            bullet.gameObject.layer = LayerMask.NameToLayer("PlayerBullet");
+           
+        }
+        else if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            bullet.gameObject.layer = LayerMask.NameToLayer("EnemyBullet");
+           
+        }
+        
     }
     public void AddBullet(Bullet bullet)
     {
@@ -75,27 +66,7 @@ public class BulletSpawner:MonoBehaviour
     {
         _bullets.Remove(bullet);
     }
-    private Vector3 NextSpawnPosition()
-    {
-        if (_spawnIndex >= _spawnPositions.Length)
-        {
-            _spawnPositions.Shuffle();
-            _spawnIndex = 0;
-        }
 
-        return _spawnPositions[_spawnIndex++].position;
-    }
-
-    private Vector3 NextDestination()
-    {
-        if (_attackIndex >= _attackPositions.Length)
-        {
-            _attackPositions.Shuffle();
-            _attackIndex = 0;
-        }
-
-        return _attackPositions[_attackIndex++].position;
-    }
     private IEnumerator DespawnInNextFrame(Enemy enemy)
     {
         yield return null;

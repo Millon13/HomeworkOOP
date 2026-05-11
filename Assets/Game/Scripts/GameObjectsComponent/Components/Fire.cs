@@ -6,6 +6,7 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {
     public event Action<BulletSpawner> OnFire;
+    [SerializeField] BulletPoolManager bulletManager;
 
     public event Action OnFireAnim;
 
@@ -16,14 +17,10 @@ public class Fire : MonoBehaviour
     [SerializeField] BulletSpawner _bulletSpawner;
 
     [SerializeField] private Bullet bullet;
-   
-    private BulletConfig config;
-    [Header("Combat")]
-    Vector3 direction => bullet.Direction;
-    Vector2 position => bullet.transform.position;
-    int damage;// => bullet.Damage;
-    float speed; //=> bullet.Speed;
 
+    [SerializeField] private Transform target;
+
+    private BulletConfig config;
    
     [SerializeField] float _fireCooldownDuration;
 
@@ -31,50 +28,32 @@ public class Fire : MonoBehaviour
 
     public Transform _firePoint;
 
-
     [SerializeField] ShipController shipController;
 
-
-    // [SerializeField]
-    // private ParticleSystem _fireVFX; сделать через подписку на стрельбу
     private void Awake()
     {
         _fireCooldown = Time.time - _fireCooldownDuration;
     }
 
-
-    public void FireTo(Vector2 spawnPosition, Vector2 direction)//он же должен стрелять
+  
+    public void FireTo(BulletConfig config,BulletViewConfig viewConfig,Vector2 direction)
     {
         if (bullet != null)
         {
-
-            _bulletSpawner.Spawn(position, direction, damage, speed);
+            
             if (_bulletSpawner != null && _firePoint != null)
             {
 
-                //DoFire();
-
+                
                 float time = Time.time;
                 if (time - _fireCooldown < _fireCooldownDuration)
                     return;
-                _bulletSpawner.Spawn(
-                    spawnPosition,
-                    direction,
-                    damage,
-                    speed
+                _bulletSpawner.Spawn(_firePoint.position,direction
+
                 );
 
                 _fireCooldown = time;
-                //  bullet.Move(time);
-
-
-
-
-
-
-
-
-                time = _fireCooldown;
+               
             }
         }
     }
