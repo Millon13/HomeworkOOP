@@ -8,24 +8,21 @@ using Random = UnityEngine.Random;
 using System.Collections;
 using Codice.Client.Common.GameUI;
 
-public class SpawnPosition:MonoBehaviour
+public class SpawnPosition : MonoBehaviour
 {
-   
-    [SerializeField]
-    private Transform[] _spawnPositions;
+    [SerializeField] private Transform[] _spawnPositions;
 
-    [SerializeField]
-    private Transform[] _attackPositions;
+    [SerializeField] private Transform[] _attackPositions;
 
     private int _spawnIndex;
     private int _attackIndex;
+
     private void Awake()
     {
         _spawnPositions.Shuffle();
         _attackPositions.Shuffle();
-
     }
- 
+
     public Vector3 NextSpawnPosition()
     {
         if (_spawnIndex >= _spawnPositions.Length)
@@ -47,5 +44,4 @@ public class SpawnPosition:MonoBehaviour
 
         return _attackPositions[_attackIndex++].position;
     }
-
 }

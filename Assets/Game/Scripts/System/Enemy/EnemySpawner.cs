@@ -9,65 +9,62 @@ using System.Collections;
 using System;
 using Codice.Client.Common.GameUI;
 
-public class EnemySpawner: MonoBehaviour, IEnemyDespawner
+public class EnemySpawner : MonoBehaviour, IEnemyDespawner
 {
-    [Header("Spawn")]
-  
-    [SerializeField] private Cooldown cooldown;
+    [Header("Spawn")] [SerializeField] private SpawnCooldown cooldown;
 
     [SerializeField] CooldownConfig cooldownConfig;
 
-    private int  _destroyedEnemies;
+    [SerializeField] private GameObject _target;
+    private int _destroyedEnemies;
 
-    public Action<int> OnAddScore;
+    public event Action<int> OnAddScore;
 
-    [Header("Pool")]
-    [SerializeField]
-    private Enemy _prefab;
+    [Header("Pool")] [SerializeField] private Enemy _prefab;
 
-    [SerializeField] private ShipController _enemy;
+    [SerializeField] private Ship _enemy;
 
-    private readonly Queue<Enemy> _pool = new();
+    [SerializeField] private Pool _pool;
 
 
-    [SerializeField]
-    private Transform _container;
+    [SerializeField] private Transform _container;
     [SerializeField] private SpawnPosition position;
 
     private void Update()
     {
         Spawner();
     }
+
     private void Spawner()
     {
-        
-       
         if (cooldown != null && cooldown.IsSpawnReady())
         {
-            if (_pool.TryDequeue(out Enemy enemy))
-                enemy.gameObject.SetActive(true);
-            else
-                enemy = Instantiate(_prefab, _container);
+            Enemy enemy = _pool.Get<Enemy>();
+
+            //enemy = Instantiate(_prefab, _container);
+
+            enemy.gameObject.SetActive(true);
 
 
             enemy.transform.position = position.NextSpawnPosition();
 
             enemy.destination = position.NextDestination();
 
-            enemy.SetDespawner(enemy._despawner);
+            enemy.SetDespawner(this);
+
+            enemy.SetTarget(_target);
 
 
             cooldown.ResetSpawnCooldown();
         }
     }
-  
+
 
     public void Despawn(Enemy enemy)
     {
-       
         _destroyedEnemies++;
 
-        OnAddScore.Invoke(_destroyedEnemies);
+        OnAddScore?.Invoke(_destroyedEnemies);
 
         StartCoroutine(DespawnInNextFrame(enemy));
     }
@@ -76,10 +73,10 @@ public class EnemySpawner: MonoBehaviour, IEnemyDespawner
     {
         yield return null;
 
-        enemy.gameObject.SetActive(false);
 
-        _pool.Enqueue(enemy);
+        if (enemy != null && enemy.gameObject != null)
+        {
+            Destroy(enemy.gameObject);
+        }
     }
-    
-
 }

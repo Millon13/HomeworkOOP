@@ -4,9 +4,9 @@ namespace Modules.Utils
 {
     public class SkyboxMover : MonoBehaviour
     {
-        public Material skyboxMat;      // можно не задавать — возьмёт RenderSettings.skybox
-        public float speed = 0.15f;     // скорость (частота) для качания
-        public float maxAngle = 10f;    // амплитуда наклона вверх/вниз
+        public Material skyboxMat; // можно не задавать — возьмёт RenderSettings.skybox
+        public float speed = 0.15f; // скорость (частота) для качания
+        public float maxAngle = 10f; // амплитуда наклона вверх/вниз
         public bool usePingPong; // true = плавно туда-сюда, false = постоянно в одну сторону
 
         float x;

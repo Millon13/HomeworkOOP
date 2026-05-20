@@ -4,8 +4,7 @@ namespace Modules.Utils
 {
     public sealed class ProjectileVFX : MonoBehaviour
     {
-        [SerializeField]
-        private TrailRenderer _trail;
+        [SerializeField] private TrailRenderer _trail;
 
         private void OnEnable()
         {

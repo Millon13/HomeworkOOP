@@ -13,8 +13,7 @@ namespace Modules.Utils
 
         private Transform myTransform;
 
-        [SerializeField]
-        private Params m_params;
+        [SerializeField] private Params m_params;
 
         private void Awake()
         {
@@ -44,14 +43,11 @@ namespace Modules.Utils
         [Serializable]
         public sealed class Params
         {
-            [SerializeField]
-            public float m_startPositionY;
+            [SerializeField] public float m_startPositionY;
 
-            [SerializeField]
-            public float m_endPositionY;
+            [SerializeField] public float m_endPositionY;
 
-            [SerializeField]
-            public float m_movingSpeedY;
+            [SerializeField] public float m_movingSpeedY;
         }
     }
 }

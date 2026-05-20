@@ -5,8 +5,7 @@ namespace Modules.UI
 {
     public class HealthView : MonoBehaviour
     {
-        [SerializeField]
-        private Image[] blocks; 
+        [SerializeField] private Image[] blocks;
 
         public void SetHealth(int current, int max)
         {
@@ -14,7 +13,7 @@ namespace Modules.UI
 
             max = Mathf.Max(1, max);
 
-            int filled = Mathf.RoundToInt((current / (float) max) * blocks.Length);
+            int filled = Mathf.RoundToInt((current / (float)max) * blocks.Length);
             filled = Mathf.Clamp(filled, 0, blocks.Length);
 
             for (int i = 0; i < blocks.Length; i++)
