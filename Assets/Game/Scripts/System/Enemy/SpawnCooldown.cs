@@ -15,20 +15,9 @@ public class SpawnCooldown : MonoBehaviour
         ResetSpawnCooldown();
     }
 
-    public void Spawncooldown(float time)
-    {
-        if (time - _spawnTime < _spawnCooldown)
-            return;
-    }
-
     public bool IsSpawnReady()
     {
-        if (Time.time - _spawnTime >= _spawnCooldown)
-        {
-            return true;
-        }
-        else
-            return false;
+        return Time.time - _spawnTime >= _spawnCooldown;
     }
 
     public void ResetSpawnCooldown()

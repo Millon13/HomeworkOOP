@@ -300,6 +300,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9048567252472711235}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &123158025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 123158026}
+  - component: {fileID: 123158027}
+  m_Layer: 0
+  m_Name: ShipVanished
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &123158026
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123158025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 177601767}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &123158027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123158025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea55a86009fa4524c82768b4168b7e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::ShipVanishedUI
+  _healthComponent: {fileID: 1828716689}
+  _player: {fileID: 1828716682}
 --- !u!1 &131519010
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +511,7 @@ RectTransform:
   - {fileID: 895558705}
   - {fileID: 539959537}
   - {fileID: 1243470928}
+  - {fileID: 123158026}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1572,8 +1623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game::GameOverUIController
   _gameOverView: {fileID: 1375492023}
-  _health: {fileID: 1828716689}
-  _player: {fileID: 1828716682}
+  _healthComponent: {fileID: 1828716689}
   _endImage: {fileID: 381842852}
 --- !u!4 &883274640
 Transform:
@@ -2557,10 +2607,22 @@ PrefabInstance:
       propertyPath: _levelBounds
       value: 
       objectReference: {fileID: 229096086002100842}
+    - target: {fileID: 3345726658538684055, guid: 77c249b559858c9439629334726dcfd1, type: 3}
+      propertyPath: _motorComponent
+      value: 
+      objectReference: {fileID: 1828716690}
     - target: {fileID: 4109394316656653739, guid: 77c249b559858c9439629334726dcfd1, type: 3}
       propertyPath: m_Name
       value: <Player>
       objectReference: {fileID: 0}
+    - target: {fileID: 5118668683308271676, guid: 77c249b559858c9439629334726dcfd1, type: 3}
+      propertyPath: _speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118668683308271676, guid: 77c249b559858c9439629334726dcfd1, type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 9298f762411724a389beae656b1dfcaa, type: 2}
     - target: {fileID: 5706750963508843440, guid: 77c249b559858c9439629334726dcfd1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2605,6 +2667,14 @@ PrefabInstance:
       propertyPath: _healthView
       value: 
       objectReference: {fileID: 1243470931}
+    - target: {fileID: 7131230635151265479, guid: 77c249b559858c9439629334726dcfd1, type: 3}
+      propertyPath: _healthComponent
+      value: 
+      objectReference: {fileID: 1828716689}
+    - target: {fileID: 7433037985454602905, guid: 77c249b559858c9439629334726dcfd1, type: 3}
+      propertyPath: _fireComponent
+      value: 
+      objectReference: {fileID: 1828716693}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2934,6 +3004,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835dd1bbeb3476344bda7dcfa54b005c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Health
+--- !u!114 &1828716690 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5118668683308271676, guid: 77c249b559858c9439629334726dcfd1, type: 3}
+  m_PrefabInstance: {fileID: 1388352373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828716682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b5b9ba4bb4bb6d49b431d48932aaeb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Motor
+--- !u!114 &1828716693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8955599165231446876, guid: 77c249b559858c9439629334726dcfd1, type: 3}
+  m_PrefabInstance: {fileID: 1388352373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828716682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a8b38ce821c414d8257a6c4d70c6e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Fire
 --- !u!1 &1841642580
 GameObject:
   m_ObjectHideFlags: 0

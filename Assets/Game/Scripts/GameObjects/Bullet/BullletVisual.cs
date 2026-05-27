@@ -1,5 +1,4 @@
 using Game;
-using System;
 using UnityEngine;
 
 public class BulletVisual : MonoBehaviour
@@ -8,22 +7,16 @@ public class BulletVisual : MonoBehaviour
 
     private Transform _transform;
 
-    private BulletConfig _config;
-
-    private BulletViewConfig _configView;
+    [SerializeField] private BulletViewConfig _configView;
 
     public void Awake()
     {
         _bullet = GetComponent<Bullet>();
     }
 
-    public void Initialize(BulletConfig config, BulletViewConfig viewConfig)
+    public void Initialize(BulletConfig config, TeamType team)
     {
-        _config = config;
-        _configView = viewConfig;
-
-
-        SetupVisual(config.Team);
+        SetupVisual(team);
 
         if (_bullet != null)
             _bullet.OnHit += this.OnHit;

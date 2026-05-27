@@ -3,27 +3,17 @@ using System;
 using UnityEngine;
 using System.Collections;
 
-public class Health : MonoBehaviour
+public class HealthComponent : MonoBehaviour
 {
     public event Action<int> OnHealthChanged;
 
 
     [Header("Health")] public bool isAlive;
+
     public int currentHealth;
 
-    [SerializeField] protected ShipControllerViewConfig _viewConfig;
+    [SerializeField] protected ShipViewConfig _viewConfig;
     public event Action OnDead;
-    public Transform _viewTransform;
-
-
-    public void DeadCheking()
-    {
-        if (currentHealth <= 0)
-        {
-            isAlive = false;
-            Destroy(gameObject);
-        }
-    }
 
     public void TakeDamage(int damage)
     {

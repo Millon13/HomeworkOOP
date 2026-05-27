@@ -2,22 +2,22 @@ using UnityEngine;
 
 public class FireComponentView : MonoBehaviour
 {
-    [SerializeField] private Fire _fire;
+    [SerializeField] private FireComponent _fireComponent;
     [SerializeField] private ParticleSystem _fireVFX;
     [SerializeField] protected AudioClip _fireSFX;
     [SerializeField] protected AudioSource _audioSource;
 
     private void OnEnable()
     {
-        _fire.OnFire += this.OnFire;
+        _fireComponent.OnFire += this.OnFireComponent;
     }
 
     private void OnDisable()
     {
-        _fire.OnFire -= this.OnFire;
+        _fireComponent.OnFire -= this.OnFireComponent;
     }
 
-    public void OnFire(BulletPoolManager bulletPoolManager)
+    public void OnFireComponent()
     {
         PlayAudio();
         AnimateFire();

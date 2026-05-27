@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game;
 
-public class BulletPoolManager : MonoBehaviour
+public class BulletManager : MonoBehaviour
 {
     [SerializeField] private TransformBounds _levelBounds;
 
@@ -11,9 +11,7 @@ public class BulletPoolManager : MonoBehaviour
 
     [SerializeField] private Pool _pool;
 
-    [SerializeField] private BulletConfig config;
-
-    [SerializeField] private BulletViewConfig viewConfig;
+    [SerializeField] private TeamType _teamType;
 
     private readonly List<Bullet> _bullets = new();
 
@@ -40,10 +38,10 @@ public class BulletPoolManager : MonoBehaviour
     }
 
 
-    public Bullet Spawn(Vector2 spawnPosition, Vector2 direction)
+    public Bullet Spawn(BulletConfig config, Vector2 spawnPosition, Vector2 direction)
     {
         Bullet bullet = _pool.Get<Bullet>();
-        bullet.Initialize(config, viewConfig, direction);
+        bullet.Initialize(config, spawnPosition, direction, _teamType);
         bullet.transform.position = spawnPosition;
         SetBulletLayer(bullet);
         bullet.SetDirection(direction);
@@ -61,15 +59,5 @@ public class BulletPoolManager : MonoBehaviour
         {
             bullet.gameObject.layer = LayerMask.NameToLayer("EnemyBullet");
         }
-    }
-
-    public void AddBullet(Bullet bullet)
-    {
-        _bullets.Add(bullet);
-    }
-
-    public void ReturnBullet(Bullet bullet)
-    {
-        _bullets.Remove(bullet);
     }
 }

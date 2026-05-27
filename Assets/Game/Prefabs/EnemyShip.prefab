@@ -216,9 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558b312fd53c491ab69f3e55255aae3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Game.ShipController
-  _motor: {fileID: 4045664137767017240}
-  _health: {fileID: 2470012755855167141}
-  _fire: {fileID: 6408074488511246048}
+  _motorComponent: {fileID: 4045664137767017240}
+  _healthComponent: {fileID: 2470012755855167141}
+  _fireComponent: {fileID: 6408074488511246048}
   teamType: 2
 --- !u!114 &1792520480472378965
 MonoBehaviour:
@@ -235,7 +235,7 @@ MonoBehaviour:
   enemy: {fileID: 6814652857497197651}
   destination: {x: 0, y: 0}
   _fireCooldown: 3
-  fire: {fileID: 6408074488511246048}
+  _fireComponent: {fileID: 6408074488511246048}
   _stoppingDistance: 0.25
 --- !u!114 &6408074488511246048
 MonoBehaviour:
@@ -249,11 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a8b38ce821c414d8257a6c4d70c6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Fire
-  bulletManager: {fileID: 4488074075921535052}
-  CanFire: 0
   _bulletManager: {fileID: 4488074075921535052}
-  bullet: {fileID: -5224738744410918844, guid: 4a5d4fe3266a20c439bd2f9fe506c7f5, type: 3}
-  target: {fileID: 5706750963508843440, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
+  config: {fileID: 11400000, guid: cd60f1e30fdd32c42a6aa38c293cd212, type: 2}
   _fireCooldownDuration: 2
   _fireCooldown: 2
   _firePoint: {fileID: 3195880656587174614}
@@ -271,7 +268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Motor
   _rigidbody: {fileID: 659620479434099170}
-  _speed: 3
+  _config: {fileID: 11400000, guid: f6ecf0b3d1d004b3893cc42c64995303, type: 2}
+  _speed: 5
 --- !u!114 &2470012755855167141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +285,6 @@ MonoBehaviour:
   isAlive: 0
   currentHealth: 5
   _viewConfig: {fileID: 11400000, guid: f6ecf0b3d1d004b3893cc42c64995303, type: 2}
-  _viewTransform: {fileID: 3470145497817149085}
 --- !u!114 &4488074075921535052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,8 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game::BulletPoolManager
   _levelBounds: {fileID: 5101950151031465412, guid: 454669a1dac74694ba1ea89e330ba92d, type: 3}
   _pool: {fileID: 6730958484019727063}
-  config: {fileID: 11400000, guid: cd60f1e30fdd32c42a6aa38c293cd212, type: 2}
-  viewConfig: {fileID: 11400000, guid: 2beef88800a973c41bdd1f176b52f2cb, type: 2}
+  _teamType: 2
   _container: {fileID: 3195880656587174614}
 --- !u!114 &-8196853847877470212
 MonoBehaviour:
@@ -350,6 +346,57 @@ Transform:
   - {fileID: 2436226342499269388}
   m_Father: {fileID: 3470145497817149085}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1512090525250744318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6783352545794607326}
+  - component: {fileID: 1321367921298857167}
+  m_Layer: 11
+  m_Name: Health
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6783352545794607326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512090525250744318}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6215180480115147056}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1321367921298857167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512090525250744318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9dda4f598550c45924c3a54af01d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::HealthComponentView
+  _healthComponent: {fileID: 2470012755855167141}
+  _renderer: {fileID: 3392331705670148128}
+  _viewTransform: {fileID: 3470145497817149085}
+  _viewConfig: {fileID: 11400000, guid: f6ecf0b3d1d004b3893cc42c64995303, type: 2}
+  _audioSource: {fileID: 4560017961611896118}
+  _damageSFX: {fileID: 8300000, guid: d041ee4edef25a746a4eb8d41e4e512b, type: 3}
+  _healthView: {fileID: 0}
 --- !u!1 &1782391121507387632
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7cd3e7c20dd9004bb8c5e8c02d98ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::FireView
-  _fire: {fileID: 6408074488511246048}
+  _fireComponent: {fileID: 6408074488511246048}
   _fireVFX: {fileID: 5670810679594769472}
   _fireSFX: {fileID: 0}
   _audioSource: {fileID: 0}
@@ -505,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf16e968cc133434090b2aa7fe9a4260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::MotorComponentView
-  _motor: {fileID: 4045664137767017240}
+  _motorComponent: {fileID: 4045664137767017240}
   _viewConfig: {fileID: 11400000, guid: f6ecf0b3d1d004b3893cc42c64995303, type: 2}
   _renderer: {fileID: 3392331705670148128}
 --- !u!1 &3725900495849252521
@@ -539,6 +586,7 @@ Transform:
   m_Children:
   - {fileID: 7944745422144844090}
   - {fileID: 1223089933179299723}
+  - {fileID: 6783352545794607326}
   m_Father: {fileID: 3470145497817149085}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5509963527263873350

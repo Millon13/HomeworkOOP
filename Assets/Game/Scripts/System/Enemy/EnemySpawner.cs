@@ -1,13 +1,7 @@
 using Game;
-using Modules.UI;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using Modules.Utils;
-using Random = UnityEngine.Random;
 using System.Collections;
 using System;
-using Codice.Client.Common.GameUI;
 
 public class EnemySpawner : MonoBehaviour, IEnemyDespawner
 {
@@ -16,8 +10,8 @@ public class EnemySpawner : MonoBehaviour, IEnemyDespawner
     [SerializeField] CooldownConfig cooldownConfig;
 
     [SerializeField] private GameObject _target;
-    private int _destroyedEnemies;
 
+    private int _destroyedEnemies;
     public event Action<int> OnAddScore;
 
     [Header("Pool")] [SerializeField] private Enemy _prefab;
@@ -26,8 +20,8 @@ public class EnemySpawner : MonoBehaviour, IEnemyDespawner
 
     [SerializeField] private Pool _pool;
 
-
     [SerializeField] private Transform _container;
+
     [SerializeField] private SpawnPosition position;
 
     private void Update()
@@ -40,21 +34,11 @@ public class EnemySpawner : MonoBehaviour, IEnemyDespawner
         if (cooldown != null && cooldown.IsSpawnReady())
         {
             Enemy enemy = _pool.Get<Enemy>();
-
-            //enemy = Instantiate(_prefab, _container);
-
             enemy.gameObject.SetActive(true);
-
-
             enemy.transform.position = position.NextSpawnPosition();
-
             enemy.destination = position.NextDestination();
-
             enemy.SetDespawner(this);
-
             enemy.SetTarget(_target);
-
-
             cooldown.ResetSpawnCooldown();
         }
     }
@@ -63,17 +47,13 @@ public class EnemySpawner : MonoBehaviour, IEnemyDespawner
     public void Despawn(Enemy enemy)
     {
         _destroyedEnemies++;
-
         OnAddScore?.Invoke(_destroyedEnemies);
-
         StartCoroutine(DespawnInNextFrame(enemy));
     }
 
     private IEnumerator DespawnInNextFrame(Enemy enemy)
     {
         yield return null;
-
-
         if (enemy != null && enemy.gameObject != null)
         {
             Destroy(enemy.gameObject);

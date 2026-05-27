@@ -250,9 +250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558b312fd53c491ab69f3e55255aae3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Game.ShipController
-  _motor: {fileID: 5118668683308271676}
-  _health: {fileID: 6957429073240896302}
-  _fire: {fileID: 8955599165231446876}
+  _motorComponent: {fileID: 5118668683308271676}
+  _healthComponent: {fileID: 6957429073240896302}
+  _fireComponent: {fileID: 8955599165231446876}
   teamType: 1
 --- !u!114 &2077029700723991380
 MonoBehaviour:
@@ -269,9 +269,9 @@ MonoBehaviour:
   dx: 0
   dy: 0
   playerShip: {fileID: 2699360942157705466}
-  PlayerFire: {fileID: 8955599165231446876}
-  Config: {fileID: 11400000, guid: 9264f89791424fd458b0f245a41ce53e, type: 2}
+  _playerFireComponent: {fileID: 8955599165231446876}
   ViewConfig: {fileID: 11400000, guid: f2107b212e6a245009f8ae9313cc81bb, type: 2}
+  direction: {x: 0, y: 1}
 --- !u!114 &8955599165231446876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,11 +284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a8b38ce821c414d8257a6c4d70c6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Fire
-  bulletManager: {fileID: 884703337944051377}
-  CanFire: 0
   _bulletManager: {fileID: 884703337944051377}
-  bullet: {fileID: -5224738744410918844, guid: 4a5d4fe3266a20c439bd2f9fe506c7f5, type: 3}
-  target: {fileID: 0}
+  config: {fileID: 11400000, guid: 9264f89791424fd458b0f245a41ce53e, type: 2}
   _fireCooldownDuration: 1
   _fireCooldown: 1
   _firePoint: {fileID: 8503432944885784460}
@@ -322,7 +319,6 @@ MonoBehaviour:
   isAlive: 0
   currentHealth: 10
   _viewConfig: {fileID: 11400000, guid: 9298f762411724a389beae656b1dfcaa, type: 2}
-  _viewTransform: {fileID: 5706750963508843440}
 --- !u!114 &884703337944051377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,8 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game::BulletPoolManager
   _levelBounds: {fileID: 0}
   _pool: {fileID: 7850835408645615538}
-  config: {fileID: 11400000, guid: 9264f89791424fd458b0f245a41ce53e, type: 2}
-  viewConfig: {fileID: 11400000, guid: f2107b212e6a245009f8ae9313cc81bb, type: 2}
+  _teamType: 1
   _container: {fileID: 5706750963508843440}
 --- !u!1 &6242984558359611270
 GameObject:
@@ -384,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7cd3e7c20dd9004bb8c5e8c02d98ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::FireView
-  _fire: {fileID: 8955599165231446876}
+  _fireComponent: {fileID: 0}
   _fireVFX: {fileID: 375007784130398055}
   _fireSFX: {fileID: 8300000, guid: b48e632c5a6c6174e8bccaa9f04d399f, type: 3}
   _audioSource: {fileID: 8141832910989862937}
@@ -432,9 +427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9dda4f598550c45924c3a54af01d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::HealthComponentView
-  _health: {fileID: 6957429073240896302}
+  _healthComponent: {fileID: 0}
   _renderer: {fileID: 8001395449281750855}
-  config: {fileID: 11400000, guid: 0b9a4576e5f0a4babb44b3c82e6480d0, type: 2}
   _viewTransform: {fileID: 5706750963508843440}
   _viewConfig: {fileID: 11400000, guid: 9298f762411724a389beae656b1dfcaa, type: 2}
   _audioSource: {fileID: 8141832910989862937}
@@ -484,7 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf16e968cc133434090b2aa7fe9a4260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::MotorView
-  _motor: {fileID: 5118668683308271676}
+  _motorComponent: {fileID: 0}
   _viewConfig: {fileID: 11400000, guid: 9298f762411724a389beae656b1dfcaa, type: 2}
   _renderer: {fileID: 8001395449281750855}
 --- !u!1 &7932017922939402051
@@ -531,6 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794045516bc311b44a275acd3e05995a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::BulletVisual
+  _configView: {fileID: 0}
 --- !u!1 &8547742604600331572
 GameObject:
   m_ObjectHideFlags: 0

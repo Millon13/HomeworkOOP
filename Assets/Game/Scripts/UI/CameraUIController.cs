@@ -1,25 +1,23 @@
 using UnityEngine;
-using Game;
-using Modules.UI;
 using Modules.Utils;
 
 public class CameraUIController : MonoBehaviour
 {
     [SerializeField] private CameraShaker _cameraShaker;
 
-    [SerializeField] private Health _health;
+    [SerializeField] private HealthComponent _healthComponent;
 
     private void OnEnable()
     {
-        _health.OnHealthChanged += this.OnHealthChanged;
+        _healthComponent.OnHealthChanged += this.OnHealthComponentChanged;
     }
 
     private void OnDisable()
     {
-        _health.OnHealthChanged -= this.OnHealthChanged;
+        _healthComponent.OnHealthChanged -= this.OnHealthComponentChanged;
     }
 
-    private void OnHealthChanged(int health)
+    private void OnHealthComponentChanged(int health)
     {
         _cameraShaker.Shake();
     }

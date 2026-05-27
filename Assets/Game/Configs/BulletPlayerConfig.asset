@@ -14,9 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game::Game.BulletConfig
   <Damage>k__BackingField: 2
   <Speed>k__BackingField: 10
-  <Direction>k__BackingField: {x: 0, y: 1}
-  <Position>k__BackingField: {x: 0, y: 0}
-  <Team>k__BackingField: 1
-  <TargetLayer>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 16384

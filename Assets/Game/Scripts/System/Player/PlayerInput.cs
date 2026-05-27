@@ -1,18 +1,16 @@
 using Game;
 using UnityEngine;
-using Modules.UI;
-using Modules.Utils;
 
 public class PlayerInput : MonoBehaviour
 {
     public float dx, dy;
     [SerializeField] private Ship playerShip;
 
-    [SerializeField] private Fire PlayerFire;
-
-    [SerializeField] private BulletConfig Config;
+    [SerializeField] private FireComponent _playerFireComponent;
 
     [SerializeField] private BulletViewConfig ViewConfig;
+
+    [SerializeField] private Vector2 direction = new Vector2(0, 1);
 
     public void Update()
     {
@@ -24,7 +22,6 @@ public class PlayerInput : MonoBehaviour
     {
         dx = Input.GetAxisRaw("Horizontal");
         dy = Input.GetAxisRaw("Vertical");
-
         Vector3 moveDirection = new Vector2(dx, dy);
         playerShip.Move(moveDirection);
     }
@@ -34,7 +31,7 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
 
         {
-            PlayerFire.FireTo(Config, ViewConfig, Config.Direction);
+            _playerFireComponent.FireUp();
             Debug.Log("DoFire In Player");
         }
     }

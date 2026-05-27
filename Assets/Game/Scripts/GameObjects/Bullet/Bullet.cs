@@ -1,14 +1,12 @@
 using UnityEngine;
-using Modules.Utils;
 using System;
-using System.Collections.Generic;
-using UnityEngine.UIElements;
 using Game;
-using PlasticGui;
 
 public class Bullet : MonoBehaviour
 {
     private Vector2 _direction;
+
+    private TeamType _team;
 
     private BulletConfig _config;
 
@@ -16,42 +14,18 @@ public class Bullet : MonoBehaviour
 
     public Action<Bullet> OnReturnToPool;
 
-    [SerializeField] private Transform _bulletTransform;
-
     private bool hitDetected;
 
-    public void Initialize(BulletConfig config, BulletViewConfig viewConfig, Vector2 direction)
+    public void Initialize(BulletConfig config, Vector2 position, Vector2 direction, TeamType team)
     {
-        BulletVisual _visual = GetComponent<BulletVisual>();
         _config = config;
         hitDetected = false;
+        _team = team;
         _direction = direction;
-
-        if (_visual != null)
-        {
-            _visual.Initialize(config, viewConfig);
-        }
-
-        transform.position = new Vector3(_config.Position.x, _config.Position.y, 0);
+        transform.position = position;
         this.enabled = true;
     }
 
-    private void SetupLayer(TeamType team)
-    {
-        gameObject.layer = team switch
-        {
-            TeamType.None => LayerMask.NameToLayer("Default"),
-            TeamType.Player => LayerMask.NameToLayer("PlayerBullet"),
-            TeamType.Enemy => LayerMask.NameToLayer("EnemyBullet"),
-            _ => throw new ArgumentOutOfRangeException()
-        };
-    }
-
-    private void Awake()
-    {
-        _bulletTransform = transform;
-        BulletVisual _visual = GetComponent<BulletVisual>();
-    }
 
     private void Update()
     {
@@ -68,7 +42,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out Health health))
+        if (other.TryGetComponent(out HealthComponent health))
         {
             health.TakeDamage(_config.Damage);
             hitDetected = true;
@@ -80,10 +54,6 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private bool IsValidTarget(Collider2D other)
-    {
-        return ((1 << other.gameObject.layer) & _config.TargetLayer) != 0;
-    }
 
     private void HandleHit()
     {
@@ -102,7 +72,6 @@ public class Bullet : MonoBehaviour
         if (direction != Vector2.zero)
         {
             direction = direction.normalized;
-
             SetOrientation(this, this.transform.position, direction);
         }
     }

@@ -3,27 +3,26 @@ using UnityEngine;
 
 public class MotorComponentView : MonoBehaviour
 {
-    [SerializeField] private Motor _motor;
-    [SerializeField] ShipControllerViewConfig _viewConfig;
+    [SerializeField] private MotorComponent _motorComponent;
+
+    [SerializeField] ShipViewConfig _viewConfig;
+
     [Header("Visual")] [SerializeField] private Renderer _renderer;
 
     private Material _material;
+
     private Transform _viewTransform;
 
     private void OnEnable()
     {
-        _motor.OnMoved += this.OnMoved;
+        _motorComponent.OnMoved += this.OnMoved;
     }
 
     private void OnDisable()
     {
-        _motor.OnMoved -= this.OnMoved;
+        _motorComponent.OnMoved -= this.OnMoved;
     }
 
-    public void VFXIntitiator(ParticleSystem prefab, ShipControllerViewConfig _viewConfig)
-    {
-        prefab = _viewConfig.DestroyEffectPrefab;
-    }
 
     public void Awake()
     {

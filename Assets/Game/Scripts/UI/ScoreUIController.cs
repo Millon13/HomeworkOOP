@@ -1,8 +1,5 @@
 using UnityEngine;
-using Game;
 using Modules.UI;
-using Modules.Utils;
-using System;
 
 public class ScoreUIController : MonoBehaviour
 {
