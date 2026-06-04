@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShipVanishedUI : MonoBehaviour
+public class PlayerDestroyController : MonoBehaviour
 {
     [SerializeField] private HealthComponent _healthComponent;
 

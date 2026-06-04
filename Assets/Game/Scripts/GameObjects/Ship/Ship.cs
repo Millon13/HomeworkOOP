@@ -12,11 +12,6 @@ namespace Game
 
         [SerializeField] private FireComponent _fireComponent;
 
-        [SerializeField] public TeamType teamType = TeamType.None;
-
-        private bool CanMove;
-
-        private bool CanFire;
 
         private void Awake()
         {
@@ -32,12 +27,16 @@ namespace Game
             _motorComponent.MoveEnabled = _healthComponent.isAlive;
         }
 
+        public void FireUp()
+        {
+            _fireComponent.FireUp();
+        }
+
 
         public void Move(Vector3 moveDirection)
         {
             if (_motorComponent.MoveEnabled)
             {
-                _motorComponent.SetSpeed(_motorComponent._speed);
                 _motorComponent.MoveStep(moveDirection);
             }
         }

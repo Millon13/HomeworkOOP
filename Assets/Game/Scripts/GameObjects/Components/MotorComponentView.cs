@@ -31,7 +31,7 @@ public class MotorComponentView : MonoBehaviour
         _viewTransform = this.GetComponent<Transform>();
     }
 
-    public void OnMoved(Vector3 moveDirection)
+    private void OnMoved(Vector3 moveDirection)
     {
         Vector3 shipAngles = _viewTransform.localEulerAngles;
         shipAngles.x = _viewConfig.MoveRotationAngle * moveDirection.y;

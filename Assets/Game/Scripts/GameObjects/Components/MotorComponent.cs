@@ -16,7 +16,15 @@ namespace Game
         private Vector2? _direction;
 
         public void SetSpeed(float speed) => _speed = speed;
-        public void MoveStep(Vector2 direction) => _direction = direction;
+
+        public void MoveStep(Vector2 direction)
+        {
+            if (MoveEnabled)
+            {
+                _direction = direction;
+            }
+        }
+
         public bool MoveEnabled { get; set; }
 
         private void FixedUpdate()

@@ -51,7 +51,6 @@ GameObject:
   - component: {fileID: 8955599165231446876}
   - component: {fileID: 5118668683308271676}
   - component: {fileID: 6957429073240896302}
-  - component: {fileID: 884703337944051377}
   m_Layer: 10
   m_Name: Player 1
   m_TagString: Untagged
@@ -253,7 +252,6 @@ MonoBehaviour:
   _motorComponent: {fileID: 5118668683308271676}
   _healthComponent: {fileID: 6957429073240896302}
   _fireComponent: {fileID: 8955599165231446876}
-  teamType: 1
 --- !u!114 &2077029700723991380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,11 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d178d0637473474b8284d66147e577b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::PlayerInputSys
-  dx: 0
-  dy: 0
   playerShip: {fileID: 2699360942157705466}
-  _playerFireComponent: {fileID: 8955599165231446876}
-  ViewConfig: {fileID: 11400000, guid: f2107b212e6a245009f8ae9313cc81bb, type: 2}
   direction: {x: 0, y: 1}
 --- !u!114 &8955599165231446876
 MonoBehaviour:
@@ -284,12 +278,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a8b38ce821c414d8257a6c4d70c6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Fire
-  _bulletManager: {fileID: 884703337944051377}
   config: {fileID: 11400000, guid: 9264f89791424fd458b0f245a41ce53e, type: 2}
   _fireCooldownDuration: 1
   _fireCooldown: 1
   _firePoint: {fileID: 8503432944885784460}
   _ship: {fileID: 2699360942157705466}
+  _type: 1
 --- !u!114 &5118668683308271676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,22 +313,6 @@ MonoBehaviour:
   isAlive: 0
   currentHealth: 10
   _viewConfig: {fileID: 11400000, guid: 9298f762411724a389beae656b1dfcaa, type: 2}
---- !u!114 &884703337944051377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4109394316656653739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11cd6dffd0b49964a914419b2c2abf34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Game::BulletPoolManager
-  _levelBounds: {fileID: 0}
-  _pool: {fileID: 7850835408645615538}
-  _teamType: 1
-  _container: {fileID: 5706750963508843440}
 --- !u!1 &6242984558359611270
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +550,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game::BulletPool
   _prefab: {fileID: 3464545129874362771, guid: 4a5d4fe3266a20c439bd2f9fe506c7f5, type: 3}
-  _container: {fileID: 5706750963508843440}
   _poolSize: 10
 --- !u!1001 &5232381826927461630
 PrefabInstance:

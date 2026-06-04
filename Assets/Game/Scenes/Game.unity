@@ -614,6 +614,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 363245576}
+  - component: {fileID: 363245577}
   m_Layer: 0
   m_Name: <BulletSystem>
   m_TagString: Untagged
@@ -636,6 +637,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 739865810}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &363245577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363245575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11cd6dffd0b49964a914419b2c2abf34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::BulletPoolManager
+  _levelBounds: {fileID: 229096086002100842}
+  _pool: {fileID: 504077641386495115, guid: 2beba919ca32c6a4fb931a46097c2c67, type: 3}
 --- !u!1 &381842850
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,7 +2070,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game::Pool
   _prefab: {fileID: 559606060570185700, guid: 87fe189881a524806800482ac8eaaa83, type: 3}
-  _container: {fileID: 1052031097}
   _poolSize: 15
 --- !u!1 &1199284439
 GameObject:
@@ -2675,7 +2689,17 @@ PrefabInstance:
       propertyPath: _fireComponent
       value: 
       objectReference: {fileID: 1828716693}
-    m_RemovedComponents: []
+    - target: {fileID: 7932017922939402051, guid: 77c249b559858c9439629334726dcfd1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955599165231446876, guid: 77c249b559858c9439629334726dcfd1, type: 3}
+      propertyPath: _type
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 884703337944051377, guid: 77c249b559858c9439629334726dcfd1, type: 3}
+    - {fileID: 7850835408645615538, guid: 77c249b559858c9439629334726dcfd1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

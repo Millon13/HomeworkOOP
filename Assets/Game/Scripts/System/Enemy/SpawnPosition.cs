@@ -1,12 +1,5 @@
 using UnityEngine;
-using Game;
-using Modules.UI;
-using System.Collections.Generic;
-using static UnityEditor.Experimental.GraphView.GraphView;
 using Modules.Utils;
-using Random = UnityEngine.Random;
-using System.Collections;
-using Codice.Client.Common.GameUI;
 
 public class SpawnPosition : MonoBehaviour
 {

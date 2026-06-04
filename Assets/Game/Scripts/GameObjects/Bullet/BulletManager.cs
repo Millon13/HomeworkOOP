@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game;
 
-public class BulletManager : MonoBehaviour
+public class BulletManager : MonoBehaviour //сделать сиглтоном
 {
     [SerializeField] private TransformBounds _levelBounds;
 
@@ -11,12 +11,21 @@ public class BulletManager : MonoBehaviour
 
     [SerializeField] private Pool _pool;
 
-    [SerializeField] private TeamType _teamType;
+    public static BulletManager Instance;
 
-    private readonly List<Bullet> _bullets = new();
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
-    [SerializeField] private Transform _container;
-
+        Instance = this;
+    }
 
     public void FixedUpdate()
     {
@@ -38,26 +47,10 @@ public class BulletManager : MonoBehaviour
     }
 
 
-    public Bullet Spawn(BulletConfig config, Vector2 spawnPosition, Vector2 direction)
+    public void Spawn(BulletConfig config, Vector2 spawnPosition, Vector2 direction, TeamType team)
     {
         Bullet bullet = _pool.Get<Bullet>();
-        bullet.Initialize(config, spawnPosition, direction, _teamType);
-        bullet.transform.position = spawnPosition;
-        SetBulletLayer(bullet);
-        bullet.SetDirection(direction);
-
-        return bullet;
-    }
-
-    private void SetBulletLayer(Bullet bullet)
-    {
-        if (gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            bullet.gameObject.layer = LayerMask.NameToLayer("PlayerBullet");
-        }
-        else if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        {
-            bullet.gameObject.layer = LayerMask.NameToLayer("EnemyBullet");
-        }
+        _activeBullets.Add(bullet);
+        bullet.Initialize(config, spawnPosition, direction, team);
     }
 }

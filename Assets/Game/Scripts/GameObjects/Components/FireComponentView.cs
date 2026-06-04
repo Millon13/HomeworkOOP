@@ -17,7 +17,7 @@ public class FireComponentView : MonoBehaviour
         _fireComponent.OnFire -= this.OnFireComponent;
     }
 
-    public void OnFireComponent()
+    private void OnFireComponent()
     {
         PlayAudio();
         AnimateFire();
@@ -29,7 +29,7 @@ public class FireComponentView : MonoBehaviour
             _audioSource.PlayOneShot(_fireSFX);
     }
 
-    public void AnimateFire()
+    private void AnimateFire()
     {
         if (_fireVFX)
             _fireVFX.Play();

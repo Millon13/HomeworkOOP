@@ -10,33 +10,40 @@ public class Bullet : MonoBehaviour
 
     private BulletConfig _config;
 
-    public Action<Vector3> OnHit;
+    public event Action<Vector3> OnHit;
 
-    public Action<Bullet> OnReturnToPool;
+    public event Action<Bullet> OnDispose;
 
     private bool hitDetected;
 
     public void Initialize(BulletConfig config, Vector2 position, Vector2 direction, TeamType team)
     {
         _config = config;
-        hitDetected = false;
         _team = team;
+        hitDetected = false;
         _direction = direction;
         transform.position = position;
         this.enabled = true;
+
+        if (_team == TeamType.Player)
+        {
+            this.gameObject.layer = LayerMask.NameToLayer("PlayerBullet");
+        }
+        else if (_team == TeamType.Enemy)
+        {
+            this.gameObject.layer = LayerMask.NameToLayer("EnemyBullet");
+        }
     }
 
 
     private void Update()
     {
         Move(Time.deltaTime);
-        Debug.Log("Move delt");
     }
 
     public void Move(float deltaTime)
     {
         Vector3 moveStep = new Vector3(_direction.x, _direction.y, 0) * _config.Speed * deltaTime;
-        Debug.Log($"Direction{_direction.x},_bullet.Speed{_direction.y},deltaTime{deltaTime}");
         transform.position += moveStep;
     }
 
@@ -50,29 +57,8 @@ public class Bullet : MonoBehaviour
 
         if (hitDetected)
         {
-            HandleHit();
-        }
-    }
-
-
-    private void HandleHit()
-    {
-        OnHit?.Invoke(this.transform.position);
-        OnReturnToPool?.Invoke(this);
-    }
-
-    public void SetOrientation(Bullet bullet, Vector2 position, Vector2 direction)
-    {
-        bullet.transform.position = position;
-        bullet.transform.rotation = Quaternion.LookRotation(direction, Vector3.forward);
-    }
-
-    public void SetDirection(Vector2 direction)
-    {
-        if (direction != Vector2.zero)
-        {
-            direction = direction.normalized;
-            SetOrientation(this, this.transform.position, direction);
+            OnHit?.Invoke(this.transform.position);
+            OnDispose?.Invoke(this);
         }
     }
 }

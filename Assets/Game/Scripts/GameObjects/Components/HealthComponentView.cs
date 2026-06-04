@@ -36,7 +36,7 @@ public class HealthComponentView : MonoBehaviour
         _healthComponent.OnDead -= this.NotifyAboutDead;
     }
 
-    public void OnHealthComponentChanged(int health)
+    private void OnHealthComponentChanged(int health)
     {
         if (_healthView != null)
             _healthView.SetHealth(health, 10);
@@ -45,13 +45,13 @@ public class HealthComponentView : MonoBehaviour
         AnimateDamage();
     }
 
-    public void NotifyAboutDead()
+    private void NotifyAboutDead()
     {
         ParticleSystem prefab = _viewConfig.DestroyEffectPrefab;
         Instantiate(prefab, _viewTransform.position, prefab.transform.rotation);
     }
 
-    public void DamageSound()
+    private void DamageSound()
     {
         if (_damageSFX)
             _audioSource.PlayOneShot(_damageSFX);
@@ -64,13 +64,13 @@ public class HealthComponentView : MonoBehaviour
             _audioSource.PlayOneShot(_damageSFX);
     }
 
-    public void Awake()
+    private void Awake()
     {
         _material = new Material(_viewConfig.MaterialPrefab);
         _renderer.material = _material;
     }
 
-    public void AnimateDamage()
+    private void AnimateDamage()
     {
         if (_damageAnimation.IsActive())
             _damageAnimation.Kill();

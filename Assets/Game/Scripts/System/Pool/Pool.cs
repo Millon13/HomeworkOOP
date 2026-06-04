@@ -1,15 +1,10 @@
-using Game;
-using Modules.Utils;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 [System.Serializable]
-public class Pool : MonoBehaviour
+public class Pool : MonoBehaviour //сделать сиглтоном(легковес)
 {
     [SerializeField] private GameObject _prefab;
-
-    [SerializeField] private Transform _container;
 
     [SerializeField] private int _poolSize;
 
@@ -59,6 +54,6 @@ public class Pool : MonoBehaviour
 
     private GameObject CreateNewItem()
     {
-        return Instantiate(_prefab, _container);
+        return Instantiate(_prefab);
     }
 }

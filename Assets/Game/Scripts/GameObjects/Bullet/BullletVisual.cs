@@ -35,7 +35,7 @@ public class BulletVisual : MonoBehaviour
         this.PlayExplosionVFX(transform.position);
     }
 
-    public void SetTeamColor(TeamType team)
+    private void SetTeamColor(TeamType team)
     {
         if (team != TeamType.None)
         {
@@ -49,12 +49,12 @@ public class BulletVisual : MonoBehaviour
         visual?.SetTeamColor(team);
     }
 
-    public void InstantiateVFX(Vector3 position)
+    private void InstantiateVFX(Vector3 position)
     {
         Instantiate(_configView.ExplosionVFX, position, Quaternion.identity);
     }
 
-    public void PlayExplosionVFX(Vector3 transform)
+    private void PlayExplosionVFX(Vector3 transform)
     {
         transform = _bullet.transform.position;
         InstantiateVFX(transform);

@@ -9,7 +9,7 @@ public class FireComponent : MonoBehaviour
 
     public bool CanFire { get; set; }
 
-    [SerializeField] BulletManager _bulletManager;
+    private BulletManager _bulletManager;
 
     [SerializeField] private BulletConfig config;
 
@@ -20,10 +20,12 @@ public class FireComponent : MonoBehaviour
     public Transform _firePoint;
 
     [SerializeField] Ship _ship;
+    [SerializeField] private TeamType _type;
 
     private void Awake()
     {
         _fireCooldown = Time.time - _fireCooldownDuration;
+        _bulletManager = BulletManager.Instance;
     }
 
     public void FireUp()
@@ -39,7 +41,7 @@ public class FireComponent : MonoBehaviour
             float time = Time.time;
             if (time - _fireCooldown < _fireCooldownDuration)
                 return;
-            _bulletManager.Spawn(config, _firePoint.position, direction
+            _bulletManager.Spawn(config, _firePoint.position, direction, _type
             );
             _fireCooldown = time;
             this.OnFire?.Invoke();

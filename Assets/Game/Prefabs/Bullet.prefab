@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -5224738744410918844}
   - component: {fileID: 5215134047063344051}
   - component: {fileID: 1641684723024985555}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,8 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be56f6801665a8f4c81d0624fda49091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Bullet
-  config: {fileID: 11400000, guid: 9264f89791424fd458b0f245a41ce53e, type: 2}
-  _bulletTransform: {fileID: 1524540282879537156}
 --- !u!70 &5215134047063344051
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -98,8 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794045516bc311b44a275acd3e05995a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::BulletVisual
-  config: {fileID: 0}
-  configView: {fileID: 0}
+  _configView: {fileID: 0}
 --- !u!1001 &2166370919997104375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110,11 +107,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1187744609971488, guid: 323b914f82d5d94479af157d7be08642, type: 3}
       propertyPath: m_Layer
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1771671873228340, guid: 323b914f82d5d94479af157d7be08642, type: 3}
       propertyPath: m_Layer
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1850901694530676, guid: 323b914f82d5d94479af157d7be08642, type: 3}
       propertyPath: m_Name
@@ -122,7 +119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1850901694530676, guid: 323b914f82d5d94479af157d7be08642, type: 3}
       propertyPath: m_Layer
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4856003205012124, guid: 323b914f82d5d94479af157d7be08642, type: 3}
       propertyPath: m_LocalPosition.x

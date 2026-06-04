@@ -45,5 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game::Pool
   _prefab: {fileID: 3464545129874362771, guid: 4a5d4fe3266a20c439bd2f9fe506c7f5, type: 3}
-  _container: {fileID: 0}
-  _poolSize: 10
+  _poolSize: 20
